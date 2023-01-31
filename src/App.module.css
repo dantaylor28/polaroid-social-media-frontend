@@ -3,3 +3,10 @@
     min-height: 100vh;
     background-color: #faf9f6;
 }
+
+* {
+    box-sizing: border-box;
+}
+
+
+
