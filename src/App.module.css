@@ -4,6 +4,10 @@
     background-color: #faf9f6;
 }
 
+.HomePage {
+    padding-top: 81px;
+}
+
 * {
     box-sizing: border-box;
 }
