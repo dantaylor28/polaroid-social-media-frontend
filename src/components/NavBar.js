@@ -3,12 +3,12 @@ import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
 
 const NavBar = () => {
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
+    <Navbar bg="dark" variant="dark" expand="md">
       <Container>
-        <Navbar.Brand>React-Bootstrap</Navbar.Brand>
+        <Navbar.Brand>Logo here</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
+          <Nav className="ml-auto text-left">
             <Nav.Link>Home</Nav.Link>
             <Nav.Link>Sign In</Nav.Link>
             <Nav.Link>Create Account</Nav.Link>
