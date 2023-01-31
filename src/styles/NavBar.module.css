@@ -7,6 +7,10 @@
     color: #faf9f6;
 }
 
+.ActiveLink {
+    color: #bebdb8;
+}
+
 .NavLink:hover {
     color: #faf9f6;
     text-decoration: none;

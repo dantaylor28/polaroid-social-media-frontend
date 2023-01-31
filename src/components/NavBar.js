@@ -19,13 +19,26 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-left">
-            <NavLink className={styles.NavLink} to="/">
+            <NavLink
+              exact
+              className={styles.NavLink}
+              activeClassName={styles.ActiveLink}
+              to="/"
+            >
               Home
             </NavLink>
-            <NavLink className={styles.NavLink} to="/signin">
+            <NavLink
+              className={styles.NavLink}
+              activeClassName={styles.ActiveLink}
+              to="/signin"
+            >
               Sign In
             </NavLink>
-            <NavLink className={styles.NavLink} to="/create/account">
+            <NavLink
+              className={styles.NavLink}
+              activeClassName={styles.ActiveLink}
+              to="/create/account"
+            >
               Create Account
             </NavLink>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
