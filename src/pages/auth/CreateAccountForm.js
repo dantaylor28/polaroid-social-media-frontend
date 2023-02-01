@@ -6,8 +6,8 @@ const CreateAccountForm = () => {
   return (
     <Row className={styles.Row}>
       <Col md={6}>
-        <Container>
-          <h1>Sign up</h1>
+        <Container className={styles.Form}>
+          <h1 className={styles.Heading}>create an account</h1>
           <p>Sign up form here</p>
         </Container>
       </Col>

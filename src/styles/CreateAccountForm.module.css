@@ -1,3 +1,18 @@
 .Row {
   height: calc(100vh - 101px);
 }
+
+.Form {
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 10px;
+}
+
+.Heading {
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    line-height: 30px;
+}
