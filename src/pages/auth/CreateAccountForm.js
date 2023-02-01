@@ -9,17 +9,17 @@ const CreateAccountForm = () => {
         <Container className={styles.Form}>
           <h1 className={styles.Heading}>create an account</h1>
           <Form>
-            <Form.Group controlId="username">
+            <Form.Group className={styles.FormFields} controlId="username">
               <Form.Label className="d-none">Username</Form.Label>
-              <Form.Control type="email" placeholder="Enter Username" />
+              <Form.Control className={styles.FormTextBox} type="email" placeholder="Enter Username" />
             </Form.Group>
-            <Form.Group controlId="formBasicPassword">
+            <Form.Group className={styles.FormFields} controlId="formBasicPassword">
               <Form.Label className="d-none">Password</Form.Label>
-              <Form.Control type="password" placeholder="Password" />
+              <Form.Control className={styles.FormTextBox}  type="password" placeholder="Password" />
             </Form.Group>
-            <Form.Group controlId="formBasicPassword">
+            <Form.Group className={styles.FormFields} controlId="formBasicPassword">
               <Form.Label className="d-none">Confirm Password</Form.Label>
-              <Form.Control type="password" placeholder="Confirm Password" />
+              <Form.Control className={styles.FormTextBox}  type="password" placeholder="Confirm Password" />
             </Form.Group>
             <Button variant="primary" type="submit">
               Submit
