@@ -1,6 +1,7 @@
 import React from "react";
 import { Col, Container, Row, Form, Button } from "react-bootstrap";
 import styles from "../../styles/CreateAccountForm.module.css";
+import btnStyles from "../../styles/Button.module.css";
 
 const CreateAccountForm = () => {
   return (
@@ -11,18 +12,40 @@ const CreateAccountForm = () => {
           <Form>
             <Form.Group className={styles.FormFields} controlId="username">
               <Form.Label className="d-none">Username</Form.Label>
-              <Form.Control className={styles.FormTextBox} type="email" placeholder="Enter Username" />
+              <Form.Control
+                className={styles.FormTextBox}
+                type="email"
+                placeholder="Enter Username"
+              />
             </Form.Group>
-            <Form.Group className={styles.FormFields} controlId="formBasicPassword">
+            <Form.Group
+              className={styles.FormFields}
+              controlId="formBasicPassword"
+            >
               <Form.Label className="d-none">Password</Form.Label>
-              <Form.Control className={styles.FormTextBox}  type="password" placeholder="Password" />
+              <Form.Control
+                className={styles.FormTextBox}
+                type="password"
+                placeholder="Password"
+              />
             </Form.Group>
-            <Form.Group className={styles.FormFields} controlId="formBasicPassword">
+            <Form.Group
+              className={styles.FormFields}
+              controlId="formBasicPassword"
+            >
               <Form.Label className="d-none">Confirm Password</Form.Label>
-              <Form.Control className={styles.FormTextBox}  type="password" placeholder="Confirm Password" />
+              <Form.Control
+                className={styles.FormTextBox}
+                type="password"
+                placeholder="Confirm Password"
+              />
             </Form.Group>
-            <Button variant="primary" type="submit">
-              Submit
+            <Button
+              className={btnStyles.Button}
+              variant="primary"
+              type="submit"
+            >
+              Join
             </Button>
           </Form>
         </Container>
