@@ -1,9 +1,10 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
+import styles from "../../styles/CreateAccountForm.module.css"
 
 const CreateAccountForm = () => {
   return (
-    <Row>
+    <Row className={styles.Row}>
       <Col md={6}>
         <Container>
           <h1>Sign up</h1>
