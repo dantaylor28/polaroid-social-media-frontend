@@ -2,6 +2,7 @@ import React from "react";
 import { Col, Container, Row, Form, Button } from "react-bootstrap";
 import styles from "../../styles/CreateAccountForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
+import { Link } from "react-router-dom";
 
 const CreateAccountForm = () => {
   return (
@@ -48,6 +49,12 @@ const CreateAccountForm = () => {
               Join
             </Button>
           </Form>
+          <div className={`${styles.SignUpText} text-muted`}>
+            Already a member of the community?
+            <span>
+              <Link className={styles.Link} to="/signin"> Sign In here</Link>
+            </span>
+          </div>
         </Container>
       </Col>
       <Col md={6}>

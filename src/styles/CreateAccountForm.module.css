@@ -28,3 +28,17 @@
   margin: auto;
   text-align: center;
 }
+
+.Link {
+  text-decoration: none !important;
+  color: #e63b60; 
+}
+
+.Link:hover {
+  color: #b82f4c;
+}
+
+.SignUpText {
+  margin-top: 20px;
+  text-align: center;
+}
