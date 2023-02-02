@@ -1,8 +1,9 @@
 import React from "react";
-import { Col, Container, Row, Form, Button } from "react-bootstrap";
+import { Col, Container, Row, Form, Button, Image } from "react-bootstrap";
 import styles from "../../styles/CreateAccountForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { Link } from "react-router-dom";
+import signup from "../../assets/signup.png"
 
 const CreateAccountForm = () => {
   return (
@@ -57,8 +58,8 @@ const CreateAccountForm = () => {
           </div>
         </Container>
       </Col>
-      <Col md={6}>
-        <h1>Image here? maybe 2</h1>
+      <Col className={`${styles.SignUpImgCol} my-auto`} md={6}>
+        <Image className={styles.FormImage} src={signup}/>
       </Col>
     </Row>
   );
