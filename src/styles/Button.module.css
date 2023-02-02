@@ -4,4 +4,14 @@
     width: 45%;
     margin: auto;
     padding: 10px 0px;
+    color: white;
+    background-color: #3b5998;
+    border-color: #3b5998;
+}
+
+.Button:hover {
+    cursor: pointer;
+    color: #3b5998;
+    background-color: #dfe3ee;
+    border-color: #3b5998;
 }
