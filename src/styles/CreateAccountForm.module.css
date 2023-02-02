@@ -45,11 +45,21 @@
 
 .SignUpImgCol {
   height: 450px;
+  width: 100%;
 }
 
 .FormImage {
   object-fit: cover;
-  height: 450px;
-  width: 450px;
+  height: 100%;
+  width: 90%;
   border-radius: 50%;
+}
+
+@media (max-width: 990px) {
+  .FormImage {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    border-radius: 0px;
+  }
 }
