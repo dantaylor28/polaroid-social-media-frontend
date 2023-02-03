@@ -5,8 +5,11 @@ import { Container } from "react-bootstrap";
 import "./api/axiosDefaults";
 import CreateAccountForm from "./pages/auth/CreateAccountForm";
 import SignInForm from "./pages/auth/SignInForm";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
+
+export const CurrentUserContext = useContext();
+export const SetCurrentUserContext = useContext();
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
