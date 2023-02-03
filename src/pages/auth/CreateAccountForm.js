@@ -13,7 +13,8 @@ const CreateAccountForm = () => {
     password2: "",
   });
   const { username, password1, password2 } = createProfileData;
-  const history = useHistory
+  const [errors, setErrors] = useState({});
+  const history = useHistory;
 
   const handleChange = (event) => {
     setCreateProfileData({
@@ -25,12 +26,12 @@ const CreateAccountForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post('/dj-rest-auth/registration/', createProfileData)
-      history.push('/signin')
+      await axios.post("/dj-rest-auth/registration/", createProfileData);
+      history.push("/signin");
     } catch (error) {
-      
+      setErrors(error.response?.data)
     }
-  }
+  };
 
   return (
     <Row className={styles.Row}>
