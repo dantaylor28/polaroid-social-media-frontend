@@ -10,7 +10,7 @@ const SignInForm = () => {
     <Row className={styles.Row}>
       <Col className="my-auto" md={6}>
         <Container className={styles.Form}>
-          <h1 className={styles.Heading}>sign into your account</h1>
+          <h1 className={styles.Heading}>sign in to your account</h1>
           <Form>
             <Form.Group controlId="username">
               <Form.Label className="d-none">Username</Form.Label>
@@ -47,8 +47,8 @@ const SignInForm = () => {
           </div>
         </Container>
       </Col>
-      <Col className={`my-auto d-none d-md-block`}>
-        <Image src={signin}/>
+      <Col className={`${styles.SignInImageCol} my-auto d-none d-md-block`} md={6}>
+        <Image className={styles.FormImage} src={signin}/>
       </Col>
     </Row>
   );
