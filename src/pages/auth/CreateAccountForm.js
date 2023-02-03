@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { Col, Container, Row, Form, Button, Image } from "react-bootstrap";
 import styles from "../../styles/CreateAccountForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import signup from "../../assets/signup.png";
+import axios from "axios";
 
 const CreateAccountForm = () => {
   const [createProfileData, setCreateProfileData] = useState({
@@ -12,6 +13,7 @@ const CreateAccountForm = () => {
     password2: "",
   });
   const { username, password1, password2 } = createProfileData;
+  const history = useHistory
 
   const handleChange = (event) => {
     setCreateProfileData({
@@ -19,6 +21,16 @@ const CreateAccountForm = () => {
       [event.target.name]: event.target.value,
     });
   };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      await axios.post('/dj-rest-auth/registration/', createProfileData)
+      history.push('/signin')
+    } catch (error) {
+      
+    }
+  }
 
   return (
     <Row className={styles.Row}>
