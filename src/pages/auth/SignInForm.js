@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Form, Button, Image } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import styles from "../../styles/SignInForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import signin from "../../assets/signin.png";
+import axios from "axios";
 
 const SignInForm = () => {
   const [signInData, setSignInData] = useState({
@@ -11,12 +12,21 @@ const SignInForm = () => {
     password: "",
   });
   const { username, password } = signInData;
+  const [errors, setErrors] = useState({});
+  const history = useHistory();
 
   const handleChange = (event) => {
     setSignInData({
       ...signInData,
       [event.target.name]: event.target.value,
     });
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault;
+    try {
+      await axios.post("/dj-rest-auth/login/", signInData);
+    } catch (error) {}
   };
 
   return (
