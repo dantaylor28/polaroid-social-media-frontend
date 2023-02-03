@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Col, Container, Row, Form, Button, Image } from "react-bootstrap";
 import styles from "../../styles/CreateAccountForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
@@ -6,6 +6,12 @@ import { Link } from "react-router-dom";
 import signup from "../../assets/signup.png";
 
 const CreateAccountForm = () => {
+  const [createProfileData, setCreateProfileData] = useState({
+    username: '',
+    password1: '',
+    password2: ''
+  })
+
   return (
     <Row className={styles.Row}>
       <Col className="my-auto" md={6}>
