@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "../styles/NavBar.module.css";
 import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import { SetCurrentUserContext } from "../App";
 
 const NavBar = () => {
+  const currentUser = useContext(SetCurrentUserContext)
+
   return (
     <Navbar
       className={styles.NavBar}
