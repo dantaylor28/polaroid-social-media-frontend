@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Row, Col, Form, Button, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import styles from "../../styles/SignInForm.module.css";
@@ -6,6 +6,12 @@ import btnStyles from "../../styles/Button.module.css";
 import signin from "../../assets/signin.png";
 
 const SignInForm = () => {
+  const [signInData, setSignInData] = useState({
+    username: "",
+    password: "",
+  });
+  const { username, password } = signInData;
+
   return (
     <Row className={styles.Row}>
       <Col className="my-auto" md={6}>
