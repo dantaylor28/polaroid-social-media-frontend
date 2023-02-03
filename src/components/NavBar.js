@@ -2,10 +2,29 @@ import React, { useContext } from "react";
 import styles from "../styles/NavBar.module.css";
 import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import { SetCurrentUserContext } from "../App";
+import { CurrentUserContext } from "../App";
 
 const NavBar = () => {
-  const currentUser = useContext(SetCurrentUserContext)
+  const currentUser = useContext(CurrentUserContext);
+
+  const SignedOutLinks = (
+    <>
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.ActiveLink}
+        to="/signin"
+      >
+        Sign In
+      </NavLink>
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.ActiveLink}
+        to="/create/account"
+      >
+        Create Account
+      </NavLink>
+    </>
+  );
 
   return (
     <Navbar
@@ -29,20 +48,6 @@ const NavBar = () => {
               to="/"
             >
               Home
-            </NavLink>
-            <NavLink
-              className={styles.NavLink}
-              activeClassName={styles.ActiveLink}
-              to="/signin"
-            >
-              Sign In
-            </NavLink>
-            <NavLink
-              className={styles.NavLink}
-              activeClassName={styles.ActiveLink}
-              to="/create/account"
-            >
-              Create Account
             </NavLink>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item>Action</NavDropdown.Item>

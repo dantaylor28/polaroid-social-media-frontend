@@ -17,7 +17,7 @@ import axios from "axios";
 import { SetCurrentUserContext } from "../../App";
 
 const SignInForm = () => {
-  const setCurrentUser = useContext(SetCurrentUserContext)
+  const setCurrentUser = useContext(SetCurrentUserContext);
 
   const [signInData, setSignInData] = useState({
     username: "",
@@ -37,8 +37,8 @@ const SignInForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const {data} = await axios.post("/dj-rest-auth/login/", signInData);
-      setCurrentUser(data.user)
+      const { data } = await axios.post("/dj-rest-auth/login/", signInData);
+      setCurrentUser(data.user);
       history.push("/");
     } catch (error) {
       setErrors(error.response?.data);
