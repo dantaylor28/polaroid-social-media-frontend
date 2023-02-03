@@ -37,7 +37,7 @@ const CreateAccountForm = () => {
       <Col className="my-auto" md={6}>
         <Container className={styles.Form}>
           <h1 className={styles.Heading}>create an account</h1>
-          <Form>
+          <Form onSubmit={handleSubmit}>
             <Form.Group className={styles.FormFields} controlId="username">
               <Form.Label className="d-none">Username</Form.Label>
               <Form.Control
