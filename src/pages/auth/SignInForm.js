@@ -26,7 +26,10 @@ const SignInForm = () => {
     event.preventDefault;
     try {
       await axios.post("/dj-rest-auth/login/", signInData);
-    } catch (error) {}
+      history.push("/");
+    } catch (error) {
+      setErrors(error.response?.data);
+    }
   };
 
   return (
@@ -34,7 +37,7 @@ const SignInForm = () => {
       <Col className="my-auto" md={6}>
         <Container className={styles.Form}>
           <h1 className={styles.Heading}>sign in to your account</h1>
-          <Form>
+          <Form onSubmit={handleSubmit}>
             <Form.Group className={styles.FormFields} controlId="username">
               <Form.Label className="d-none">Username</Form.Label>
               <Form.Control
