@@ -1,8 +1,17 @@
 import React, { useState } from "react";
-import { Container, Row, Col, Form, Button, Image } from "react-bootstrap";
+import {
+  Container,
+  Row,
+  Col,
+  Form,
+  Button,
+  Image,
+  Alert,
+} from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import styles from "../../styles/SignInForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
+import appStyles from "../../App.module.css";
 import signin from "../../assets/signin.png";
 import axios from "axios";
 
@@ -23,7 +32,7 @@ const SignInForm = () => {
   };
 
   const handleSubmit = async (event) => {
-    event.preventDefault;
+    event.preventDefault();
     try {
       await axios.post("/dj-rest-auth/login/", signInData);
       history.push("/");
@@ -49,6 +58,15 @@ const SignInForm = () => {
                 onChange={handleChange}
               />
             </Form.Group>
+            {errors.username?.map((message, idx) => (
+              <Alert
+                className={appStyles.AlertMessages}
+                key={idx}
+                variant="danger"
+              >
+                {message}
+              </Alert>
+            ))}
             <Form.Group
               className={styles.FormFields}
               controlId="formBasicPassword"
@@ -63,13 +81,27 @@ const SignInForm = () => {
                 onChange={handleChange}
               />
             </Form.Group>
-            <Button
-              className={btnStyles.Button}
-              variant="primary"
-              type="submit"
-            >
+            {errors.password?.map((message, idx) => (
+              <Alert
+                className={appStyles.AlertMessages}
+                key={idx}
+                variant="danger"
+              >
+                {message}
+              </Alert>
+            ))}
+            <Button className={btnStyles.Button} type="submit">
               Sign In
             </Button>
+            {errors.non_field_errors?.map((message, idx) => (
+              <Alert
+                className={`${appStyles.AlertMessages} mt-3`}
+                key={idx}
+                variant="danger"
+              >
+                {message}
+              </Alert>
+            ))}
           </Form>
           <div className={`${styles.SignInText} text-muted`}>
             Not signed up yet?
