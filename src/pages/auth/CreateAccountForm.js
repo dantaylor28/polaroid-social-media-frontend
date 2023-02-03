@@ -23,7 +23,7 @@ const CreateAccountForm = () => {
   });
   const { username, password1, password2 } = createProfileData;
   const [errors, setErrors] = useState({});
-  const history = useHistory;
+  const history = useHistory();
 
   const handleChange = (event) => {
     setCreateProfileData({
@@ -75,6 +75,11 @@ const CreateAccountForm = () => {
                 onChange={handleChange}
               />
             </Form.Group>
+            {errors.password1?.map((message, idx) => (
+              <Alert className={appStyles.AlertMessages} key={idx} variant="danger">
+                {message}
+              </Alert>
+            ))}
             <Form.Group className={styles.FormFields} controlId="password2">
               <Form.Label className="d-none">Confirm Password</Form.Label>
               <Form.Control
@@ -86,9 +91,19 @@ const CreateAccountForm = () => {
                 onChange={handleChange}
               />
             </Form.Group>
+            {errors.password2?.map((message, idx) => (
+              <Alert className={appStyles.AlertMessages} key={idx} variant="danger">
+                {message}
+              </Alert>
+            ))}
             <Button className={btnStyles.Button} type="submit">
               Join
             </Button>
+            {errors.non_field_errors?.map((message, idx) => (
+              <Alert className={`${appStyles.AlertMessages} mt-3`} key={idx} variant="danger">
+                {message}
+              </Alert>
+            ))}
           </Form>
           <div className={`${styles.SignUpText} text-muted`}>
             Already a member?
