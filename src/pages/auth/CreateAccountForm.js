@@ -1,7 +1,16 @@
 import React, { useState } from "react";
-import { Col, Container, Row, Form, Button, Image } from "react-bootstrap";
+import {
+  Col,
+  Container,
+  Row,
+  Form,
+  Button,
+  Image,
+  Alert,
+} from "react-bootstrap";
 import styles from "../../styles/CreateAccountForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
+import appStyles from "../../App.module.css"
 import { Link, useHistory } from "react-router-dom";
 import signup from "../../assets/signup.png";
 import axios from "axios";
@@ -29,7 +38,7 @@ const CreateAccountForm = () => {
       await axios.post("/dj-rest-auth/registration/", createProfileData);
       history.push("/signin");
     } catch (error) {
-      setErrors(error.response?.data)
+      setErrors(error.response?.data);
     }
   };
 
@@ -50,6 +59,11 @@ const CreateAccountForm = () => {
                 onChange={handleChange}
               />
             </Form.Group>
+            {errors.username?.map((message, idx) => (
+              <Alert className={appStyles.AlertMessages} key={idx} variant="danger">
+                {message}
+              </Alert>
+            ))}
             <Form.Group className={styles.FormFields} controlId="password1">
               <Form.Label className="d-none">Password</Form.Label>
               <Form.Control
