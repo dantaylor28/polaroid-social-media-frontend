@@ -26,6 +26,7 @@ const CreateAccountForm = () => {
                 type="text"
                 placeholder="Enter Username"
                 name="username"
+                value={username}
               />
             </Form.Group>
             <Form.Group className={styles.FormFields} controlId="password1">
@@ -35,6 +36,7 @@ const CreateAccountForm = () => {
                 type="password"
                 placeholder="Password"
                 name="password1"
+                value={password1}
               />
             </Form.Group>
             <Form.Group className={styles.FormFields} controlId="password2">
@@ -44,6 +46,7 @@ const CreateAccountForm = () => {
                 type="password"
                 placeholder="Confirm Password"
                 name="password2"
+                value={password2}
               />
             </Form.Group>
             <Button className={btnStyles.Button} type="submit">
