@@ -2,6 +2,16 @@
   height: calc(100vh - 101px);
 }
 
+.SignUpIntroCon {
+  margin-top: 20px;
+}
+
+.SignUpIntroText {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
 .Form {
     border: 1px solid #3b5998;
     border-radius: 3px;
@@ -46,6 +56,7 @@
 .SignUpImgCol {
   height: 450px;
   width: 100%;
+  /* padding-left: 30px; */
 }
 
 .FormImage {
@@ -53,6 +64,10 @@
   height: 100%;
   width: 90%;
   border-radius: 50%;
+  border: 1px solid #f8f8f8;
+  display: block;
+  margin: auto;
+  
 }
 
 @media (max-width: 990px) {

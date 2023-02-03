@@ -3,7 +3,7 @@ import { Col, Container, Row, Form, Button, Image } from "react-bootstrap";
 import styles from "../../styles/CreateAccountForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { Link } from "react-router-dom";
-import signup from "../../assets/signup.png"
+import signup from "../../assets/signup.png";
 
 const CreateAccountForm = () => {
   return (
@@ -51,15 +51,24 @@ const CreateAccountForm = () => {
             </Button>
           </Form>
           <div className={`${styles.SignUpText} text-muted`}>
-            Already a member of the community?
+            Already a member?
             <span>
-              <Link className={styles.Link} to="/signin"> Sign In here</Link>
+              <Link className={styles.Link} to="/signin">
+                {" "}
+                Sign In here
+              </Link>
             </span>
           </div>
         </Container>
       </Col>
-      <Col className={`${styles.SignUpImgCol} my-auto d-none d-md-block`} md={6}>
-        <Image className={styles.FormImage} src={signup}/>
+      <Col
+        className={`${styles.SignUpImgCol} my-auto d-none d-md-block`}
+        md={6}
+      >
+        <Image className={styles.FormImage} src={signup} />
+        <Container className={styles.SignUpIntroCon} md={12}>
+          <div className={styles.SignUpIntroText}>come and join the community!</div>
+        </Container>
       </Col>
     </Row>
   );
