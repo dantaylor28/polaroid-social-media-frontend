@@ -38,7 +38,7 @@ const SignInForm = () => {
           <div className={`${styles.SignInText} text-muted`}>
             Not signed up yet?
             <span>
-              <Link className={styles.Link} to="/signin">
+              <Link className={styles.Link} to="/create/account">
                 {" "}
                 Create an account here
               </Link>
