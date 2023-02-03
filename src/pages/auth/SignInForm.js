@@ -12,6 +12,13 @@ const SignInForm = () => {
   });
   const { username, password } = signInData;
 
+  const handleChange = (event) => {
+    setSignInData({
+      ...signInData,
+      [event.target.name]: event.target.value,
+    });
+  };
+
   return (
     <Row className={styles.Row}>
       <Col className="my-auto" md={6}>
@@ -26,6 +33,7 @@ const SignInForm = () => {
                 placeholder="Username"
                 name="username"
                 value={username}
+                onChange={handleChange}
               />
             </Form.Group>
             <Form.Group
@@ -39,6 +47,7 @@ const SignInForm = () => {
                 placeholder="Password"
                 name="password"
                 value={password}
+                onChange={handleChange}
               />
             </Form.Group>
             <Button
