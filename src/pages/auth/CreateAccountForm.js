@@ -16,37 +16,30 @@ const CreateAccountForm = () => {
               <Form.Label className="d-none">Username</Form.Label>
               <Form.Control
                 className={styles.FormTextBox}
-                type="email"
+                type="text"
                 placeholder="Enter Username"
+                name="username"
               />
             </Form.Group>
-            <Form.Group
-              className={styles.FormFields}
-              controlId="formBasicPassword"
-            >
+            <Form.Group className={styles.FormFields} controlId="password1">
               <Form.Label className="d-none">Password</Form.Label>
               <Form.Control
                 className={styles.FormTextBox}
                 type="password"
                 placeholder="Password"
+                name="password1"
               />
             </Form.Group>
-            <Form.Group
-              className={styles.FormFields}
-              controlId="formBasicPassword"
-            >
+            <Form.Group className={styles.FormFields} controlId="password2">
               <Form.Label className="d-none">Confirm Password</Form.Label>
               <Form.Control
                 className={styles.FormTextBox}
                 type="password"
                 placeholder="Confirm Password"
+                name="password2"
               />
             </Form.Group>
-            <Button
-              className={btnStyles.Button}
-              variant="primary"
-              type="submit"
-            >
+            <Button className={btnStyles.Button} type="submit">
               Join
             </Button>
           </Form>
