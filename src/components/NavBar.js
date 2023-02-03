@@ -7,7 +7,19 @@ import { CurrentUserContext } from "../App";
 const NavBar = () => {
   const currentUser = useContext(CurrentUserContext);
 
-  const SignedOutLinks = (
+  const signedInLinks = (
+    <>
+      <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+        <NavDropdown.Item>Action</NavDropdown.Item>
+        <NavDropdown.Item>Another action</NavDropdown.Item>
+        <NavDropdown.Item>Something</NavDropdown.Item>
+        <NavDropdown.Divider />
+        <NavDropdown.Item>Separated link</NavDropdown.Item>
+      </NavDropdown>
+      {currentUser?.username}
+    </>
+  );
+  const signedOutLinks = (
     <>
       <NavLink
         className={styles.NavLink}
@@ -49,13 +61,6 @@ const NavBar = () => {
             >
               Home
             </NavLink>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item>Action</NavDropdown.Item>
-              <NavDropdown.Item>Another action</NavDropdown.Item>
-              <NavDropdown.Item>Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item>Separated link</NavDropdown.Item>
-            </NavDropdown>
           </Nav>
         </Navbar.Collapse>
       </Container>
