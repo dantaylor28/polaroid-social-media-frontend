@@ -7,10 +7,11 @@ import signup from "../../assets/signup.png";
 
 const CreateAccountForm = () => {
   const [createProfileData, setCreateProfileData] = useState({
-    username: '',
-    password1: '',
-    password2: ''
-  })
+    username: "",
+    password1: "",
+    password2: "",
+  });
+  const { username, password1, password2 } = createProfileData;
 
   return (
     <Row className={styles.Row}>
