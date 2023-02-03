@@ -22,8 +22,10 @@ const SignInForm = () => {
               <Form.Label className="d-none">Username</Form.Label>
               <Form.Control
                 className={styles.FormTextBox}
-                type="username"
+                type="text"
                 placeholder="Username"
+                name="username"
+                value={username}
               />
             </Form.Group>
             <Form.Group
@@ -35,6 +37,8 @@ const SignInForm = () => {
                 className={styles.FormTextBox}
                 type="password"
                 placeholder="Password"
+                name="password"
+                value={password}
               />
             </Form.Group>
             <Button
