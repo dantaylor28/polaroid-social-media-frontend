@@ -5,20 +5,24 @@ import { Container } from "react-bootstrap";
 import "./api/axiosDefaults";
 import CreateAccountForm from "./pages/auth/CreateAccountForm";
 import SignInForm from "./pages/auth/SignInForm";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 function App() {
-  const [currentUser, setCurrentUser] = useState(null)
+  const [currentUser, setCurrentUser] = useState(null);
 
   const handleMount = async () => {
     try {
-      const {data} = await axios.get('dj-rest-auth/user/')
-      setCurrentUser(data)
+      const { data } = await axios.get("dj-rest-auth/user/");
+      setCurrentUser(data);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
+
+  useEffect(() => {
+    handleMount();
+  }, []);
 
   return (
     <div className={styles.App}>
