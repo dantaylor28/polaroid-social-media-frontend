@@ -1,6 +1,8 @@
 import React from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import styles from "../../styles/SignInForm.module.css";
+import btnStyles from "../../styles/Button.module.css";
 
 const SignInForm = () => {
   return (
@@ -9,18 +11,39 @@ const SignInForm = () => {
         <Container className={styles.Form}>
           <h1 className={styles.Heading}>sign into your account</h1>
           <Form>
-            <Form.Group controlId="formBasicEmail">
-              <Form.Label>Email address</Form.Label>
-              <Form.Control type="email" placeholder="Enter email" />
+            <Form.Group controlId="username">
+              <Form.Label className="d-none">Username</Form.Label>
+              <Form.Control
+                className={styles.FormFields}
+                type="username"
+                placeholder="Username"
+              />
             </Form.Group>
             <Form.Group controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
-              <Form.Control type="password" placeholder="Password" />
+              <Form.Label className="d-none">Password</Form.Label>
+              <Form.Control
+                className={styles.FormFields}
+                type="password"
+                placeholder="Password"
+              />
             </Form.Group>
-            <Button variant="primary" type="submit">
-              Submit
+            <Button
+              className={btnStyles.Button}
+              variant="primary"
+              type="submit"
+            >
+              Sign In
             </Button>
           </Form>
+          <div className={`${styles.SignInText} text-muted`}>
+            Not signed up yet?
+            <span>
+              <Link className={styles.Link} to="/signin">
+                {" "}
+                Create an account here
+              </Link>
+            </span>
+          </div>
         </Container>
       </Col>
       <Col>image here</Col>

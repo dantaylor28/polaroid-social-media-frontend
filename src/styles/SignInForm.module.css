@@ -37,3 +37,8 @@
 .Link:hover {
   color: #b82f4c;
 }
+
+.SignInText {
+    margin-top: 20px;
+    text-align: center;
+}
