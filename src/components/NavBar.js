@@ -61,6 +61,7 @@ const NavBar = () => {
             >
               Home
             </NavLink>
+            {currentUser ? signedInLinks : signedOutLinks}
           </Nav>
         </Navbar.Collapse>
       </Container>
