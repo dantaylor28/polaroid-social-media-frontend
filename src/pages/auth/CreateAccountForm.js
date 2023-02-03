@@ -58,7 +58,7 @@ const CreateAccountForm = () => {
           </div>
         </Container>
       </Col>
-      <Col className={`${styles.SignUpImgCol} my-auto`} md={6}>
+      <Col className={`${styles.SignUpImgCol} my-auto d-none d-md-block`} md={6}>
         <Image className={styles.FormImage} src={signup}/>
       </Col>
     </Row>
