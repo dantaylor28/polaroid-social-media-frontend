@@ -13,6 +13,13 @@ const CreateAccountForm = () => {
   });
   const { username, password1, password2 } = createProfileData;
 
+  const handleChange = (event) => {
+    setCreateProfileData({
+      ...createProfileData,
+      [event.target.name]: event.target.value,
+    });
+  };
+
   return (
     <Row className={styles.Row}>
       <Col className="my-auto" md={6}>
