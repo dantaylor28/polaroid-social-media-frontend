@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Form, Row, Col, Button } from "react-bootstrap";
 import styles from "../../styles/CreateEditPostForm.module.css";
 import formStyles from "../../styles/CreateAccountForm.module.css";
@@ -7,6 +7,8 @@ import Asset from "../../components/Asset";
 import upload from "../../assets/upload.png";
 
 function CreatePostForm() {
+  const [errors, setErrors] = useState({});
+
   const form = (
     <>
       <Form.Group>
@@ -30,11 +32,7 @@ function CreatePostForm() {
       </Form.Group>
       <Form.Group className={formStyles.FormTextBox}>
         <Form.Label>Category</Form.Label>
-        <Form.Control
-          as="select"
-          custom
-          name="category"
-        >
+        <Form.Control as="select" custom name="category">
           <option value="general">general</option>
           <option value="landscapes">landscapes</option>
           <option value="portraits">portraits</option>
