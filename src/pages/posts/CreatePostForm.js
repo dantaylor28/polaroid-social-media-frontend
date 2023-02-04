@@ -9,6 +9,14 @@ import upload from "../../assets/upload.png";
 function CreatePostForm() {
   const [errors, setErrors] = useState({});
 
+  const [postData, setPostData] = useState({
+    title: "",
+    caption: "",
+    image: "",
+    category: "",
+  });
+  const { title, caption, image, category } = postData;
+
   const form = (
     <>
       <Form.Group>
@@ -18,6 +26,7 @@ function CreatePostForm() {
           type="text"
           name="title"
           placeholder="Title"
+          value={title}
         />
       </Form.Group>
       <Form.Group>
@@ -28,11 +37,12 @@ function CreatePostForm() {
           name="caption"
           rows={6}
           placeholder="Caption"
+          value={caption}
         />
       </Form.Group>
       <Form.Group className={formStyles.FormTextBox}>
         <Form.Label>Category</Form.Label>
-        <Form.Control as="select" custom name="category">
+        <Form.Control as="select" custom name="category" value={category}>
           <option value="general">general</option>
           <option value="landscapes">landscapes</option>
           <option value="portraits">portraits</option>
@@ -58,6 +68,7 @@ function CreatePostForm() {
                 type="text"
                 name="title"
                 placeholder="Title"
+                value={title}
               />
             </Form.Group>
             <Form.Group className={formStyles.FormFields}>
@@ -68,6 +79,7 @@ function CreatePostForm() {
                 name="caption"
                 rows={6}
                 placeholder="Caption"
+                value={caption}
               />
             </Form.Group>
             <Form.Group className={formStyles.FormTextBox}>
@@ -77,6 +89,7 @@ function CreatePostForm() {
                 as="select"
                 custom
                 name="category"
+                value={category}
               >
                 <option value="general">general</option>
                 <option value="landscapes">landscapes</option>
