@@ -2,10 +2,24 @@ import React from "react";
 import styles from "../styles/NavBar.module.css";
 import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import { useCurrentUser } from "../contexts/CurrentUserContext";
+import {
+  useCurrentUser,
+  useSetCurrentUser,
+} from "../contexts/CurrentUserContext";
+import axios from "axios";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
+  const setCurrentUser = useSetCurrentUser();
+
+  const handleSignOut = async () => {
+    try {
+      await axios.post("/dj-rest-auth/logout/")
+      setCurrentUser(null)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   const signedInLinks = (
     <>
@@ -18,17 +32,20 @@ const NavBar = () => {
       </NavDropdown>
       <NavLink
         className={styles.NavLink}
-        to="/"
-        onClick={() => {}}
+        activeClassName={styles.ActiveLink}
+        to="/pinboard"
       >
+        My Pinboard
+      </NavLink>
+      <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
         Sign Out
       </NavLink>
       <NavLink
         className={styles.NavLink}
-        activeClassName={styles.ActiveLink}
-        to="/pinboard"
+        to={`/profiles/${currentUser?.profile_id}`}
       >
-        Pinboard
+        Profile
+        <img src={currentUser?.profile_image} alt="" />
       </NavLink>
     </>
   );
