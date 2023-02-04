@@ -4,14 +4,53 @@ import styles from "../../styles/CreateEditPostForm.module.css";
 import formStyles from "../../styles/CreateAccountForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import Asset from "../../components/Asset";
-import upload from "../../assets/upload.png"
+import upload from "../../assets/upload.png";
 
 function CreatePostForm() {
-  
+  const form = (
+    <>
+      <Form.Group>
+        <Form.Label className="d-none">Title</Form.Label>
+        <Form.Control
+          className={formStyles.FormTextBox}
+          type="text"
+          name="title"
+          placeholder="Title"
+        />
+      </Form.Group>
+      <Form.Group>
+        <Form.Label className="d-none">Caption</Form.Label>
+        <Form.Control
+          className={formStyles.FormTextBox}
+          as="textarea"
+          name="caption"
+          rows={6}
+          placeholder="Caption"
+        />
+      </Form.Group>
+      <Form.Group className={formStyles.FormTextBox}>
+        <Form.Label>Category</Form.Label>
+        <Form.Control
+          as="select"
+          custom
+          name="category"
+        >
+          <option value="general">general</option>
+          <option value="landscapes">landscapes</option>
+          <option value="portraits">portraits</option>
+        </Form.Control>
+      </Form.Group>
+      <div className={btnStyles.BtnDiv}>
+        <Button className={btnStyles.PostButton}>Cancel</Button>
+        <Button className={btnStyles.PostButton}>Upload</Button>
+      </div>
+    </>
+  );
+
   return (
     <Form>
       <Row>
-        <Col md={5} lg={5}>
+        <Col className="d-none d-md-block p-0 p-md-2" md={5} lg={5}>
           <Container className={styles.CreatePostForm}>
             <h1 className={styles.Heading}>upload a post</h1>
             <Form.Group className={formStyles.FormFields}>
@@ -52,7 +91,7 @@ function CreatePostForm() {
             </div>
           </Container>
         </Col>
-        <Col md={7} lg={7}>
+        <Col className="py-2 p-0 p-md-2" md={7} lg={7}>
           <Container
             className={`${styles.ImagePreview} d-flex flex-column justify-content-center`}
           >
@@ -61,9 +100,10 @@ function CreatePostForm() {
                 className="d-flex justify-content-center"
                 htmlFor="image-upload"
               >
-                <Asset src={upload} message="Click or tap to choose an image"/>
+                <Asset src={upload} message="Click or tap to choose an image" />
               </Form.Label>
             </Form.Group>
+            <div className="d-md-none mt-5">{form}</div>
           </Container>
         </Col>
       </Row>

@@ -1,8 +1,16 @@
 .ImagePreview {
-    border: 1px solid black;
+    border: 1px solid #3b5998;
     border-radius: 3px;
-    min-height: 400px;
+    min-height: 513px;
 }
+
+@media (max-width: 768px) {
+    .ImagePreview {
+        border: none;
+        border-radius: 3px;
+        min-height: 513px;
+    }
+  }
 
 .CreatePostForm {
     min-height: 400px;
