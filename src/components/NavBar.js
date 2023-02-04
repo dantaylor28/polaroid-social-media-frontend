@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import styles from "../styles/NavBar.module.css";
 import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
@@ -7,24 +7,13 @@ import {
   useSetCurrentUser,
 } from "../contexts/CurrentUserContext";
 import axios from "axios";
+import UseClickOutToggle from "../hooks/UseClickOutToggle";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
 
-  const [expanded, setExpanded] = useState(false);
-  const ref = useRef(null)
-  useEffect(() => {
-    const handleClickOut = (event) => {
-      if (ref.current && !ref.current.contains(event.target)){
-        setExpanded(false)
-      }
-    }
-    document.addEventListener('mouseup', handleClickOut)
-    return () => {
-      document.removeEventListener('mouseup', handleClickOut)
-    }
-  }, [ref])
+  const { expanded, setExpanded, ref } = UseClickOutToggle();
 
   const handleSignOut = async () => {
     try {
