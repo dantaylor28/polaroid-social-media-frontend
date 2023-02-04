@@ -23,6 +23,13 @@ const NavBar = () => {
       >
         Sign Out
       </NavLink>
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.ActiveLink}
+        to="/pinboard"
+      >
+        Pinboard
+      </NavLink>
     </>
   );
   const signedOutLinks = (
