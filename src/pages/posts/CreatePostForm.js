@@ -3,8 +3,11 @@ import { Container, Form, Row, Col, Button } from "react-bootstrap";
 import styles from "../../styles/CreateEditPostForm.module.css";
 import formStyles from "../../styles/CreateAccountForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
+import Asset from "../../components/Asset";
+import upload from "../../assets/upload.png"
 
 function CreatePostForm() {
+  
   return (
     <Form>
       <Row>
@@ -58,7 +61,7 @@ function CreatePostForm() {
                 className="d-flex justify-content-center"
                 htmlFor="image-upload"
               >
-                Image preview here..
+                <Asset src={upload} message="Click or tap to choose an image"/>
               </Form.Label>
             </Form.Group>
           </Container>
