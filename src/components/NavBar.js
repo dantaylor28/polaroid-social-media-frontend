@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../styles/NavBar.module.css";
-import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
+import { Navbar, Nav, Container } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import {
   useCurrentUser,
@@ -24,15 +24,19 @@ const NavBar = () => {
     }
   };
 
+  const createIcon = (
+    <NavLink
+      className={styles.NavLink}
+      activeClassName={styles.ActiveLink}
+      to="/create/post"
+    >
+      Create
+      <i class="fa-regular fa-square-plus"></i>
+    </NavLink>
+  );
+
   const signedInLinks = (
     <>
-      <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-        <NavDropdown.Item>Action</NavDropdown.Item>
-        <NavDropdown.Item>Another action</NavDropdown.Item>
-        <NavDropdown.Item>Something</NavDropdown.Item>
-        <NavDropdown.Divider />
-        <NavDropdown.Item>Separated link</NavDropdown.Item>
-      </NavDropdown>
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.ActiveLink}
@@ -84,6 +88,7 @@ const NavBar = () => {
         <NavLink to="/">
           <Navbar.Brand>Logo here</Navbar.Brand>
         </NavLink>
+        {currentUser && createIcon}
         <Navbar.Toggle
           onClick={() => setExpanded(!expanded)}
           ref={ref}
