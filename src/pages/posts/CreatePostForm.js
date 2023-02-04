@@ -7,7 +7,24 @@ function CreatePostForm() {
     <Form>
       <Row>
         <Col md={5} lg={5}>
-          <Container className={styles.CreatePostForm}>Upload post form here..</Container>
+          <Container className={styles.CreatePostForm}>
+            <Form.Group>
+                <Form.Label>Title</Form.Label>
+                    <Form.Control type="text" name="title" />
+            </Form.Group>
+            <Form.Group>
+                <Form.Label>Caption</Form.Label>
+                    <Form.Control as="textarea" name="caption" rows={6} />
+            </Form.Group>
+            <Form.Group>
+                <Form.Label>Category</Form.Label>
+                    <Form.Control as="select" custom name="category">
+                        <option value="general">general</option>
+                        <option value="landscapes">landscapes</option>
+                        <option value="portraits">portraits</option>
+                    </Form.Control>
+            </Form.Group>
+          </Container>
         </Col>
         <Col md={7} lg={7}>
           <Container
