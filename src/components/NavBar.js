@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../styles/NavBar.module.css";
 import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
@@ -12,14 +12,16 @@ const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
 
+  const [expanded, setExpanded] = useState(false);
+
   const handleSignOut = async () => {
     try {
-      await axios.post("/dj-rest-auth/logout/")
-      setCurrentUser(null)
+      await axios.post("/dj-rest-auth/logout/");
+      setCurrentUser(null);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   const signedInLinks = (
     <>
@@ -75,12 +77,16 @@ const NavBar = () => {
       variant="dark"
       expand="md"
       fixed="top"
+      expanded={expanded}
     >
       <Container>
         <NavLink to="/">
           <Navbar.Brand>Logo here</Navbar.Brand>
         </NavLink>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle
+          onClick={() => setExpanded(!expanded)}
+          aria-controls="basic-navbar-nav"
+        />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-left">
             <NavLink
