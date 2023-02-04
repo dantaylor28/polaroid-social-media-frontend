@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import styles from "../styles/NavBar.module.css";
 import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
@@ -13,6 +13,7 @@ const NavBar = () => {
   const setCurrentUser = useSetCurrentUser();
 
   const [expanded, setExpanded] = useState(false);
+  const ref = useRef(null)
 
   const handleSignOut = async () => {
     try {
@@ -85,6 +86,7 @@ const NavBar = () => {
         </NavLink>
         <Navbar.Toggle
           onClick={() => setExpanded(!expanded)}
+          ref={ref}
           aria-controls="basic-navbar-nav"
         />
         <Navbar.Collapse id="basic-navbar-nav">
