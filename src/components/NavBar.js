@@ -16,7 +16,13 @@ const NavBar = () => {
         <NavDropdown.Divider />
         <NavDropdown.Item>Separated link</NavDropdown.Item>
       </NavDropdown>
-      {currentUser?.username}
+      <NavLink
+        className={styles.NavLink}
+        to="/"
+        onClick={() => {}}
+      >
+        Sign Out
+      </NavLink>
     </>
   );
   const signedOutLinks = (
