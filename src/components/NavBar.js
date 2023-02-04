@@ -20,7 +20,11 @@ const NavBar = () => {
         setExpanded(false)
       }
     }
-  })
+    document.addEventListener('mouseup', handleClickOut)
+    return () => {
+      document.removeEventListener('mouseup', handleClickOut)
+    }
+  }, [ref])
 
   const handleSignOut = async () => {
     try {
