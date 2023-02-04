@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "../styles/NavBar.module.css";
 import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
@@ -14,6 +14,13 @@ const NavBar = () => {
 
   const [expanded, setExpanded] = useState(false);
   const ref = useRef(null)
+  useEffect(() => {
+    const handleClickOut = (event) => {
+      if (ref.current && !ref.current.contains(event.target)){
+        setExpanded(false)
+      }
+    }
+  })
 
   const handleSignOut = async () => {
     try {
