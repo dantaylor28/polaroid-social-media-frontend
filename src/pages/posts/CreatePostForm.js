@@ -17,6 +17,13 @@ function CreatePostForm() {
   });
   const { title, caption, image, category } = postData;
 
+  const handleChange = (event) => {
+    setPostData({
+      ...postData,
+      [event.target.name]: event.target.value,
+    });
+  };
+
   const form = (
     <>
       <Form.Group>
@@ -27,6 +34,7 @@ function CreatePostForm() {
           name="title"
           placeholder="Title"
           value={title}
+          onChange={handleChange}
         />
       </Form.Group>
       <Form.Group>
@@ -38,11 +46,18 @@ function CreatePostForm() {
           rows={6}
           placeholder="Caption"
           value={caption}
+          onChange={handleChange}
         />
       </Form.Group>
       <Form.Group className={formStyles.FormTextBox}>
         <Form.Label>Category</Form.Label>
-        <Form.Control as="select" custom name="category" value={category}>
+        <Form.Control
+          as="select"
+          custom
+          name="category"
+          value={category}
+          onChange={handleChange}
+        >
           <option value="general">general</option>
           <option value="landscapes">landscapes</option>
           <option value="portraits">portraits</option>
@@ -69,6 +84,7 @@ function CreatePostForm() {
                 name="title"
                 placeholder="Title"
                 value={title}
+                onChange={handleChange}
               />
             </Form.Group>
             <Form.Group className={formStyles.FormFields}>
@@ -80,6 +96,7 @@ function CreatePostForm() {
                 rows={6}
                 placeholder="Caption"
                 value={caption}
+                onChange={handleChange}
               />
             </Form.Group>
             <Form.Group className={formStyles.FormTextBox}>
@@ -90,6 +107,7 @@ function CreatePostForm() {
                 custom
                 name="category"
                 value={category}
+                onChange={handleChange}
               >
                 <option value="general">general</option>
                 <option value="landscapes">landscapes</option>
