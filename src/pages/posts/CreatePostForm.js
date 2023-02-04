@@ -6,15 +6,20 @@ function CreatePostForm() {
   return (
     <Form>
       <Row>
-        <Col>
-          <Container>Upload post form here..</Container>
+        <Col md={5} lg={5}>
+          <Container className={styles.CreatePostForm}>Upload post form here..</Container>
         </Col>
-        <Col>
-          <Container className={`${styles.ImagePreview} d-flex flex-column justify-content-center`}>
+        <Col md={7} lg={7}>
+          <Container
+            className={`${styles.ImagePreview} d-flex flex-column justify-content-center`}
+          >
             <Form.Group className="text-center">
-                <Form.Label className="d-flex justify-content-center">
+              <Form.Label
+                className="d-flex justify-content-center"
+                htmlFor="image-upload"
+              >
                 Image preview here..
-                </Form.Label>
+              </Form.Label>
             </Form.Group>
           </Container>
         </Col>
