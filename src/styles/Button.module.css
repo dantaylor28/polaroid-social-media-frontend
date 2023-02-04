@@ -15,3 +15,23 @@
     background-color: #dfe3ee;
     border-color: #3b5998;
 }
+
+.PostButton {
+    min-width: 20%;
+    margin: 10px;
+    padding: 5px 10px;
+    color: white;
+    background-color: #3b5998;
+    border-color: #3b5998;
+}
+
+.PostButton:hover {
+    cursor: pointer;
+    color: #3b5998;
+    background-color: #dfe3ee;
+    border-color: #3b5998;
+}
+
+.BtnDiv {
+    text-align: center;
+}

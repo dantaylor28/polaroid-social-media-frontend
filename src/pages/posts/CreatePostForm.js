@@ -1,7 +1,8 @@
 import React from "react";
-import { Container, Form, Row, Col } from "react-bootstrap";
+import { Container, Form, Row, Col, Button } from "react-bootstrap";
 import styles from "../../styles/CreateEditPostForm.module.css";
 import formStyles from "../../styles/CreateAccountForm.module.css";
+import btnStyles from "../../styles/Button.module.css";
 
 function CreatePostForm() {
   return (
@@ -29,9 +30,10 @@ function CreatePostForm() {
                 placeholder="Caption"
               />
             </Form.Group>
-            <Form.Group className={`${formStyles.FormTextBox}`}>
+            <Form.Group className={formStyles.FormTextBox}>
               <Form.Label>Category</Form.Label>
               <Form.Control
+                className={formStyles.FormFields}
                 as="select"
                 custom
                 name="category"
@@ -41,6 +43,10 @@ function CreatePostForm() {
                 <option value="portraits">portraits</option>
               </Form.Control>
             </Form.Group>
+            <div className={btnStyles.BtnDiv}>
+              <Button className={btnStyles.PostButton}>Cancel</Button>
+              <Button className={btnStyles.PostButton}>Upload</Button>
+            </div>
           </Container>
         </Col>
         <Col md={7} lg={7}>
