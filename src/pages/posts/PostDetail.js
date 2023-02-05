@@ -25,7 +25,7 @@ function PostDetail() {
   return (
     <div>
       <h1>PostDetail page to display a specified user post!</h1>
-      <Post />
+      <Post {...post.results[0]} />
     </div>
   );
 }
