@@ -24,6 +24,16 @@ function CreatePostForm() {
     });
   };
 
+  const handleChangeImage = (event) => {
+    if (event.target.files.length) {
+      URL.revokeObjectURL(image);
+      setPostData({
+        ...postData,
+        image: URL.createObjectURL(event.target.files[0]),
+      });
+    }
+  };
+
   const form = (
     <>
       <Form.Group>
@@ -131,7 +141,7 @@ function CreatePostForm() {
               >
                 <Asset src={upload} message="Click or tap to choose an image" />
               </Form.Label>
-              <Form.File id="image-upload" accept="image/*"/>
+              <Form.File id="image-upload" accept="image/*" onChange={handleChangeImage} />
             </Form.Group>
             <div className="d-md-none mt-5">{form}</div>
           </Container>
