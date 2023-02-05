@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Form, Row, Col, Button } from "react-bootstrap";
+import { Container, Form, Row, Col, Button, Image } from "react-bootstrap";
 import styles from "../../styles/CreateEditPostForm.module.css";
 import formStyles from "../../styles/CreateAccountForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
@@ -135,13 +135,33 @@ function CreatePostForm() {
             className={`${styles.ImagePreview} d-flex flex-column justify-content-center`}
           >
             <Form.Group className="text-center">
-              <Form.Label
-                className="d-flex justify-content-center"
-                htmlFor="image-upload"
-              >
-                <Asset src={upload} message="Click or tap to choose an image" />
-              </Form.Label>
-              <Form.File id="image-upload" accept="image/*" onChange={handleChangeImage} />
+              {image ? (
+                <>
+                  <figure>
+                    <Image src={image} className={styles.Image} rounded/>
+                  </figure>
+                  <div>
+                    <Form.Label className={`${btnStyles.PostButton} btn`} htmlFor="image-upload">
+                      Change Image
+                    </Form.Label>
+                  </div>
+                </>
+              ) : (
+                <Form.Label
+                  className="d-flex justify-content-center"
+                  htmlFor="image-upload"
+                >
+                  <Asset
+                    src={upload}
+                    message="Click or tap to choose an image"
+                  />
+                </Form.Label>
+              )}
+              <Form.File
+                id="image-upload"
+                accept="image/*"
+                onChange={handleChangeImage}
+              />
             </Form.Group>
             <div className="d-md-none mt-5">{form}</div>
           </Container>
