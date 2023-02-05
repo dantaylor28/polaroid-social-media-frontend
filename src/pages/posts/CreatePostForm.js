@@ -122,7 +122,12 @@ function CreatePostForm() {
         </Alert>
       ))}
       <div className={btnStyles.BtnDiv}>
-        <Button className={btnStyles.PostButton}>Cancel</Button>
+        <Button
+          className={btnStyles.PostButton}
+          onClick={() => history.goBack()}
+        >
+          Cancel
+        </Button>
         <Button className={btnStyles.PostButton} type="submit">
           Upload
         </Button>
@@ -190,7 +195,12 @@ function CreatePostForm() {
               </Alert>
             ))}
             <div className={btnStyles.BtnDiv}>
-              <Button className={btnStyles.PostButton}>Cancel</Button>
+              <Button
+                className={btnStyles.PostButton}
+                onClick={() => history.goBack()}
+              >
+                Cancel
+              </Button>
               <Button className={btnStyles.PostButton} type="submit">
                 Upload
               </Button>
