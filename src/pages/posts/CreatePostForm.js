@@ -67,9 +67,9 @@ function CreatePostForm() {
     }
   };
 
-  const formTextFields = (
-    <div>
-      <Form.Group className={formStyles.FormFields}>
+  const form = (
+    <>
+      <Form.Group>
         <Form.Label className="d-none">Title</Form.Label>
         <Form.Control
           className={formStyles.FormTextBox}
@@ -85,7 +85,7 @@ function CreatePostForm() {
           {message}
         </Alert>
       ))}
-      <Form.Group className={formStyles.FormFields}>
+      <Form.Group>
         <Form.Label className="d-none">Caption</Form.Label>
         <Form.Control
           className={formStyles.FormTextBox}
@@ -105,7 +105,6 @@ function CreatePostForm() {
       <Form.Group className={formStyles.FormTextBox}>
         <Form.Label>Category</Form.Label>
         <Form.Control
-          className={formStyles.FormFields}
           as="select"
           custom
           name="category"
@@ -128,7 +127,7 @@ function CreatePostForm() {
           Upload
         </Button>
       </div>
-    </div>
+    </>
   );
 
   return (
@@ -137,7 +136,65 @@ function CreatePostForm() {
         <Col className="d-none d-md-block p-0 p-md-2" md={5} lg={5}>
           <Container className={styles.CreatePostForm}>
             <h1 className={styles.Heading}>upload a post</h1>
-            {formTextFields}
+            <Form.Group className={formStyles.FormFields}>
+              <Form.Label className="d-none">Title</Form.Label>
+              <Form.Control
+                className={formStyles.FormTextBox}
+                type="text"
+                name="title"
+                placeholder="Title"
+                value={title}
+                onChange={handleChange}
+              />
+            </Form.Group>
+            {errors?.title?.map((message, idx) => (
+              <Alert key={idx} variant="danger">
+                {message}
+              </Alert>
+            ))}
+            <Form.Group className={formStyles.FormFields}>
+              <Form.Label className="d-none">Caption</Form.Label>
+              <Form.Control
+                className={formStyles.FormTextBox}
+                as="textarea"
+                name="caption"
+                rows={6}
+                placeholder="Caption"
+                value={caption}
+                onChange={handleChange}
+              />
+            </Form.Group>
+            {errors?.caption?.map((message, idx) => (
+              <Alert key={idx} variant="danger">
+                {message}
+              </Alert>
+            ))}
+            <Form.Group className={formStyles.FormTextBox}>
+              <Form.Label>Category</Form.Label>
+              <Form.Control
+                className={formStyles.FormFields}
+                as="select"
+                custom
+                name="category"
+                value={category}
+                onChange={handleChange}
+              >
+                <option value="general">general</option>
+                <option value="landscapes">landscapes</option>
+                <option value="portraits">portraits</option>
+              </Form.Control>
+            </Form.Group>
+            {errors?.category?.map((message, idx) => (
+              <Alert key={idx} variant="danger">
+                {message}
+              </Alert>
+            ))}
+            <div className={btnStyles.BtnDiv}>
+              <Button className={btnStyles.PostButton}>Cancel</Button>
+              <Button className={btnStyles.PostButton} type="submit">
+                Upload
+              </Button>
+            </div>
           </Container>
         </Col>
         <Col className="py-2 p-0 p-md-2" md={7} lg={7}>
@@ -183,6 +240,7 @@ function CreatePostForm() {
                 {message}
               </Alert>
             ))}
+            <div className="d-md-none mt-5">{form}</div>
           </Container>
         </Col>
       </Row>
