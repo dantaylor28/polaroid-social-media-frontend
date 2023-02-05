@@ -131,6 +131,7 @@ function CreatePostForm() {
               >
                 <Asset src={upload} message="Click or tap to choose an image" />
               </Form.Label>
+              <Form.File id="image-upload" accept="image/*"/>
             </Form.Group>
             <div className="d-md-none mt-5">{form}</div>
           </Container>
