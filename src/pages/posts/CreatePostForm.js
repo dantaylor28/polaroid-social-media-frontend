@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Container, Form, Row, Col, Button, Image } from "react-bootstrap";
 import styles from "../../styles/CreateEditPostForm.module.css";
 import formStyles from "../../styles/CreateAccountForm.module.css";
@@ -16,6 +16,8 @@ function CreatePostForm() {
     category: "",
   });
   const { title, caption, image, category } = postData;
+
+  const imageInput = useRef(null);
 
   const handleChange = (event) => {
     setPostData({
@@ -138,10 +140,13 @@ function CreatePostForm() {
               {image ? (
                 <>
                   <figure>
-                    <Image src={image} className={styles.Image} rounded/>
+                    <Image src={image} className={styles.Image} rounded />
                   </figure>
                   <div>
-                    <Form.Label className={`${btnStyles.PostButton} btn`} htmlFor="image-upload">
+                    <Form.Label
+                      className={`${btnStyles.PostButton} btn`}
+                      htmlFor="image-upload"
+                    >
                       Change Image
                     </Form.Label>
                   </div>
@@ -158,10 +163,11 @@ function CreatePostForm() {
                 </Form.Label>
               )}
               <Form.File
+                className="d-none"
                 id="image-upload"
                 accept="image/*"
                 onChange={handleChangeImage}
-                className="d-none"
+                ref={imageInput}
               />
             </Form.Group>
             <div className="d-md-none mt-5">{form}</div>
