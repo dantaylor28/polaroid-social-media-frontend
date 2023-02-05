@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
+import Post from "./Post";
 
 function PostDetail() {
   const { id } = useParams();
@@ -21,7 +22,12 @@ function PostDetail() {
     handleMount();
   }, [id]);
 
-  return <div>PostDetail page to display a specified user post!</div>;
+  return (
+    <div>
+      <h1>PostDetail page to display a specified user post!</h1>
+      <Post />
+    </div>
+  );
 }
 
 export default PostDetail;
