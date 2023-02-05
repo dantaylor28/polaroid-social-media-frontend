@@ -31,7 +31,7 @@ const NavBar = () => {
       to="/create/post"
     >
       Create
-      <i class="fa-regular fa-square-plus"></i>
+      <i className="fa-regular fa-square-plus"></i>
     </NavLink>
   );
 

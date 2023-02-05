@@ -5,7 +5,7 @@ import formStyles from "../../styles/CreateAccountForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import Asset from "../../components/Asset";
 import upload from "../../assets/upload.png";
-import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 
 function CreatePostForm() {
@@ -41,12 +41,12 @@ function CreatePostForm() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const formData = new formData();
+    const formData = new FormData();
 
     formData.append("title", title);
     formData.append("caption", caption);
     formData.append("category", category);
-    formData.append("image", imageInput.current.files[0]);
+    formData.append("post_image", imageInput.current.files[0]);
 
     try {
       const { data } = await axiosReq.post("/posts/", formData);
@@ -100,7 +100,7 @@ function CreatePostForm() {
       </Form.Group>
       <div className={btnStyles.BtnDiv}>
         <Button className={btnStyles.PostButton}>Cancel</Button>
-        <Button className={btnStyles.PostButton}>Upload</Button>
+        <Button className={btnStyles.PostButton} type="submit">Upload</Button>
       </div>
     </>
   );
@@ -151,7 +151,7 @@ function CreatePostForm() {
             </Form.Group>
             <div className={btnStyles.BtnDiv}>
               <Button className={btnStyles.PostButton}>Cancel</Button>
-              <Button className={btnStyles.PostButton}>Upload</Button>
+              <Button className={btnStyles.PostButton} type="submit">Upload</Button>
             </div>
           </Container>
         </Col>
