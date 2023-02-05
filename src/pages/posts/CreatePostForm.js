@@ -5,6 +5,8 @@ import formStyles from "../../styles/CreateAccountForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import Asset from "../../components/Asset";
 import upload from "../../assets/upload.png";
+import { useHistory } from "react-router-dom";
+import { axiosReq } from "../../api/axiosDefaults";
 
 function CreatePostForm() {
   const [errors, setErrors] = useState({});
@@ -12,12 +14,13 @@ function CreatePostForm() {
   const [postData, setPostData] = useState({
     title: "",
     caption: "",
-    image: "",
+    post_image: "",
     category: "",
   });
-  const { title, caption, image, category } = postData;
+  const { title, caption, post_image, category } = postData;
 
   const imageInput = useRef(null);
+  const history = useHistory();
 
   const handleChange = (event) => {
     setPostData({
@@ -28,11 +31,31 @@ function CreatePostForm() {
 
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
-      URL.revokeObjectURL(image);
+      URL.revokeObjectURL(post_image);
       setPostData({
         ...postData,
-        image: URL.createObjectURL(event.target.files[0]),
+        post_image: URL.createObjectURL(event.target.files[0]),
       });
+    }
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new formData();
+
+    formData.append("title", title);
+    formData.append("caption", caption);
+    formData.append("category", category);
+    formData.append("image", imageInput.current.files[0]);
+
+    try {
+      const { data } = await axiosReq.post("/posts/", formData);
+      history.push(`/posts/${data.id}`);
+    } catch (error) {
+      console.log(error);
+      if (error.response?.status !== 401) {
+        setErrors(error.response?.data);
+      }
     }
   };
 
@@ -83,7 +106,7 @@ function CreatePostForm() {
   );
 
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <Row>
         <Col className="d-none d-md-block p-0 p-md-2" md={5} lg={5}>
           <Container className={styles.CreatePostForm}>
@@ -137,10 +160,10 @@ function CreatePostForm() {
             className={`${styles.ImagePreview} d-flex flex-column justify-content-center`}
           >
             <Form.Group className="text-center">
-              {image ? (
+              {post_image ? (
                 <>
                   <figure>
-                    <Image src={image} className={styles.Image} rounded />
+                    <Image src={post_image} className={styles.Image} rounded />
                   </figure>
                   <div>
                     <Form.Label
