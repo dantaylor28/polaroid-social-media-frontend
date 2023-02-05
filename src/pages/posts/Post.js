@@ -1,4 +1,6 @@
 import React from "react";
+import { Card } from "react-bootstrap";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 const Post = (props) => {
   const {
@@ -17,7 +19,12 @@ const Post = (props) => {
     uploaded_at,
   } = props;
 
-  return <div>Post card!</div>;
+  const currentUser = useCurrentUser()
+  const is_post_owner = currentUser?.username === owner
+
+  return <Card>
+    Post details here
+  </Card>
 };
 
 export default Post;
