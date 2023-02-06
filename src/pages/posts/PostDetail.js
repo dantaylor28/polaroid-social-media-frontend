@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Col, Container, Row } from "react-bootstrap";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import Post from "./Post";
@@ -23,10 +24,23 @@ function PostDetail() {
   }, [id]);
 
   return (
-    <div>
-      <h1>PostDetail page to display a specified user post!</h1>
-      <Post {...post.results[0]} />
-    </div>
+    // <div>
+    //   <h1>PostDetail page to display a specified user post!</h1>
+    //   <Post {...post.results[0]} />
+    // </div>
+
+    <Row>
+      <Col>
+        <Container>
+          <p>extra component here. profiles? for mobile/tablets</p>
+        </Container>
+        <Container>post component here</Container>
+        <Container>list of comments here</Container>
+      </Col>
+      <Col>
+        <Container>extra component here. profiles? for desktop</Container>
+      </Col>
+    </Row>
   );
 }
 
