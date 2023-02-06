@@ -2,6 +2,7 @@ import React from "react";
 import { Card, Media } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import styles from "../../styles/Post.module.css"
 
 const Post = (props) => {
   const {
@@ -41,6 +42,12 @@ const Post = (props) => {
       <Link to={`/posts/${id}`}>
         <Card.Img src={post_image} alt={title} />
       </Link>
+      <Card.Body>
+        <div className={styles.StatsDiv}>
+          <span className={styles.PinSpan}>{num_of_pins} pins</span>
+          <span className={styles.CommentSpan}>{num_of_comments} comments</span>
+        </div>
+      </Card.Body>
     </Card>
   );
 };

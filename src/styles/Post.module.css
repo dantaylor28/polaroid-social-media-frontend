@@ -1,0 +1,12 @@
+.StatsDiv {
+    display: flex;
+    justify-content: center;
+}
+
+.PinSpan {
+    margin-right: 20%;
+}
+
+.CommentSpan {
+    margin-left: 20%;
+}
