@@ -30,14 +30,14 @@ function PostDetail() {
     // </div>
 
     <Row>
-      <Col>
+      <Col lg={9}>
         <Container>
           <p>extra component here. profiles? for mobile/tablets</p>
         </Container>
         <Container>post component here</Container>
         <Container>list of comments here</Container>
       </Col>
-      <Col>
+      <Col className="d-none d-lg-block" lg={3}>
         <Container>extra component here. profiles? for desktop</Container>
       </Col>
     </Row>
