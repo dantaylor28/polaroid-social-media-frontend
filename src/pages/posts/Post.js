@@ -2,7 +2,7 @@ import React from "react";
 import { Card, Media } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import styles from "../../styles/Post.module.css"
+import styles from "../../styles/Post.module.css";
 
 const Post = (props) => {
   const {
@@ -44,8 +44,14 @@ const Post = (props) => {
       </Link>
       <Card.Body>
         <div className={styles.StatsDiv}>
-          <span className={styles.PinSpan}>{num_of_pins} pins</span>
-          <span className={styles.CommentSpan}>{num_of_comments} comments</span>
+          <span className={styles.PinSpan}>
+            <i class="fa-solid fa-map-pin"></i>
+            {num_of_pins}
+          </span>
+          <span className={styles.CommentSpan}>
+            <i class="fa-solid fa-comments"></i>
+            {num_of_comments}
+          </span>
         </div>
       </Card.Body>
     </Card>
