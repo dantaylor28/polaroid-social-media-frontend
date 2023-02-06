@@ -1,5 +1,6 @@
 import React from "react";
 import { Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 const Post = (props) => {
@@ -23,7 +24,13 @@ const Post = (props) => {
   const is_post_owner = currentUser?.username === owner
 
   return <Card>
-    Post details here
+    <Card.Body>
+      <Link to={`/profiles/${profile_id}`}>
+        profile image pic here
+        {owner}
+      </Link>
+      <div>{updated_at}</div>
+    </Card.Body>
   </Card>
 };
 
