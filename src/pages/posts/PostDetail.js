@@ -24,17 +24,14 @@ function PostDetail() {
   }, [id]);
 
   return (
-    // <div>
-    //   <h1>PostDetail page to display a specified user post!</h1>
-    //   <Post {...post.results[0]} />
-    // </div>
-
     <Row>
       <Col lg={9}>
         <Container>
           <p>extra component here. profiles? for mobile/tablets</p>
         </Container>
-        <Container>post component here</Container>
+        <Container>
+          <Post {...post.results[0]} />
+        </Container>
         <Container>list of comments here</Container>
       </Col>
       <Col className="d-none d-lg-block" lg={3}>
