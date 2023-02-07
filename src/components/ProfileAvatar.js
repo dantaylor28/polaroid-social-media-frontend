@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
 
-const ProfileAvatar = () => {
+const ProfileAvatar = ({ src, size = 50, text }) => {
   return (
-    <div>ProfileAvatar</div>
-  )
-}
+    <span>
+      <img src={src} height={size} width={size} alt="profile-avatar" />
+      {text}
+    </span>
+  );
+};
 
-export default ProfileAvatar
+export default ProfileAvatar;
