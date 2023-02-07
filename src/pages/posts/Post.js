@@ -106,7 +106,7 @@ const Post = (props) => {
         <div>
           {pinned_id ? (
             <Button className={btnStyles.UnpinButton} onClick={handleUnpin}>
-              <i className="fa-solid fa-heart"></i>
+              {/* <i className="fa-solid fa-heart"></i> */}
               Unpin
             </Button>
           ) : currentUser ? (

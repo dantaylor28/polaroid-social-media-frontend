@@ -43,15 +43,15 @@
     margin: auto;
     padding: 10px 0px;
     color: white;
-    background-color: #e63b60;
-    border-color: #e63b60;
+    background-color: #e63b60 !important;
+    border-color: #f8f8f8;
 }
 
 .PinButton:hover {
     cursor: pointer;
     color: white;
-    background-color: #b82f4c;
-    border-color: white;
+    background-color: #b82f4c !important;
+    border-color: #f8f8f8;
 }
 
 .UnpinButton {
@@ -61,13 +61,13 @@
     margin: auto;
     padding: 10px 0px;
     color: white;
-    background-color: #e63b60;
-    border-color: #b82f4c;
+    background-color: #e63b60 !important;
+    border-color: #f8f8f8;
 }
 
 .UnpinButton:hover {
     cursor: pointer;
     color: white;
-    background-color: #b82f4c;
-    border-color: white;
+    background-color: #b82f4c !important;
+    border-color: #f8f8f8;
 }
