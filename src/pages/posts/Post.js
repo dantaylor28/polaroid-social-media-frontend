@@ -12,12 +12,13 @@ import ProfileAvatar from "../../components/ProfileAvatar";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import styles from "../../styles/Post.module.css";
 import btnStyles from "../../styles/Button.module.css";
+import { axiosRes } from "../../api/axiosDefaults";
 
 const Post = (props) => {
   const {
     id,
     caption,
-    category,
+    // category,
     num_of_comments,
     num_of_pins,
     owner,
@@ -28,22 +29,39 @@ const Post = (props) => {
     title,
     updated_at,
     postDetail,
+    setPosts,
   } = props;
 
   const currentUser = useCurrentUser();
   const is_post_owner = currentUser?.username === owner;
 
+  const handlePin = async () => {
+    try {
+      const { data } = axiosRes.post("/pins/", { post: id });
+      setPosts((prevPosts) => ({
+        ...prevPosts,
+        results: prevPosts.results.map((post) => {
+          return post.id === id
+            ? { ...post, num_of_pins: post.num_of_pins + 1, pinned_id: data.id }
+            : post;
+        }),
+      }));
+    } catch (error) {
+      console.log(error)
+    }
+  };
+
   return (
     <Card>
       <Card.Body>
         <Media className="align-items-center justify-content-between">
-            <Link className={styles.Owner} to={`/profiles/${profile_id}`}>
-              <ProfileAvatar src={profile_image} size={55} />
-              {owner}
-            </Link>
-            <div className="d-flex align-items-center">
-            {is_post_owner && postDetail && <i class="fa-solid fa-pen"></i>}
-            </div>
+          <Link className={styles.Owner} to={`/profiles/${profile_id}`}>
+            <ProfileAvatar src={profile_image} size={55} />
+            {owner}
+          </Link>
+          <div className="d-flex align-items-center">
+            {is_post_owner && postDetail && <i className="fa-solid fa-pen"></i>}
+          </div>
         </Media>
         <div>
           <span className={`${styles.TimeStamp} text-muted`}>{updated_at}</span>
@@ -59,12 +77,12 @@ const Post = (props) => {
       <Card.Body>
         <div className={styles.StatsDiv}>
           <span className={`${styles.PinSpan}`}>
-            <i class="fa-solid fa-map-pin"></i>
+            <i className="fa-solid fa-map-pin"></i>
             {num_of_pins}
           </span>
           <span className={styles.CommentSpan}>
             <Link className={styles.CommentLink} to={`/posts/${id}`}>
-              <i class="fa-solid fa-comments"></i>
+              <i className="fa-solid fa-comments"></i>
               {num_of_comments}
             </Link>
           </span>
@@ -72,12 +90,12 @@ const Post = (props) => {
         <div>
           {pinned_id ? (
             <Button className={btnStyles.UnpinButton} onClick={() => {}}>
-              <i class="fa-solid fa-heart"></i>
+              <i className="fa-solid fa-heart"></i>
               Unpin
             </Button>
           ) : currentUser ? (
-            <Button className={btnStyles.PinButton} onClick={() => {}}>
-              <i class="fa-regular fa-heart"></i>
+            <Button className={btnStyles.PinButton} onClick={handlePin}>
+              <i className="fa-regular fa-heart"></i>
               Pin
             </Button>
           ) : (
@@ -86,7 +104,7 @@ const Post = (props) => {
               overlay={<Tooltip>Log in to like posts</Tooltip>}
             >
               <Button className={btnStyles.PinButton}>
-                <i class="fa-regular fa-heart"></i>
+                <i className="fa-regular fa-heart"></i>
                 Pin
               </Button>
             </OverlayTrigger>

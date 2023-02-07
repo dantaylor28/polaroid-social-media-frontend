@@ -30,7 +30,7 @@ function PostDetail() {
           <p>extra component here. profiles? for mobile/tablets</p>
         </Container>
         <Container>
-          <Post {...post.results[0]} postDetail />
+          <Post {...post.results[0]} postDetail setPosts={setPost} />
         </Container>
         <Container>list of comments here</Container>
       </Col>
