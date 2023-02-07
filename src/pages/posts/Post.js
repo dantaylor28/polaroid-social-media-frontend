@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, Media } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import ProfileAvatar from "../../components/ProfileAvatar";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import styles from "../../styles/Post.module.css";
 
@@ -29,7 +30,7 @@ const Post = (props) => {
       <Card.Body>
         <Media>
           <Link to={`/profiles/${profile_id}`}>
-            profile image pic here
+            <ProfileAvatar src={profile_image} size={55}/>
             {owner}
           </Link>
         </Media>
