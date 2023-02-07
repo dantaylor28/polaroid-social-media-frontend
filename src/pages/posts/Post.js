@@ -37,7 +37,7 @@ const Post = (props) => {
 
   const handlePin = async () => {
     try {
-      const { data } = axiosRes.post("/pins/", { post: id });
+      const { data } = await axiosRes.post("/pins/", { post: id });
       setPosts((prevPosts) => ({
         ...prevPosts,
         results: prevPosts.results.map((post) => {
@@ -104,14 +104,7 @@ const Post = (props) => {
           </span>
         </div>
         <div>
-          {is_post_owner ? (
-            <OverlayTrigger
-              placement="top"
-              overlay={<Tooltip>You can't like your own post!</Tooltip>}
-            >
-              <i className="far fa-heart" />
-            </OverlayTrigger>
-          ) : pinned_id ? (
+          {pinned_id ? (
             <Button className={btnStyles.UnpinButton} onClick={handleUnpin}>
               <i className="fa-solid fa-heart"></i>
               Unpin

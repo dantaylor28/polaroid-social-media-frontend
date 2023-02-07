@@ -43,8 +43,8 @@
     margin: auto;
     padding: 10px 0px;
     color: white;
-    background-color: #3b5998;
-    border-color: #3b5998;
+    background-color: #e63b60;
+    border-color: #e63b60;
 }
 
 .PinButton:hover {
@@ -61,13 +61,13 @@
     margin: auto;
     padding: 10px 0px;
     color: white;
-    background-color: #b82f4c;
+    background-color: #e63b60;
     border-color: #b82f4c;
 }
 
 .UnpinButton:hover {
     cursor: pointer;
     color: white;
-    background-color: #3b5998;
+    background-color: #b82f4c;
     border-color: white;
 }
