@@ -63,7 +63,7 @@ const Post = (props) => {
         }),
       }));
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   };
 
@@ -104,7 +104,14 @@ const Post = (props) => {
           </span>
         </div>
         <div>
-          {pinned_id ? (
+          {is_post_owner ? (
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>You can't like your own post!</Tooltip>}
+            >
+              <i className="far fa-heart" />
+            </OverlayTrigger>
+          ) : pinned_id ? (
             <Button className={btnStyles.UnpinButton} onClick={handleUnpin}>
               <i className="fa-solid fa-heart"></i>
               Unpin
