@@ -1,9 +1,10 @@
 import React from "react";
-import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Button, Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ProfileAvatar from "../../components/ProfileAvatar";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import styles from "../../styles/Post.module.css";
+import btnStyles from "../../styles/Button.module.css"
 
 const Post = (props) => {
   const {
@@ -55,17 +56,25 @@ const Post = (props) => {
           </span>
         </div>
         <div>
-          { pinned_id ? (
-            <span onClick={() => {}}>
+          {pinned_id ? (
+            <Button className={btnStyles.UnpinButton} onClick={() => {}}>
               <i class="fa-solid fa-heart"></i>
-            </span>
+              Unpin
+            </Button>
           ) : currentUser ? (
-            <span onClick={() => {}}>
+            <Button className={btnStyles.PinButton} onClick={() => {}}>
               <i class="fa-regular fa-heart"></i>
-            </span>
+              Pin
+            </Button>
           ) : (
-            <OverlayTrigger placement="top" overlay={<Tooltip>Log in to like posts</Tooltip>}>
-              <i class="fa-regular fa-heart"></i>
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>Log in to like posts</Tooltip>}
+            >
+              <Button className={btnStyles.PinButton}>
+                <i class="fa-regular fa-heart"></i>
+                Pin
+              </Button>
             </OverlayTrigger>
           )}
         </div>

@@ -35,3 +35,39 @@
 .BtnDiv {
     text-align: center;
 }
+
+.PinButton {
+    display: flex;
+    justify-content: center;
+    width: 35%;
+    margin: auto;
+    padding: 10px 0px;
+    color: white;
+    background-color: #3b5998;
+    border-color: #3b5998;
+}
+
+.PinButton:hover {
+    cursor: pointer;
+    color: white;
+    background-color: #b82f4c;
+    border-color: white;
+}
+
+.UnpinButton {
+    display: flex;
+    justify-content: center;
+    width: 35%;
+    margin: auto;
+    padding: 10px 0px;
+    color: white;
+    background-color: #b82f4c;
+    border-color: #b82f4c;
+}
+
+.UnpinButton:hover {
+    cursor: pointer;
+    color: white;
+    background-color: #3b5998;
+    border-color: white;
+}
