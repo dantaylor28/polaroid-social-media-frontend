@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Media } from "react-bootstrap";
+import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ProfileAvatar from "../../components/ProfileAvatar";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
@@ -29,12 +29,12 @@ const Post = (props) => {
     <Card>
       <Card.Body>
         <Media>
-          <Link to={`/profiles/${profile_id}`}>
-            <ProfileAvatar src={profile_image} size={55}/>
+          <Link className={styles.Owner} to={`/profiles/${profile_id}`}>
+            <ProfileAvatar src={profile_image} size={55} />
             {owner}
           </Link>
         </Media>
-        <div>{updated_at}</div>
+        <div className={`${styles.TimeStamp} text-muted`}>{updated_at}</div>
       </Card.Body>
       <Card.Body>
         {title && <Card.Title className={styles.Title}>{title}</Card.Title>}
@@ -45,7 +45,7 @@ const Post = (props) => {
       </Link>
       <Card.Body>
         <div className={styles.StatsDiv}>
-          <span className={styles.PinSpan}>
+          <span className={`${styles.PinSpan}`}>
             <i class="fa-solid fa-map-pin"></i>
             {num_of_pins}
           </span>
@@ -53,6 +53,21 @@ const Post = (props) => {
             <i class="fa-solid fa-comments"></i>
             {num_of_comments}
           </span>
+        </div>
+        <div>
+          { pinned_id ? (
+            <span onClick={() => {}}>
+              <i class="fa-solid fa-heart"></i>
+            </span>
+          ) : currentUser ? (
+            <span onClick={() => {}}>
+              <i class="fa-regular fa-heart"></i>
+            </span>
+          ) : (
+            <OverlayTrigger placement="top" overlay={<Tooltip>Log in to like posts</Tooltip>}>
+              <i class="fa-regular fa-heart"></i>
+            </OverlayTrigger>
+          )}
         </div>
       </Card.Body>
     </Card>
