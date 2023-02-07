@@ -36,7 +36,7 @@ const Post = (props) => {
         <div>{updated_at}</div>
       </Card.Body>
       <Card.Body>
-        {title && <Card.Title>{title}</Card.Title>}
+        {title && <Card.Title className={styles.Title}>{title}</Card.Title>}
         {caption && <Card.Text>{caption}</Card.Text>}
       </Card.Body>
       <Link to={`/posts/${id}`}>
