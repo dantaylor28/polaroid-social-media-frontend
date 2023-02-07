@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import ProfileAvatar from "../../components/ProfileAvatar";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import styles from "../../styles/Post.module.css";
-import btnStyles from "../../styles/Button.module.css"
+import btnStyles from "../../styles/Button.module.css";
 
 const Post = (props) => {
   const {
@@ -51,8 +51,10 @@ const Post = (props) => {
             {num_of_pins}
           </span>
           <span className={styles.CommentSpan}>
-            <i class="fa-solid fa-comments"></i>
-            {num_of_comments}
+            <Link className={styles.CommentLink} to={`/posts/${id}`}>
+              <i class="fa-solid fa-comments"></i>
+              {num_of_comments}
+            </Link>
           </span>
         </div>
         <div>
