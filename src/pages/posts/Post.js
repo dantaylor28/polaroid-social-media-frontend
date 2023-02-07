@@ -1,5 +1,12 @@
 import React from "react";
-import { Button, Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
+import {
+  Button,
+  Card,
+  Container,
+  Media,
+  OverlayTrigger,
+  Tooltip,
+} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ProfileAvatar from "../../components/ProfileAvatar";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
@@ -20,7 +27,7 @@ const Post = (props) => {
     profile_image,
     title,
     updated_at,
-    uploaded_at,
+    postDetail,
   } = props;
 
   const currentUser = useCurrentUser();
@@ -29,17 +36,22 @@ const Post = (props) => {
   return (
     <Card>
       <Card.Body>
-        <Media>
-          <Link className={styles.Owner} to={`/profiles/${profile_id}`}>
-            <ProfileAvatar src={profile_image} size={55} />
-            {owner}
-          </Link>
+        <Media className="align-items-center justify-content-between">
+            <Link className={styles.Owner} to={`/profiles/${profile_id}`}>
+              <ProfileAvatar src={profile_image} size={55} />
+              {owner}
+            </Link>
+            <div className="d-flex align-items-center">
+            {is_post_owner && postDetail && <i class="fa-solid fa-pen"></i>}
+            </div>
         </Media>
-        <div className={`${styles.TimeStamp} text-muted`}>{updated_at}</div>
+        <div>
+          <span className={`${styles.TimeStamp} text-muted`}>{updated_at}</span>
+        </div>
       </Card.Body>
       <Card.Body>
         {title && <Card.Title className={styles.Title}>{title}</Card.Title>}
-        {caption && <Card.Text>{caption}</Card.Text>}
+        <Container>{caption && <Card.Text>{caption}</Card.Text>}</Container>
       </Card.Body>
       <Link to={`/posts/${id}`}>
         <Card.Img src={post_image} alt={title} />

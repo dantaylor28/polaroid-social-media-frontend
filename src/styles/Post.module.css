@@ -12,6 +12,7 @@
 
 .PinSpan:hover {
     color: black;
+    cursor: pointer;
 }
 
 .CommentSpan {
