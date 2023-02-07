@@ -47,6 +47,22 @@ const Post = (props) => {
         }),
       }));
     } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleUnpin = async () => {
+    try {
+      await axiosRes.delete(`/pins/${pinned_id}`);
+      setPosts((prevPosts) => ({
+        ...prevPosts,
+        results: prevPosts.results.map((post) => {
+          return post.id === id
+            ? { ...post, num_of_pins: post.num_of_pins - 1, pinned_id: null }
+            : post;
+        }),
+      }));
+    } catch (error) {
       console.log(error)
     }
   };
@@ -89,7 +105,7 @@ const Post = (props) => {
         </div>
         <div>
           {pinned_id ? (
-            <Button className={btnStyles.UnpinButton} onClick={() => {}}>
+            <Button className={btnStyles.UnpinButton} onClick={handleUnpin}>
               <i className="fa-solid fa-heart"></i>
               Unpin
             </Button>
