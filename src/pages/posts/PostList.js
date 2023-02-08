@@ -15,10 +15,12 @@ function PostList({ message, filter = "" }) {
         setPosts(data);
         setPostLoaded(true);
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
     };
-  });
+    setPostLoaded(false);
+    getPosts();
+  }, [filter, pathname]);
 
   return (
     <Row>
