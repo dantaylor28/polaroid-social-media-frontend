@@ -73,6 +73,15 @@ const Post = (props) => {
     history.push(`/posts/edit/${id}`);
   };
 
+  const handleDelete = async () => {
+    try {
+      await axiosRes.delete(`posts/${id}`);
+      history.goBack();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <Card className={styles.Post}>
       <Card.Body>
@@ -82,7 +91,12 @@ const Post = (props) => {
             {owner}
           </Link>
           <div className="d-flex align-items-center">
-            {is_post_owner && postDetail && <EditDeleteDropdown handleEdit={handleEdit} />}
+            {is_post_owner && postDetail && (
+              <EditDeleteDropdown
+                handleEdit={handleEdit}
+                handleDelete={handleDelete}
+              />
+            )}
           </div>
         </Media>
         <div>
