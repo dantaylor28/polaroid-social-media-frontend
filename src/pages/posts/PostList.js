@@ -49,7 +49,7 @@ function PostList({ message, filter = "" }) {
               ))
             ) : (
               <Container>
-                <p>Nothing to show :/</p>
+                <Asset message={message}/>
               </Container>
             )}
           </>

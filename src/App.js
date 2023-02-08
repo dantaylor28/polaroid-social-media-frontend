@@ -23,7 +23,10 @@ function App() {
             exact
             path="/"
             render={() => (
-              <PostList message="Nothing to show.. Please adjust your search!" />
+              <PostList
+                message="Follow some profiles or adjust your search to see some posts!"
+                filter={`owner__followed__owner__profile=${profile_id}&`}
+              />
             )}
           />
           <Route
@@ -34,6 +37,13 @@ function App() {
                 message="Nothing to show.. Please adjust your search or pin some posts!"
                 filter={`pins__owner__profile=${profile_id}&ordering=-pins__timestamp&`}
               />
+            )}
+          />
+          <Route
+            exact
+            path="/discover"
+            render={() => (
+              <PostList message="Nothing to show.. Please adjust your search!" />
             )}
           />
           <Route exact path="/signin" render={() => <SignInForm />} />
