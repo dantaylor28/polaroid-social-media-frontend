@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { useLocation } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
-import Post from "./Post";
+import CompressedPost from "./CompressedPost"
 import Asset from "../../components/Asset";
 
 function PostList({ message, filter = "" }) {
@@ -35,7 +35,7 @@ function PostList({ message, filter = "" }) {
           <>
             {posts.results.length ? (
               posts.results.map((post) => (
-                <Post key={post.id} {...post} setPosts={setPosts} />
+                <CompressedPost key={post.id} {...post} setPosts={setPosts} />
               ))
             ) : (
               <Container>
