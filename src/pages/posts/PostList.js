@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { useLocation } from "react-router-dom";
+import { useLocation } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
+import Post from "./Post";
 
 function PostList({ message, filter = "" }) {
   const [posts, setPosts] = useState({ results: [] });
   const [postLoaded, setPostLoaded] = useState(false);
-  const [pathname] = useLocation();
+  const {pathname} = useLocation();
 
   useEffect(() => {
     const getPosts = async () => {
@@ -29,7 +30,17 @@ function PostList({ message, filter = "" }) {
       </Col>
       <Col className="py-2 p-0 p-lg-2" lg={6}>
         <p>My following profiles - mobile</p>
-        <Container>Post component here</Container>
+        {postLoaded ? (
+          <>
+            {posts.results.length
+              ? posts.results.map((post) => (
+                  <Post key={post.id} {...post} setPosts={setPosts} />
+                ))
+              : console.log("no results")}
+          </>
+        ) : (
+          console.log("show spinner")
+        )}
       </Col>
       <Col className="d-none d-lg-block p-0 p-lg-2" md={3}>
         <p>My following profiles - desktop</p>

@@ -93,7 +93,7 @@ const Post = (props) => {
       <Card.Body>
         <div className={styles.StatsDiv}>
           <span className={`${styles.PinSpan}`}>
-            <i class="fa-solid fa-thumbtack"></i>
+            <i className="fa-solid fa-thumbtack"></i>
             {num_of_pins}
           </span>
           <span className={styles.CommentSpan}>
@@ -106,12 +106,12 @@ const Post = (props) => {
         <div>
           {pinned_id ? (
             <Button className={btnStyles.UnpinButton} onClick={handleUnpin}>
-              <i class="fa-solid fa-location-pin"></i>
+              <i className="fa-solid fa-location-pin"></i>
               Unpin
             </Button>
           ) : currentUser ? (
             <Button className={btnStyles.PinButton} onClick={handlePin}>
-              <i class="fa-solid fa-thumbtack"></i>
+              <i className="fa-solid fa-thumbtack"></i>
               Pin
             </Button>
           ) : (
