@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import { useLocation } from "react-router-dom";
 
-function PostList() {
+function PostList({ message, filter = "" }) {
+  const [posts, setPosts] = useState({ results: [] });
+  const [postLoaded, setPostLoaded] = useState(false);
+  const [pathname] = useLocation();
+
   return (
     <Row>
       <Col className="d-none d-lg-block p-0 p-lg-2" md={3}>
