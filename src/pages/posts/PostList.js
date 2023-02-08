@@ -11,6 +11,8 @@ function PostList({ message, filter = "" }) {
   const [postLoaded, setPostLoaded] = useState(false);
   const { pathname } = useLocation();
 
+  const [searchQuery, setSearchQuery] = useState("");
+
   useEffect(() => {
     const getPosts = async () => {
       try {
@@ -52,8 +54,16 @@ function PostList({ message, filter = "" }) {
       </Col>
       <Col className="d-none d-lg-block p-0 p-lg-2" md={3}>
         <i className={`${styles.Icon} fa-solid fa-magnifying-glass`}></i>
-        <Form className={styles.Search} onSubmit={(event) => event.preventDefault()}>
-          <Form.Control type="text" placeholder="Search Posts"></Form.Control>
+        <Form
+          className={styles.Search}
+          onSubmit={(event) => event.preventDefault()}
+        >
+          <Form.Control
+            type="text"
+            placeholder="Search Posts"
+            value={searchQuery}
+            onChange={(event) => setSearchQuery(event.target.value)}
+          ></Form.Control>
         </Form>
         <p>My following profiles - desktop</p>
       </Col>
