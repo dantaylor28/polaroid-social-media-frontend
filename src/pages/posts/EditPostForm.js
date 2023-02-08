@@ -11,8 +11,6 @@ import {
 import styles from "../../styles/CreateEditPostForm.module.css";
 import formStyles from "../../styles/CreateAccountForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
-import Asset from "../../components/Asset";
-import upload from "../../assets/upload.png";
 import { useHistory, useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 
@@ -129,9 +127,9 @@ function EditPostForm() {
           value={category}
           onChange={handleChange}
         >
-          <option value="general">general</option>
-          <option value="landscapes">landscapes</option>
-          <option value="portraits">portraits</option>
+          <option value="1">general</option>
+          <option value="2">landscapes</option>
+          <option value="3">portraits</option>
         </Form.Control>
       </Form.Group>
       {errors?.category?.map((message, idx) => (
@@ -202,9 +200,9 @@ function EditPostForm() {
                 value={category}
                 onChange={handleChange}
               >
-                <option value="general">general</option>
-                <option value="landscapes">landscapes</option>
-                <option value="portraits">portraits</option>
+                <option value="1">general</option>
+                <option value="2">landscapes</option>
+                <option value="3">portraits</option>
               </Form.Control>
             </Form.Group>
             {errors?.category?.map((message, idx) => (
