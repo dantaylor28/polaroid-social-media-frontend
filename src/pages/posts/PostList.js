@@ -3,6 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { useLocation } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import Post from "./Post";
+import Asset from "../../components/Asset"
 
 function PostList({ message, filter = "" }) {
   const [posts, setPosts] = useState({ results: [] });
@@ -36,10 +37,12 @@ function PostList({ message, filter = "" }) {
               ? posts.results.map((post) => (
                   <Post key={post.id} {...post} setPosts={setPosts} />
                 ))
-              : console.log("no results")}
+              : <Container>
+                <p>Nothing to show :/</p>
+              </Container>}
           </>
         ) : (
-          console.log("show spinner")
+          <Asset spinner />
         )}
       </Col>
       <Col className="d-none d-lg-block p-0 p-lg-2" md={3}>
