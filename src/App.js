@@ -30,7 +30,10 @@ function App() {
             exact
             path="/pinboard"
             render={() => (
-              <PostList message="Nothing to show.. Please adjust your search or pin some posts!" />
+              <PostList
+                message="Nothing to show.. Please adjust your search or pin some posts!"
+                filter={`pins__owner__profile=${profile_id}&ordering=-pins__timestamp&`}
+              />
             )}
           />
           <Route exact path="/signin" render={() => <SignInForm />} />
