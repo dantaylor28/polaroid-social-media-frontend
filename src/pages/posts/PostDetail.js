@@ -15,7 +15,6 @@ function PostDetail() {
           axiosReq.get(`/posts/${id}`),
         ]);
         setPost({ results: [post] });
-        console.log(post);
       } catch (error) {
         console.log(error);
       }

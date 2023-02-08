@@ -7,6 +7,7 @@ import Asset from "../../components/Asset";
 import styles from "../../styles/PostList.module.css";
 import noResultImg from "../../assets/no-results.png";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { getMoreData } from "../../utils/utils";
 
 function PostList({ message, filter = "" }) {
   const [posts, setPosts] = useState({ results: [] });
@@ -53,7 +54,7 @@ function PostList({ message, filter = "" }) {
                 dataLength={posts.results.length}
                 loader={<Asset grow />}
                 hasMore={!!posts.next}
-                next={() => {}}
+                next={() => getMoreData(posts, setPosts)}
               />
             ) : (
               <Container>
