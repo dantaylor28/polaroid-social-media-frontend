@@ -8,14 +8,31 @@ import SignInForm from "./pages/auth/SignInForm";
 import CreatePostForm from "./pages/posts/CreatePostForm";
 import PostDetail from "./pages/posts/PostDetail";
 import PostList from "./pages/posts/PostList";
+import { useCurrentUser } from "./contexts/CurrentUserContext";
 
 function App() {
+  const currentUser = useCurrentUser();
+  const profile_id = currentUser?.profile_id || "";
+
   return (
     <div className={styles.App}>
       <NavBar />
       <Container className={styles.HomePage}>
         <Switch>
-          <Route exact path="/" render={() => <PostList message="Nothing to show.. Please adjust your search!" />} />
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <PostList message="Nothing to show.. Please adjust your search!" />
+            )}
+          />
+          <Route
+            exact
+            path="/pinboard"
+            render={() => (
+              <PostList message="Nothing to show.. Please adjust your search or pin some posts!" />
+            )}
+          />
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route
             exact
