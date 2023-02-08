@@ -13,12 +13,12 @@ const IconToggle = React.forwardRef(({ onClick }, ref) => (
   />
 ));
 
-export const EditDeleteDropdown = () => {
+export const EditDeleteDropdown = ({ handleEdit }) => {
   return (
     <Dropdown drop="left">
       <Dropdown.Toggle as={IconToggle} />
       <Dropdown.Menu className="text-center">
-        <Dropdown.Item>
+        <Dropdown.Item onClick={handleEdit} aria-label="edit-post">
           <i class="fa-solid fa-file-pen"></i>
           Edit
         </Dropdown.Item>

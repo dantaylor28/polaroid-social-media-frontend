@@ -7,7 +7,7 @@ import {
   OverlayTrigger,
   Tooltip,
 } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import ProfileAvatar from "../../components/ProfileAvatar";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import styles from "../../styles/Post.module.css";
@@ -35,6 +35,7 @@ const Post = (props) => {
 
   const currentUser = useCurrentUser();
   const is_post_owner = currentUser?.username === owner;
+  const history = useHistory();
 
   const handlePin = async () => {
     try {
@@ -68,6 +69,10 @@ const Post = (props) => {
     }
   };
 
+  const handleEdit = () => {
+    history.push(`/posts/edit/${id}`);
+  };
+
   return (
     <Card className={styles.Post}>
       <Card.Body>
@@ -77,7 +82,7 @@ const Post = (props) => {
             {owner}
           </Link>
           <div className="d-flex align-items-center">
-            {is_post_owner && postDetail && <EditDeleteDropdown />}
+            {is_post_owner && postDetail && <EditDeleteDropdown handleEdit={handleEdit} />}
           </div>
         </Media>
         <div>
