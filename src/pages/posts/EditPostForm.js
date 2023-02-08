@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   Container,
   Form,
@@ -13,7 +13,7 @@ import formStyles from "../../styles/CreateAccountForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import Asset from "../../components/Asset";
 import upload from "../../assets/upload.png";
-import { useHistory } from "react-router";
+import { useHistory, useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 
 function EditPostForm() {
@@ -29,6 +29,22 @@ function EditPostForm() {
 
   const imageInput = useRef(null);
   const history = useHistory();
+  const { id } = useParams();
+
+  useEffect(() => {
+    const handleMount = async () => {
+      try {
+        const { data } = await axiosReq.get(`/posts/${id}`);
+        const { title, caption, category, post_image, is_post_owner } = data;
+        is_post_owner
+          ? setPostData({ title, caption, category, post_image })
+          : history.push("/");
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    handleMount();
+  }, [id, history]);
 
   const handleChange = (event) => {
     setPostData({
@@ -54,11 +70,13 @@ function EditPostForm() {
     formData.append("title", title);
     formData.append("caption", caption);
     formData.append("category", category);
-    formData.append("post_image", imageInput.current.files[0]);
+    if (imageInput?.current?.files[0]) {
+      formData.append("post_image", imageInput.current.files[0]);
+    }
 
     try {
-      const { data } = await axiosReq.post("/posts/", formData);
-      history.push(`/posts/${data.id}`);
+      await axiosReq.put(`/posts/${id}`, formData);
+      history.push(`/posts/${id}`);
     } catch (error) {
       console.log(error);
       if (error.response?.status !== 401) {
