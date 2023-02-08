@@ -6,6 +6,7 @@ import CompressedPost from "./CompressedPost";
 import Asset from "../../components/Asset";
 import styles from "../../styles/PostList.module.css";
 import noResultImg from "../../assets/no-results.png";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 function PostList({ message, filter = "" }) {
   const [posts, setPosts] = useState({ results: [] });
@@ -45,9 +46,15 @@ function PostList({ message, filter = "" }) {
         {postLoaded ? (
           <>
             {posts.results.length ? (
-              posts.results.map((post) => (
-                <CompressedPost key={post.id} {...post} setPosts={setPosts} />
-              ))
+              <InfiniteScroll
+                children={posts.results.map((post) => (
+                  <CompressedPost key={post.id} {...post} setPosts={setPosts} />
+                ))}
+                dataLength={posts.results.length}
+                loader={<Asset grow />}
+                hasMore={!!posts.next}
+                next={() => {}}
+              />
             ) : (
               <Container>
                 <Asset src={noResultImg} message={message} />
