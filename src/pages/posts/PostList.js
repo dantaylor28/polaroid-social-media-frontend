@@ -16,7 +16,7 @@ function PostList({ message, filter = "" }) {
   useEffect(() => {
     const getPosts = async () => {
       try {
-        const { data } = await axiosReq.get(`/posts/?${filter}`);
+        const { data } = await axiosReq.get(`/posts/?${filter}search=${searchQuery}`);
         setPosts(data);
         setPostLoaded(true);
       } catch (error) {
@@ -25,7 +25,7 @@ function PostList({ message, filter = "" }) {
     };
     setPostLoaded(false);
     getPosts();
-  }, [filter, pathname]);
+  }, [filter, pathname, searchQuery]);
 
   return (
     <Row>
