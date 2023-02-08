@@ -5,6 +5,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import CompressedPost from "./CompressedPost";
 import Asset from "../../components/Asset";
 import styles from "../../styles/PostList.module.css";
+import noResultImg from "../../assets/no-results.png";
 
 function PostList({ message, filter = "" }) {
   const [posts, setPosts] = useState({ results: [] });
@@ -49,7 +50,7 @@ function PostList({ message, filter = "" }) {
               ))
             ) : (
               <Container>
-                <Asset message={message}/>
+                <Asset src={noResultImg} message={message} />
               </Container>
             )}
           </>
