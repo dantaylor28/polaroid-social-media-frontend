@@ -44,6 +44,13 @@ const NavBar = () => {
       >
         My Pinboard
       </NavLink>
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.ActiveLink}
+        to="/discover"
+      >
+        Discover
+      </NavLink>
       <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
         Sign Out
       </NavLink>
