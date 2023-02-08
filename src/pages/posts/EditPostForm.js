@@ -140,7 +140,7 @@ function EditPostForm() {
       <Row>
         <Col className="d-none d-md-block p-0 p-md-2" md={5} lg={5}>
           <Container className={styles.CreatePostForm}>
-            <h1 className={styles.Heading}>upload a post</h1>
+            <h1 className={styles.Heading}>edit your post</h1>
             <Form.Group className={formStyles.FormFields}>
               <Form.Label className="d-none">Title</Form.Label>
               <Form.Control
@@ -202,7 +202,7 @@ function EditPostForm() {
                 Cancel
               </Button>
               <Button className={btnStyles.PostButton} type="submit">
-                Upload
+                Update
               </Button>
             </div>
           </Container>
