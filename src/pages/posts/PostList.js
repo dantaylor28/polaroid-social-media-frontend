@@ -1,11 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
+import { axiosReq } from "../../api/axiosDefaults";
 
 function PostList({ message, filter = "" }) {
   const [posts, setPosts] = useState({ results: [] });
   const [postLoaded, setPostLoaded] = useState(false);
   const [pathname] = useLocation();
+
+  useEffect(() => {
+    const getPosts = async () => {
+      try {
+        const { data } = await axiosReq.get(`/posts/?${filter}`);
+        setPosts(data);
+        setPostLoaded(true);
+      } catch (error) {
+        console.log(error)
+      }
+    };
+  });
 
   return (
     <Row>
