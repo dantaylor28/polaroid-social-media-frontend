@@ -1,17 +1,17 @@
+import React from "react";
+import { Dropdown } from "react-bootstrap";
+
 // The forwardRef is important!!
 // Dropdown needs access to the DOM node in order to position the Menu
-const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
-  <a
-    href=""
+const IconToggle = React.forwardRef(({ onClick }, ref) => (
+  <i
+    className="fa-solid fa-pen"
     ref={ref}
     onClick={(e) => {
       e.preventDefault();
       onClick(e);
     }}
-  >
-    {children}
-    &#x25bc;
-  </a>
+  />
 ));
 
 // forwardRef again here!
