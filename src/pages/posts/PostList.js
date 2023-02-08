@@ -3,12 +3,12 @@ import { Container, Row, Col } from "react-bootstrap";
 import { useLocation } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import Post from "./Post";
-import Asset from "../../components/Asset"
+import Asset from "../../components/Asset";
 
 function PostList({ message, filter = "" }) {
   const [posts, setPosts] = useState({ results: [] });
   const [postLoaded, setPostLoaded] = useState(false);
-  const {pathname} = useLocation();
+  const { pathname } = useLocation();
 
   useEffect(() => {
     const getPosts = async () => {
@@ -33,16 +33,20 @@ function PostList({ message, filter = "" }) {
         <p>My following profiles - mobile</p>
         {postLoaded ? (
           <>
-            {posts.results.length
-              ? posts.results.map((post) => (
-                  <Post key={post.id} {...post} setPosts={setPosts} />
-                ))
-              : <Container>
+            {posts.results.length ? (
+              posts.results.map((post) => (
+                <Post key={post.id} {...post} setPosts={setPosts} />
+              ))
+            ) : (
+              <Container>
                 <p>Nothing to show :/</p>
-              </Container>}
+              </Container>
+            )}
           </>
         ) : (
-          <Asset spinner />
+          <Container>
+            <Asset spinner />
+          </Container>
         )}
       </Col>
       <Col className="d-none d-lg-block p-0 p-lg-2" md={3}>

@@ -68,7 +68,7 @@ const Post = (props) => {
   };
 
   return (
-    <Card>
+    <Card className={styles.Post}>
       <Card.Body>
         <Media className="align-items-center justify-content-between">
           <Link className={styles.Owner} to={`/profiles/${profile_id}`}>
