@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Form } from "react-bootstrap";
 import { useLocation } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
-import CompressedPost from "./CompressedPost"
+import CompressedPost from "./CompressedPost";
 import Asset from "../../components/Asset";
+import styles from "../../styles/PostList.module.css";
 
 function PostList({ message, filter = "" }) {
   const [posts, setPosts] = useState({ results: [] });
@@ -50,6 +51,10 @@ function PostList({ message, filter = "" }) {
         )}
       </Col>
       <Col className="d-none d-lg-block p-0 p-lg-2" md={3}>
+        <i className={`${styles.Icon} fa-solid fa-magnifying-glass`}></i>
+        <Form className={styles.Search} onSubmit={(event) => event.preventDefault()}>
+          <Form.Control type="text" placeholder="Search Posts"></Form.Control>
+        </Form>
         <p>My following profiles - desktop</p>
       </Col>
     </Row>
