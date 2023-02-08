@@ -212,31 +212,17 @@ function EditPostForm() {
             className={`${styles.ImagePreview} d-flex flex-column justify-content-center`}
           >
             <Form.Group className="text-center">
-              {post_image ? (
-                <>
-                  <figure>
-                    <Image src={post_image} className={styles.Image} rounded />
-                  </figure>
-                  <div>
-                    <Form.Label
-                      className={`${btnStyles.PostButton} btn`}
-                      htmlFor="image-upload"
-                    >
-                      Change Image
-                    </Form.Label>
-                  </div>
-                </>
-              ) : (
+              <figure>
+                <Image src={post_image} className={styles.Image} rounded />
+              </figure>
+              <div>
                 <Form.Label
-                  className="d-flex justify-content-center"
+                  className={`${btnStyles.PostButton} btn`}
                   htmlFor="image-upload"
                 >
-                  <Asset
-                    src={upload}
-                    message="Click or tap to choose an image"
-                  />
+                  Change Image
                 </Form.Label>
-              )}
+              </div>
               <Form.File
                 className="d-none"
                 id="image-upload"
