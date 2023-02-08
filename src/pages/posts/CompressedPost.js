@@ -76,20 +76,15 @@ const Post = (props) => {
             {owner}
           </Link>
           <div className="d-flex align-items-center">
-            {is_post_owner && postDetail && <i className="fa-solid fa-pen"></i>}
-          </div>
-        </Media>
-        <div>
           <span className={`${styles.TimeStamp} text-muted`}>{updated_at}</span>
         </div>
-      </Card.Body>
-      <Card.Body>
-        {title && <Card.Title className={styles.Title}>{title}</Card.Title>}
-        <Container>{caption && <Card.Text>{caption}</Card.Text>}</Container>
+        </Media>
       </Card.Body>
       <Link to={`/posts/${id}`}>
         <Card.Img src={post_image} alt={title} />
       </Link>
+        {title && <Card.Title className={`${styles.Title} mt-1`}>{title}</Card.Title>}
+        <Container>{caption && <Card.Text>{caption}</Card.Text>}</Container>
       <Card.Body>
         <div className={styles.StatsDiv}>
           <span className={`${styles.PinSpan}`}>
