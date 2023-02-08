@@ -18,8 +18,14 @@ export const EditDeleteDropdown = () => {
     <Dropdown drop="left">
       <Dropdown.Toggle as={IconToggle} />
       <Dropdown.Menu className="text-center">
-        <Dropdown.Item>Edit</Dropdown.Item>
-        <Dropdown.Item>Delete</Dropdown.Item>
+        <Dropdown.Item>
+          <i class="fa-solid fa-file-pen"></i>
+          Edit
+        </Dropdown.Item>
+        <Dropdown.Item>
+          <i class="fa-solid fa-trash"></i>
+          Delete
+        </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
   );
