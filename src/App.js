@@ -7,6 +7,7 @@ import CreateAccountForm from "./pages/auth/CreateAccountForm";
 import SignInForm from "./pages/auth/SignInForm";
 import CreatePostForm from "./pages/posts/CreatePostForm";
 import PostDetail from "./pages/posts/PostDetail";
+import PostList from "./pages/posts/PostList";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
       <NavBar />
       <Container className={styles.HomePage}>
         <Switch>
-          <Route exact path="/" render={() => <h1>Home</h1>} />
+          <Route exact path="/" render={() => <PostList message="Nothing to show.. Please adjust your search!" />} />
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route
             exact
