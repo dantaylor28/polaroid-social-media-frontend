@@ -13,6 +13,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import styles from "../../styles/Post.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { axiosRes } from "../../api/axiosDefaults";
+import { EditDeleteDropdown } from "../../components/EditDeleteDropdown";
 
 const Post = (props) => {
   const {
@@ -76,7 +77,7 @@ const Post = (props) => {
             {owner}
           </Link>
           <div className="d-flex align-items-center">
-            {is_post_owner && postDetail && <i className="fa-solid fa-pen"></i>}
+            {is_post_owner && postDetail && <EditDeleteDropdown />}
           </div>
         </Media>
         <div>

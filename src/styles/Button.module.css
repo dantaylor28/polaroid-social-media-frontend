@@ -71,3 +71,14 @@
     background-color: #b82f4c !important;
     border-color: #f8f8f8;
 }
+
+.EditDeleteIcon {
+    color: #464646;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.EditDeleteIcon:hover {
+    color: black;
+    cursor: pointer;
+}
