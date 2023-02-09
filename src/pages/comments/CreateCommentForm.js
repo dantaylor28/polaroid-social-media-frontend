@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Form, InputGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ProfileAvatar from "../../components/ProfileAvatar";
@@ -6,6 +6,11 @@ import styles from "../../styles/CreateEditCommentForm.module.css";
 
 function CreateCommentForm(props) {
   const { post, setPost, setComments, profile_id, profileImage } = props;
+  const [text, setText] = useState("");
+
+  const handleChange = (event) => {
+    setText(event.target.value);
+  };
 
   return (
     <Form>
@@ -19,7 +24,8 @@ function CreateCommentForm(props) {
             placeholder="Leave a comment.."
             as="textarea"
             rows={2}
-            onChange={() => {}}
+            value={text}
+            onChange={handleChange}
           />
         </InputGroup>
       </Form.Group>
