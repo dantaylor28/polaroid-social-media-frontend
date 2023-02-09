@@ -1,38 +1,35 @@
 import React, { useState } from "react";
-import { Button, Form, InputGroup } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import ProfileAvatar from "../../components/ProfileAvatar";
+import { Button, Form } from "react-bootstrap";
 import styles from "../../styles/CreateEditCommentForm.module.css";
 import { axiosRes } from "../../api/axiosDefaults";
 
-function CreateCommentForm(props) {
-  const { post, setPost, setComments, profile_id, profileImage } = props;
-  const [text, setText] = useState("");
+function EditCommentForm(props) {
+  const { setComments, id, text, setDisplayEditForm } = props;
+  const [textContent, setTextContent] = useState(text);
 
   const handleChange = (event) => {
-    setText(event.target.value);
+    setTextContent(event.target.value);
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const { data } = await axiosRes.post("/comments/", {
-        text,
-        post,
+      await axiosRes.put(`/comments/${id}`, {
+        text: textContent,
       });
       setComments((prevComments) => ({
         ...prevComments,
-        results: [data, ...prevComments.results],
+        results: prevComments.results.map((comment) => {
+          return comment.id === id
+            ? {
+                ...comment,
+                content: textContent,
+                updated_at: "Just now",
+              }
+            : comment;
+        }),
       }));
-      setPost((prevPost) => ({
-        results: [
-          {
-            ...prevPost.results[0],
-            num_of_comments: prevPost.results[0].num_of_comments + 1,
-          },
-        ],
-      }));
-      setText("");
+      setDisplayEditForm(false);
     } catch (error) {
       console.log(error);
     }
@@ -61,4 +58,4 @@ function CreateCommentForm(props) {
   );
 }
 
-export default CreateCommentForm;
+export default EditCommentForm;
