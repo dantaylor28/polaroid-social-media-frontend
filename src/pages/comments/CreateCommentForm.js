@@ -1,11 +1,12 @@
 import React from "react";
-import { Form, InputGroup } from "react-bootstrap";
+import { Button, Form, InputGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ProfileAvatar from "../../components/ProfileAvatar";
+import btnStyles from "../../styles/Button.module.css";
 
 function CreateCommentForm(props) {
   const { post, setPost, setComments, profile_id, profileImage } = props;
-  
+
   return (
     <Form>
       <Form.Group>
@@ -21,7 +22,7 @@ function CreateCommentForm(props) {
           />
         </InputGroup>
       </Form.Group>
-      <button type="submit">Post Comment</button>
+      <Button className={`${btnStyles.PostButton}`} type="submit">Post Comment</Button>
     </Form>
   );
 }
