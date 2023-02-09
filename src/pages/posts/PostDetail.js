@@ -3,6 +3,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import CreateCommentForm from "../comments/CreateCommentForm";
 import Post from "./Post";
 
 function PostDetail() {
@@ -35,7 +36,13 @@ function PostDetail() {
         <Container>
           <Post {...post.results[0]} postDetail setPosts={setPost} />
         </Container>
-        <Container>list of comments here</Container>
+        <Container>
+          {currentUser ? (
+            <CreateCommentForm />
+          ) : comments.results.length ? (
+            "list comments here"
+          ) : null}
+        </Container>
       </Col>
       <Col className="d-none d-lg-block" lg={3}>
         <Container>extra component here. profiles? for desktop</Container>
