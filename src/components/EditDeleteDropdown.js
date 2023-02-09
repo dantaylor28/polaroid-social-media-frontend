@@ -22,11 +22,11 @@ export const EditDeleteDropdown = ({ handleEdit, handleDelete }) => {
         popperConfig={{ strategy: "fixed" }}
       >
         <Dropdown.Item onClick={handleEdit} aria-label="edit-post">
-          <i class="fa-solid fa-file-pen"></i>
+          <i className="fa-solid fa-file-pen"></i>
           Edit
         </Dropdown.Item>
         <Dropdown.Item onClick={handleDelete} aria-label="delete-post">
-          <i class="fa-solid fa-trash"></i>
+          <i className="fa-solid fa-trash"></i>
           Delete
         </Dropdown.Item>
       </Dropdown.Menu>
