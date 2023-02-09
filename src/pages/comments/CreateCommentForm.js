@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Form, InputGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ProfileAvatar from "../../components/ProfileAvatar";
-import btnStyles from "../../styles/Button.module.css";
+import styles from "../../styles/CreateEditCommentForm.module.css";
 
 function CreateCommentForm(props) {
   const { post, setPost, setComments, profile_id, profileImage } = props;
@@ -15,14 +15,19 @@ function CreateCommentForm(props) {
             <ProfileAvatar src={profileImage} size={55} />
           </Link>
           <Form.Control
-            placeholder="comment here"
+            className={styles.CommentForm}
+            placeholder="Leave a comment.."
             as="textarea"
-            rows={3}
+            rows={2}
             onChange={() => {}}
           />
         </InputGroup>
       </Form.Group>
-      <Button className={`${btnStyles.PostButton}`} type="submit">Post Comment</Button>
+      <div className={styles.BtnDiv}>
+        <Button className={`${styles.Button}`} type="submit">
+          Comment
+        </Button>
+      </div>
     </Form>
   );
 }

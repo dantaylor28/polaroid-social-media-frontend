@@ -8,7 +8,7 @@ const ProfileAvatar = ({ src, size = 50, text }) => {
         src={src}
         height={size}
         width={size}
-        alt="profile-avatar"
+        alt="avatar"
         className={styles.ProfileAvatar}
       />
       {text}

@@ -37,7 +37,7 @@ function PostDetail() {
         <Container>
           <Post {...post.results[0]} postDetail setPosts={setPost} />
         </Container>
-        <Container>
+        <Container className="mb-3">
           {currentUser ? (
             <CreateCommentForm
               post={id}
