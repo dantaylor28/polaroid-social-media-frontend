@@ -52,7 +52,11 @@ function PostDetail() {
             "Comments"
           ) : null}
           {comments.results.length ? (
-            "map over comments here"
+            comments.results.map((comment) => (
+              <p key={comment.id}>
+                {comment.owner}: {comment.text}
+              </p>
+            ))
           ) : currentUser ? (
             <span>Be the first to comment!</span>
           ) : (
