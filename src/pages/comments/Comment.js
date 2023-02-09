@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Media } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ProfileAvatar from "../../components/ProfileAvatar";
 import styles from "../../styles/Comment.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { EditDeleteDropdown } from "../../components/EditDeleteDropdown";
-import axios from "axios";
 import { axiosRes } from "../../api/axiosDefaults";
+import EditCommentForm from "./EditCommentForm";
 
 const Comment = (props) => {
   const {
@@ -20,6 +20,7 @@ const Comment = (props) => {
     setComments,
   } = props;
 
+  const [displayEditForm, setDisplayEditForm] = useState(false);
   const currentUser = useCurrentUser();
   const is_comment_owner = currentUser?.username === owner;
 
@@ -54,10 +55,24 @@ const Comment = (props) => {
             <span className={styles.Owner}>{owner}</span>
           </Link>
           <span className={`${styles.Timestamp}`}>{timestamp}</span>
-          <p className="mt-1">{text}</p>
+          {displayEditForm ? (
+            <EditCommentForm
+              id={id}
+              profile_id={profile_id}
+              text={text}
+              profileImage={profile_image}
+              setComments={setComments}
+              setDisplayEditForm={setDisplayEditForm}
+            />
+          ) : (
+            <p className="mt-1">{text}</p>
+          )}
         </Media.Body>
         {is_comment_owner && (
-          <EditDeleteDropdown handleEdit={() => {}} handleDelete={handleDelete} />
+          <EditDeleteDropdown
+            handleEdit={() => setDisplayEditForm(true)}
+            handleDelete={handleDelete}
+          />
         )}
       </Media>
     </div>

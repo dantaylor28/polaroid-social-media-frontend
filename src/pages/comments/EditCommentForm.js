@@ -23,7 +23,7 @@ function EditCommentForm(props) {
           return comment.id === id
             ? {
                 ...comment,
-                content: textContent,
+                text: textContent,
                 updated_at: "Just now",
               }
             : comment;
@@ -42,12 +42,12 @@ function EditCommentForm(props) {
           className={styles.CommentForm}
           as="textarea"
           rows={1}
-          value={text}
+          value={textContent}
           onChange={handleChange}
         />
       </Form.Group>
       <div className={styles.BtnDiv}>
-        <Button className={`${styles.Button} mb-3 mr-5`} type="button">
+        <Button className={`${styles.Button} mb-3 mr-5`} type="button" onClick={() => setDisplayEditForm(false)}>
           Cancel
         </Button>
         <Button className={`${styles.Button} mb-3 mr-5`} type="submit">
