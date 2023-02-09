@@ -2,11 +2,15 @@ import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Post from "./Post";
 
 function PostDetail() {
   const { id } = useParams();
   const [post, setPost] = useState({ results: [] });
+
+  const currentUser = useCurrentUser();
+  const [comments, setComments] = useState({ results: [] });
 
   useEffect(() => {
     const handleMount = async () => {
