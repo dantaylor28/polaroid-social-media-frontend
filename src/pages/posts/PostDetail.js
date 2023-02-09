@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
+import InfiniteScroll from "react-infinite-scroll-component";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Comment from "../comments/Comment";
 import CreateCommentForm from "../comments/CreateCommentForm";
 import Post from "./Post";
+import Asset from "../../components/Asset";
+import { getMoreData } from "../../utils/utils";
 
 function PostDetail() {
   const { id } = useParams();
@@ -53,14 +56,20 @@ function PostDetail() {
             "Comments"
           ) : null}
           {comments.results.length ? (
-            comments.results.map((comment) => (
-              <Comment
-                key={comment.id}
-                {...comment}
-                setPost={setPost}
-                setComments={setComments}
-              />
-            ))
+            <InfiniteScroll
+              children={comments.results.map((comment) => (
+                <Comment
+                  key={comment.id}
+                  {...comment}
+                  setPost={setPost}
+                  setComments={setComments}
+                />
+              ))}
+              dataLength={comments.results.length}
+              loader={<Asset spinner />}
+              hasMore={!!comments.next}
+              next={() => getMoreData(comments, setComments)}
+            />
           ) : currentUser ? (
             <span>Be the first to comment!</span>
           ) : (
