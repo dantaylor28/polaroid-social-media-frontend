@@ -1,7 +1,8 @@
 import React from "react";
 import { Form, FormControl, InputGroup } from "react-bootstrap";
 
-function CreateCommentForm() {
+function CreateCommentForm(props) {
+  const { post, setPost, setComments, profile_id, profileImage } = props;
   return (
     <Form>
       <Form.Group>
