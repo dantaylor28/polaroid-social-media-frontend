@@ -3,6 +3,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import Comment from "../comments/Comment";
 import CreateCommentForm from "../comments/CreateCommentForm";
 import Post from "./Post";
 
@@ -53,9 +54,7 @@ function PostDetail() {
           ) : null}
           {comments.results.length ? (
             comments.results.map((comment) => (
-              <p key={comment.id}>
-                {comment.owner}: {comment.text}
-              </p>
+              <Comment key={comment.id} {...comment} />
             ))
           ) : currentUser ? (
             <span>Be the first to comment!</span>
