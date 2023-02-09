@@ -13,11 +13,11 @@ const Comment = (props) => {
     profile_id,
     profile_image,
     text,
-    timestamp,
     owner,
     id,
     setPost,
     setComments,
+    updated_at,
   } = props;
 
   const [displayEditForm, setDisplayEditForm] = useState(false);
@@ -54,7 +54,7 @@ const Comment = (props) => {
           <Link className={styles.OwnerLink} to={`/profiles/${profile_id}`}>
             <span className={styles.Owner}>{owner}</span>
           </Link>
-          <span className={`${styles.Timestamp}`}>{timestamp}</span>
+          <span className={`${styles.Timestamp}`}>{updated_at}</span>
           {displayEditForm ? (
             <EditCommentForm
               id={id}
