@@ -12,6 +12,7 @@ function PostDetail() {
 
   const currentUser = useCurrentUser();
   const [comments, setComments] = useState({ results: [] });
+  const profile_image = currentUser?.profile_image;
 
   useEffect(() => {
     const handleMount = async () => {
@@ -38,7 +39,13 @@ function PostDetail() {
         </Container>
         <Container>
           {currentUser ? (
-            <CreateCommentForm />
+            <CreateCommentForm
+              post={id}
+              setPost={setPost}
+              setComments={setComments}
+              profile_id={currentUser.profile_id}
+              profileImage={profile_image}
+            />
           ) : comments.results.length ? (
             "list comments here"
           ) : null}
