@@ -4,7 +4,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import Asset from "../../components/Asset";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
-const MostFollowedProfiles = () => {
+const MostFollowedProfiles = ({ mobile }) => {
   const [profileData, setProfileData] = useState({
     mostFollowedProfiles: { results: [] },
   });
@@ -29,13 +29,21 @@ const MostFollowedProfiles = () => {
   }, [currentUser]);
 
   return (
-    <Container>
-      <p>Check out the most followed profiles!</p>
+    <Container className={mobile && "d-lg-none text-center mb-3"}>
       {mostFollowedProfiles.results.length ? (
         <>
-          {mostFollowedProfiles.results.map((profile) => (
-            <p key={profile.id}>{profile.owner}</p>
-          ))}
+          <p>Check out the most followed profiles!</p>
+          {mobile ? (
+            <div className="d-flex justify-content-around">
+              {mostFollowedProfiles.results.slice(0, 4).map((profile) => (
+                <p key={profile.id}>{profile.owner}</p>
+              ))}
+            </div>
+          ) : (
+            mostFollowedProfiles.results.map((profile) => (
+              <p key={profile.id}>{profile.owner}</p>
+            ))
+          )}
         </>
       ) : (
         <Asset spinner />
