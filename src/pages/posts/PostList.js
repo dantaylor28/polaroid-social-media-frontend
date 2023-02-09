@@ -8,6 +8,7 @@ import styles from "../../styles/PostList.module.css";
 import noResultImg from "../../assets/no-results.png";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { getMoreData } from "../../utils/utils";
+import MostFollowedProfiles from "../profiles/MostFollowedProfiles";
 
 function PostList({ message, filter = "" }) {
   const [posts, setPosts] = useState({ results: [] });
@@ -81,7 +82,7 @@ function PostList({ message, filter = "" }) {
             onChange={(event) => setSearchQuery(event.target.value)}
           ></Form.Control>
         </Form>
-        <p>My following profiles - desktop</p>
+        <MostFollowedProfiles />
       </Col>
     </Row>
   );
