@@ -49,8 +49,15 @@ function PostDetail() {
               profileImage={profile_image}
             />
           ) : comments.results.length ? (
-            "list comments here"
+            "Comments"
           ) : null}
+          {comments.results.length ? (
+            "map over comments here"
+          ) : currentUser ? (
+            <span>Be the first to comment!</span>
+          ) : (
+            <span>No comments to show..</span>
+          )}
         </Container>
       </Col>
       <Col className="d-none d-lg-block" lg={3}>
