@@ -7,7 +7,16 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { EditDeleteDropdown } from "../../components/EditDeleteDropdown";
 
 const Comment = (props) => {
-  const { profile_id, profile_image, text, timestamp, owner } = props;
+  const {
+    profile_id,
+    profile_image,
+    text,
+    timestamp,
+    owner,
+    id,
+    handleDelete,
+    handleEdit,
+  } = props;
 
   const currentUser = useCurrentUser();
   const is_comment_owner = currentUser?.username === owner;
@@ -25,7 +34,9 @@ const Comment = (props) => {
           <span className={`${styles.Timestamp}`}>{timestamp}</span>
           <p className="mt-1">{text}</p>
         </Media.Body>
-        {is_comment_owner && <EditDeleteDropdown />}
+        {is_comment_owner && (
+          <EditDeleteDropdown handleEdit={() => {}} handleDelete={() => {}} />
+        )}
       </Media>
     </div>
   );
