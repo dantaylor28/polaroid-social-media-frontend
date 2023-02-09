@@ -39,7 +39,7 @@ function CreateCommentForm(props) {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form className={styles.Form} onSubmit={handleSubmit}>
       <Form.Group>
         <InputGroup>
           <Link to={`/profiles/${profile_id}`}>
@@ -49,14 +49,14 @@ function CreateCommentForm(props) {
             className={styles.CommentForm}
             placeholder="Leave a comment.."
             as="textarea"
-            rows={2}
+            rows={1}
             value={text}
             onChange={handleChange}
           />
         </InputGroup>
       </Form.Group>
       <div className={styles.BtnDiv}>
-        <Button className={`${styles.Button}`} type="submit">
+        <Button className={`${styles.Button} mb-3 mr-5`} type="submit">
           Comment
         </Button>
       </div>

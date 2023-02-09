@@ -1,3 +1,7 @@
+.Form {
+    background-color: white;
+}
+
 .Button {
     min-width: 15%;
     padding: 5px 10px;
@@ -20,4 +24,5 @@
 .CommentForm {
     border: none;
     border-bottom: 3px solid #bebebe;
+    margin-top: 10px;
 }
