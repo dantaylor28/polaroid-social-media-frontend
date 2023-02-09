@@ -5,6 +5,8 @@ import ProfileAvatar from "../../components/ProfileAvatar";
 import styles from "../../styles/Comment.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { EditDeleteDropdown } from "../../components/EditDeleteDropdown";
+import axios from "axios";
+import { axiosRes } from "../../api/axiosDefaults";
 
 const Comment = (props) => {
   const {
@@ -14,12 +16,32 @@ const Comment = (props) => {
     timestamp,
     owner,
     id,
-    handleDelete,
-    handleEdit,
+    setPost,
+    setComments,
   } = props;
 
   const currentUser = useCurrentUser();
   const is_comment_owner = currentUser?.username === owner;
+
+  const handleDelete = async () => {
+    try {
+      await axiosRes.delete(`/comments/${id}`);
+      setPost((prevPost) => ({
+        results: [
+          {
+            ...prevPost.results[0],
+            num_of_comments: prevPost.results[0].num_of_comments - 1,
+          },
+        ],
+      }));
+      setComments((prevComments) => ({
+        ...prevComments,
+        results: prevComments.results.filter((comment) => comment.id !== id),
+      }));
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className={styles.Comment}>
@@ -35,7 +57,7 @@ const Comment = (props) => {
           <p className="mt-1">{text}</p>
         </Media.Body>
         {is_comment_owner && (
-          <EditDeleteDropdown handleEdit={() => {}} handleDelete={() => {}} />
+          <EditDeleteDropdown handleEdit={() => {}} handleDelete={handleDelete} />
         )}
       </Media>
     </div>
