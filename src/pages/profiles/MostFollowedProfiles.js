@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { axiosReq } from "../../api/axiosDefaults";
+import Asset from "../../components/Asset";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 const MostFollowedProfiles = () => {
@@ -30,6 +31,15 @@ const MostFollowedProfiles = () => {
   return (
     <Container>
       <p>Check out the most followed profiles!</p>
+      {mostFollowedProfiles.results.length ? (
+        <>
+          {mostFollowedProfiles.results.map((profile) => (
+            <p key={profile.id}>{profile.owner}</p>
+          ))}
+        </>
+      ) : (
+        <Asset spinner />
+      )}
     </Container>
   );
 };
