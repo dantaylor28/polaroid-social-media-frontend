@@ -17,9 +17,9 @@ const Profile = (props) => {
       className={`my-3 d-flex align-items-center ${mobile && "flex-column"}`}
     >
       <div>
-        <Link className="align-self-center" to={`/profiles/${id}`}>
+        <Link className={`${styles.Link} align-self-center`} to={`/profiles/${id}`}>
           <ProfileAvatar src={profile_image} size={avatarSize} />
-          <span>{owner}</span>
+          <span className={styles.Owner}>{owner}</span>
         </Link>
       </div>
       <div className={`text-right ${!mobile && "ml-auto"}`}>
