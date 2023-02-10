@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import ProfileAvatar from "../../components/ProfileAvatar";
 import { Button } from "react-bootstrap";
+import styles from "../../styles/Profile.module.css"
+import btnStyles from "../../styles/Button.module.css"
 
 const Profile = (props) => {
   const { mobile, profile, avatarSize = 55 } = props;
@@ -25,9 +27,9 @@ const Profile = (props) => {
           currentUser &&
           !is_profile_owner &&
           (following_id ? (
-            <Button onClick={() => {}}>unfollow</Button>
+            <Button className={btnStyles.UnfollowButton} onClick={() => {}}>unfollow</Button>
           ) : (
-            <Button onClick={() => {}}>follow</Button>
+            <Button className={btnStyles.PostButton} onClick={() => {}}>follow</Button>
           ))}
       </div>
     </div>
