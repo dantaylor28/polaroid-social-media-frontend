@@ -9,7 +9,7 @@ import {
   useSetProfileData,
 } from "../../contexts/ProfileDataContext";
 import MostFollowedProfiles from "./MostFollowedProfiles";
-import styles from "../../styles/Profile.module.css";
+import styles from "../../styles/ProfilePage.module.css";
 
 function ProfilePage() {
   const [profileLoaded, setProfileLoaded] = useState(false);
@@ -40,14 +40,14 @@ function ProfilePage() {
   const profileContent = (
     <>
       <Row className="px-3 text-center">
-        <Col lg={4}>
+        <Col lg={4} className="mt-4">
           <Image
             className={styles.ProfileImage}
             roundedCircle
             src={profile?.profile_image}
           />
           <div className="mt-3">
-            <strong>{profile?.owner}</strong>
+            <h4 className={styles.Username}>{profile?.owner}</h4>
           </div>
         </Col>
         <Col lg={8}>

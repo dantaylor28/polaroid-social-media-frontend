@@ -1,0 +1,21 @@
+.ProfileImage {
+    object-fit: cover;
+    height: 200px;
+    width: 200px;
+  }
+
+  @media screen and (max-width: 991px) {
+    .ProfileImage {
+      height: 250px;
+      width: 250px;
+    }
+  }
+
+  .Username {
+    text-align: center;
+    color: #464646;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
