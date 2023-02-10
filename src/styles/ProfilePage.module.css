@@ -15,9 +15,9 @@
   text-align: center;
   color: #464646;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 20px;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.2em;
 }
 
 .StatsRow {
@@ -29,3 +29,19 @@
     margin-top: 20px;
   }
 }
+
+.StatNames {
+  text-align: center;
+  color: #464646;
+  font-size: 15px;
+  font-weight: lighter;
+  text-transform: capitalize;
+  letter-spacing: 0.1em;
+}
+
+@media screen and (max-width: 700px) {
+    .StatNames {
+      font-size: 12px;
+    }
+  }
+

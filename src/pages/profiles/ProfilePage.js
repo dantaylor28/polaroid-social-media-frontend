@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Col, Container, Image, Row } from "react-bootstrap";
+import { Col, Container, Image, Row, Button } from "react-bootstrap";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import Asset from "../../components/Asset";
@@ -10,6 +10,7 @@ import {
 } from "../../contexts/ProfileDataContext";
 import MostFollowedProfiles from "./MostFollowedProfiles";
 import styles from "../../styles/ProfilePage.module.css";
+import btnStyles from "../../styles/Button.module.css";
 
 function ProfilePage() {
   const [profileLoaded, setProfileLoaded] = useState(false);
@@ -18,6 +19,7 @@ function ProfilePage() {
   const setProfileData = useSetProfileData();
   const { pageProfile } = useProfileData();
   const [profile] = pageProfile.results;
+  const is_profile_owner = currentUser?.username === profile?.owner;
 
   useEffect(() => {
     const getData = async () => {
@@ -51,21 +53,29 @@ function ProfilePage() {
           </div>
         </Col>
         <Col lg={8}>
-          <Row className={`${styles.StatsRow} justify-content-center no-gutters`}>
+          <Row
+            className={`${styles.StatsRow} justify-content-center no-gutters`}
+          >
             <Col xs={3} className="my-2">
-                <div>{profile?.num_of_posts}</div>
-                <div>posts</div>
+              <div>{profile?.num_of_posts}</div>
+              <div className={styles.StatNames}>posts</div>
             </Col>
             <Col xs={3} className="my-2">
-                <div>{profile?.num_of_followers}</div>
-                <div>followers</div>
+              <div>{profile?.num_of_followers}</div>
+              <div className={styles.StatNames}>followers</div>
             </Col>
             <Col xs={3} className="my-2">
-                <div>{profile?.num_of_following}</div>
-                <div>following</div>
+              <div>{profile?.num_of_following}</div>
+              <div className={styles.StatNames}>following</div>
             </Col>
           </Row>
-          <p>follow button here</p>
+          <Container className="mt-4">
+            {currentUser && !is_profile_owner && profile?.following_id ? (
+              <Button onClick={() => {}} className={btnStyles.PostButton}>Unfollow Profile</Button>
+            ) : (
+              <Button onClick={() => {}} className={btnStyles.PostButton}>Follow Profile</Button>
+            )}
+          </Container>
         </Col>
         <Col className="p-3 text-center">bio here</Col>
       </Row>
