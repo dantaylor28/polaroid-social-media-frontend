@@ -21,7 +21,7 @@ function ProfilePage() {
   const [profileLoaded, setProfileLoaded] = useState(false);
   const currentUser = useCurrentUser();
   const { id } = useParams();
-  const {setProfileData, handleFollow} = useSetProfileData();
+  const { setProfileData, handleFollow } = useSetProfileData();
   const { pageProfile } = useProfileData();
   const [profile] = pageProfile.results;
   const is_profile_owner = currentUser?.username === profile?.owner;
@@ -51,7 +51,9 @@ function ProfilePage() {
 
   const profileContent = (
     <>
-      <Row className={`${profStyles.Container} ${styles.StatsContainer} px-3 text-center`}>
+      <Row
+        className={`${profStyles.Container} ${styles.StatsContainer} px-3 text-center`}
+      >
         <Col lg={4}>
           <Image
             className={styles.ProfileImage}
@@ -80,15 +82,23 @@ function ProfilePage() {
             </Col>
           </Row>
           <Container className="mt-4">
-            {currentUser && !is_profile_owner && profile?.following_id ? (
-              <Button onClick={() => {}} className={btnStyles.PostButton}>
-                Unfollow Profile
-              </Button>
-            ) : (
-              <Button onClick={handleFollow(profile)} className={btnStyles.PostButton}>
-                Follow Profile
-              </Button>
-            )}
+            {currentUser &&
+              !is_profile_owner &&
+              (profile?.following_id ? (
+                <Button
+                  className={btnStyles.PostButton}
+                  onClick={() => {}}
+                >
+                  Unfollow Profile
+                </Button>
+              ) : (
+                <Button
+                  className={btnStyles.PostButton}
+                  onClick={() => handleFollow(profile)}
+                >
+                  Follow Profile
+                </Button>
+              ))}
           </Container>
           {profile?.bio && (
             <Container className="pt-3 text-center">{profile.bio}</Container>
