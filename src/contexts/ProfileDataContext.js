@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { axiosReq, axiosRes } from "../api/axiosDefaults";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
-import { followHelper } from "../utils/utils";
+import { followHelper, unfollowHelper } from "../utils/utils";
 
 export const ProfileDataContext = createContext();
 export const SetProfileDataContext = createContext();
@@ -44,6 +44,20 @@ export const ProfileDataProvider = ({ children }) => {
   const handleUnfollow = async (clickedProfile) => {
     try {
       await axiosRes.delete(`/followers/${clickedProfile.following_id}`);
+      setProfileData((prevState) => ({
+        ...prevState,
+        pageProfile: {
+          results: prevState.pageProfile.results.map((profile) =>
+            unfollowHelper(profile, clickedProfile)
+          ),
+        },
+        mostFollowedProfiles: {
+          ...prevState.mostFollowedProfiles,
+          results: prevState.mostFollowedProfiles.results.map((profile) =>
+            unfollowHelper(clickedProfile, profile)
+          ),
+        },
+      }));
     } catch (error) {
       console.log(error);
     }
