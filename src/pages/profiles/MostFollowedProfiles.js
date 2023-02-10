@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Container } from "react-bootstrap";
-import { axiosReq } from "../../api/axiosDefaults";
 import Asset from "../../components/Asset";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Profile from "./Profile";
 import styles from "../../styles/Profile.module.css";
+import { useProfileData } from "../../contexts/ProfileDataContext";
 
 const MostFollowedProfiles = ({ mobile }) => {
-
+  const { mostFollowedProfiles } = useProfileData();
   return (
     <Container
       className={`${styles.Container} ${
