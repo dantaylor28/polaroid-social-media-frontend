@@ -51,16 +51,16 @@ function ProfilePage() {
           </div>
         </Col>
         <Col lg={8}>
-          <Row className="justify-content-center">
-            <Col xs={3}>
+          <Row className={`${styles.StatsRow} justify-content-center no-gutters`}>
+            <Col xs={3} className="my-2">
                 <div>{profile?.num_of_posts}</div>
                 <div>posts</div>
             </Col>
-            <Col xs={3}>
+            <Col xs={3} className="my-2">
                 <div>{profile?.num_of_followers}</div>
                 <div>followers</div>
             </Col>
-            <Col xs={3}>
+            <Col xs={3} className="my-2">
                 <div>{profile?.num_of_following}</div>
                 <div>following</div>
             </Col>

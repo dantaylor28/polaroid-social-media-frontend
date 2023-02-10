@@ -1,21 +1,31 @@
 .ProfileImage {
-    object-fit: cover;
-    height: 200px;
-    width: 200px;
-  }
+  object-fit: cover;
+  height: 200px;
+  width: 200px;
+}
 
-  @media screen and (max-width: 991px) {
-    .ProfileImage {
-      height: 250px;
-      width: 250px;
-    }
+@media screen and (max-width: 991px) {
+  .ProfileImage {
+    height: 250px;
+    width: 250px;
   }
+}
 
-  .Username {
-    text-align: center;
-    color: #464646;
-    font-weight: bold;
-    font-size: 16px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+.Username {
+  text-align: center;
+  color: #464646;
+  font-weight: bold;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.StatsRow {
+  margin-top: 100px;
+}
+
+@media screen and (max-width: 991px) {
+  .StatsRow {
+    margin-top: 20px;
   }
+}
