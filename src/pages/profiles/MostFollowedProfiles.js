@@ -42,3 +42,4 @@ const MostFollowedProfiles = ({ mobile }) => {
 };
 
 export default MostFollowedProfiles;
+

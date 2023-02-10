@@ -16,6 +16,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Post from "../posts/Post";
 import NoResults from "../../assets/no-results.png";
 import { getMoreData } from "../../utils/utils";
+import { EditProfileDropdown } from "../../components/EditDeleteDropdown";
 
 function ProfilePage() {
   const [profileLoaded, setProfileLoaded] = useState(false);
@@ -51,6 +52,7 @@ function ProfilePage() {
 
   const profileContent = (
     <>
+      {profile?.is_profile_owner && <EditProfileDropdown id={profile?.id}/>}
       <Row
         className={`${profStyles.Container} ${styles.StatsContainer} px-3 text-center`}
       >
@@ -153,3 +155,4 @@ function ProfilePage() {
 }
 
 export default ProfilePage;
+
