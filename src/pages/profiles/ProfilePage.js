@@ -71,13 +71,19 @@ function ProfilePage() {
           </Row>
           <Container className="mt-4">
             {currentUser && !is_profile_owner && profile?.following_id ? (
-              <Button onClick={() => {}} className={btnStyles.PostButton}>Unfollow Profile</Button>
+              <Button onClick={() => {}} className={btnStyles.PostButton}>
+                Unfollow Profile
+              </Button>
             ) : (
-              <Button onClick={() => {}} className={btnStyles.PostButton}>Follow Profile</Button>
+              <Button onClick={() => {}} className={btnStyles.PostButton}>
+                Follow Profile
+              </Button>
             )}
           </Container>
+          {profile?.bio && (
+            <Container className="pt-3 text-center">{profile.bio}</Container>
+          )}
         </Col>
-        <Col className="p-3 text-center">bio here</Col>
       </Row>
     </>
   );
