@@ -11,9 +11,10 @@ import {
 import MostFollowedProfiles from "./MostFollowedProfiles";
 import styles from "../../styles/ProfilePage.module.css";
 import btnStyles from "../../styles/Button.module.css";
+import profStyles from "../../styles/Profile.module.css";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Post from "../posts/Post";
-import NoResults from "../../assets/no-results.png"
+import NoResults from "../../assets/no-results.png";
 import { getMoreData } from "../../utils/utils";
 
 function ProfilePage() {
@@ -50,14 +51,14 @@ function ProfilePage() {
 
   const profileContent = (
     <>
-      <Row className="px-3 text-center">
-        <Col lg={4} className="mt-4">
+      <Row className={`${profStyles.Container} ${styles.StatsContainer} px-3 text-center`}>
+        <Col lg={4}>
           <Image
             className={styles.ProfileImage}
             roundedCircle
             src={profile?.profile_image}
           />
-          <div className="mt-3">
+          <div className="mt-2">
             <h4 className={styles.Username}>{profile?.owner}</h4>
           </div>
         </Col>
@@ -99,7 +100,7 @@ function ProfilePage() {
 
   const profileOwnerPosts = (
     <>
-      <p>Profile owners posts</p>
+      <p className={styles.Heading}>{profile?.owner}'s posts</p>
       {profilePosts.results.length ? (
         <InfiniteScroll
           children={profilePosts.results.map((post) => (
@@ -113,7 +114,7 @@ function ProfilePage() {
       ) : (
         <Asset
           src={NoResults}
-          message={`Nothing to show.. ${profile?.owner} has not posted anyhting yet.`}
+          message={`Nothing to show.. ${profile?.owner} has not posted anything yet.`}
         />
       )}
     </>

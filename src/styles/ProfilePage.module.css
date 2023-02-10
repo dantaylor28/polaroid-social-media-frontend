@@ -21,7 +21,7 @@
 }
 
 .StatsRow {
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 @media screen and (max-width: 991px) {
@@ -40,8 +40,23 @@
 }
 
 @media screen and (max-width: 700px) {
-    .StatNames {
-      font-size: 12px;
-    }
+  .StatNames {
+    font-size: 12px;
   }
+}
 
+.StatsContainer {
+  margin-top: 37px;
+}
+
+.Heading {
+  text-align: center;
+  color: #464646;
+  margin-top: 80px;
+  margin-bottom: 30px;
+  font-weight: bold;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  line-height: 30px;
+}
