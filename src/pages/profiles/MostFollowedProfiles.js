@@ -7,28 +7,6 @@ import Profile from "./Profile";
 import styles from "../../styles/Profile.module.css";
 
 const MostFollowedProfiles = ({ mobile }) => {
-  const [profileData, setProfileData] = useState({
-    mostFollowedProfiles: { results: [] },
-  });
-  const { mostFollowedProfiles } = profileData;
-  const currentUser = useCurrentUser();
-
-  useEffect(() => {
-    const handleMount = async () => {
-      try {
-        const { data } = await axiosReq.get(
-          "/profiles/?ordering=-num_of_followers"
-        );
-        setProfileData((prevState) => ({
-          ...prevState,
-          mostFollowedProfiles: data,
-        }));
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    handleMount();
-  }, [currentUser]);
 
   return (
     <Container
