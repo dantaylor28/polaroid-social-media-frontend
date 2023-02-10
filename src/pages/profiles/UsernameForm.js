@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { Alert, Button, Container, Form, Row, Col } from "react-bootstrap";
 import { useHistory, useParams } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 import {
   useCurrentUser,
   useSetCurrentUser,
 } from "../../contexts/CurrentUserContext";
+import btnStyles from "../../styles/Button.module.css";
 
 const UsernameForm = () => {
   const [username, setUsername] = useState("");
@@ -40,7 +42,43 @@ const UsernameForm = () => {
     }
   };
 
-  return <div>UsernameForm</div>;
+  return (
+    <Row>
+      <Col md={6}>
+        <Container>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group>
+              <Form.Label>Update Username</Form.Label>
+              <Form.Control
+                type="text"
+                value={username}
+                placeholder="Username"
+                onChange={(event) => setUsername(event.target.value)}
+              />
+            </Form.Group>
+            {errors?.username?.map((message, idx) => (
+              <Alert key={idx} variant="danger">
+                {message}
+              </Alert>
+            ))}
+            <Button
+              onClick={() => history.goBack}
+              className={btnStyles.PostButton}
+            >
+              Cancel
+            </Button>
+            <Button
+              onClick={() => history.goBack}
+              className={btnStyles.PostButton}
+              type="submit"
+            >
+              Update
+            </Button>
+          </Form>
+        </Container>
+      </Col>
+    </Row>
+  );
 };
 
 export default UsernameForm;
