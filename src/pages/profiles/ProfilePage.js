@@ -91,12 +91,25 @@ function ProfilePage() {
     </>
   );
 
+  const profileOwnerPosts = (
+    <>
+      <p>Profile owners posts</p>
+    </>
+  );
+
   return (
     <Row>
       <Col lg={8}>
         <MostFollowedProfiles mobile />
         <Container>
-          {profileLoaded ? <>{profileContent}</> : <Asset spinner />}
+          {profileLoaded ? (
+            <>
+              {profileContent}
+              {profileOwnerPosts}
+            </>
+          ) : (
+            <Asset spinner />
+          )}
         </Container>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
