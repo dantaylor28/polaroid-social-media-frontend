@@ -51,7 +51,20 @@ function ProfilePage() {
           </div>
         </Col>
         <Col lg={8}>
-          <p>User stats here</p>
+          <Row className="justify-content-center">
+            <Col xs={3}>
+                <div>{profile?.num_of_posts}</div>
+                <div>posts</div>
+            </Col>
+            <Col xs={3}>
+                <div>{profile?.num_of_followers}</div>
+                <div>followers</div>
+            </Col>
+            <Col xs={3}>
+                <div>{profile?.num_of_following}</div>
+                <div>following</div>
+            </Col>
+          </Row>
           <p>follow button here</p>
         </Col>
         <Col className="p-3 text-center">bio here</Col>
