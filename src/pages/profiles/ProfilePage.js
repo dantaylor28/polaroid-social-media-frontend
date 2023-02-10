@@ -40,7 +40,7 @@ function ProfilePage() {
     <>
       <Row className="px-3 text-center">
         <Col lg={4} className="text-lg-left">
-          {/* <Image roundedCircle src={profile?.profile_image}/> */}
+          <Image roundedCircle src={profile?.profile_image}/>
           <p>username here</p>
         </Col>
         <Col lg={8}>
