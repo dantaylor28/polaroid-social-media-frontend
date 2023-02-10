@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { axiosReq, axiosRes } from "../api/axiosDefaults";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
+import { followHelper } from "../utils/utils";
 
 export const ProfileDataContext = createContext();
 export const SetProfileDataContext = createContext();
@@ -20,6 +21,21 @@ export const ProfileDataProvider = ({ children }) => {
       const { data } = await axiosRes.post("/followers/", {
         followed: clickedProfile.id,
       });
+
+      setProfileData((prevState) => ({
+        ...prevState,
+        pageProfile: {
+          results: prevState.pageProfile.results.map((profile) =>
+            followHelper(clickedProfile, profile, data.id)
+          ),
+        },
+        mostFollowedProfiles: {
+          ...prevState.mostFollowedProfiles,
+          results: prevState.mostFollowedProfiles.results.map((profile) =>
+            followHelper(clickedProfile, profile, data.id)
+          ),
+        },
+      }));
     } catch (error) {
       console.log(error);
     }
