@@ -21,11 +21,14 @@ function ProfilePage() {
   const [profile] = pageProfile.results;
   const is_profile_owner = currentUser?.username === profile?.owner;
 
+  const [profilePosts, setProfilePosts] = useState({ results: [] });
+
   useEffect(() => {
     const getData = async () => {
       try {
         const [{ data: pageProfile }] = await Promise.all([
           axiosReq.get(`/profiles/${id}`),
+          axiosReq.get(`/posts/?owner__profile=${id}`),
         ]);
         setProfileData((prevState) => ({
           ...prevState,
