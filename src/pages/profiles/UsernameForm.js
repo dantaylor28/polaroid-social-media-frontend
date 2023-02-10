@@ -62,7 +62,7 @@ const UsernameForm = () => {
               </Alert>
             ))}
             <Button
-              onClick={() => history.goBack}
+              onClick={() => history.goBack()}
               className={btnStyles.PostButton}
             >
               Cancel
