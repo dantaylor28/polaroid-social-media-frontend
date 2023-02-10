@@ -1,16 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
+import { useParams } from "react-router-dom";
+import { axiosReq } from "../../api/axiosDefaults";
 import Asset from "../../components/Asset";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import MostFollowedProfiles from "./MostFollowedProfiles";
 
 function ProfilePage() {
   const [profileLoaded, setProfileLoaded] = useState(false);
-  const currentUser = useCurrentUser()
+  const currentUser = useCurrentUser();
+  const { id } = useParams();
 
   useEffect(() => {
-    setProfileLoaded(true)
-  }, [])
+    const getData = async () => {
+        try {
+            const [{data: pageProfile}] = await Promise.all([
+                axiosReq.get(`/profiles/${id}`)
+            ])
+        } catch (error) {
+            
+        }
+    }
+    setProfileLoaded(true);
+  }, []);
 
   const profileContent = (
     <>
