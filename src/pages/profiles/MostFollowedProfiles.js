@@ -4,6 +4,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import Asset from "../../components/Asset";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Profile from "./Profile";
+import styles from "../../styles/Profile.module.css";
 
 const MostFollowedProfiles = ({ mobile }) => {
   const [profileData, setProfileData] = useState({
@@ -30,7 +31,11 @@ const MostFollowedProfiles = ({ mobile }) => {
   }, [currentUser]);
 
   return (
-    <Container className={mobile && "d-lg-none text-center mb-3"}>
+    <Container
+      className={`${styles.Container} ${
+        mobile && "d-lg-none text-center mb-3"
+      }`}
+    >
       {mostFollowedProfiles.results.length ? (
         <>
           <p>Check out the most followed profiles!</p>
@@ -42,7 +47,7 @@ const MostFollowedProfiles = ({ mobile }) => {
             </div>
           ) : (
             mostFollowedProfiles.results.map((profile) => (
-                <Profile key={profile.id} profile={profile} />
+              <Profile key={profile.id} profile={profile} />
             ))
           )}
         </>
