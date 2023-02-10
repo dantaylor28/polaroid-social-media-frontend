@@ -11,6 +11,10 @@ import {
 import MostFollowedProfiles from "./MostFollowedProfiles";
 import styles from "../../styles/ProfilePage.module.css";
 import btnStyles from "../../styles/Button.module.css";
+import InfiniteScroll from "react-infinite-scroll-component";
+import Post from "../posts/Post";
+import NoResults from "../../assets/no-results.png"
+import { getMoreData } from "../../utils/utils";
 
 function ProfilePage() {
   const [profileLoaded, setProfileLoaded] = useState(false);
@@ -26,14 +30,16 @@ function ProfilePage() {
   useEffect(() => {
     const getData = async () => {
       try {
-        const [{ data: pageProfile }] = await Promise.all([
-          axiosReq.get(`/profiles/${id}`),
-          axiosReq.get(`/posts/?owner__profile=${id}`),
-        ]);
+        const [{ data: pageProfile }, { data: profilePosts }] =
+          await Promise.all([
+            axiosReq.get(`/profiles/${id}`),
+            axiosReq.get(`/posts/?owner__profile=${id}`),
+          ]);
         setProfileData((prevState) => ({
           ...prevState,
           pageProfile: { results: [pageProfile] },
         }));
+        setProfilePosts(profilePosts);
         setProfileLoaded(true);
       } catch (error) {
         console.log(error);
@@ -94,6 +100,22 @@ function ProfilePage() {
   const profileOwnerPosts = (
     <>
       <p>Profile owners posts</p>
+      {profilePosts.results.length ? (
+        <InfiniteScroll
+          children={profilePosts.results.map((post) => (
+            <Post key={post.id} {...post} setPosts={setProfilePosts} />
+          ))}
+          dataLength={profilePosts.results.length}
+          loader={<Asset spinner />}
+          hasMore={!!profilePosts.next}
+          next={() => getMoreData(profilePosts, setProfilePosts)}
+        />
+      ) : (
+        <Asset
+          src={NoResults}
+          message={`Nothing to show.. ${profile?.owner} has not posted anyhting yet.`}
+        />
+      )}
     </>
   );
 
