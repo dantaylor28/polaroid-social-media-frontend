@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { Col, Container, Image, Row } from "react-bootstrap";
+import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import Asset from "../../components/Asset";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { useSetProfileData } from "../../contexts/ProfileDataContext";
+import {
+  useProfileData,
+  useSetProfileData,
+} from "../../contexts/ProfileDataContext";
 import MostFollowedProfiles from "./MostFollowedProfiles";
 
 function ProfilePage() {
@@ -12,6 +15,8 @@ function ProfilePage() {
   const currentUser = useCurrentUser();
   const { id } = useParams();
   const setProfileData = useSetProfileData();
+  const { pageProfile } = useProfileData();
+  const [profile] = pageProfile.results;
 
   useEffect(() => {
     const getData = async () => {
@@ -29,13 +34,13 @@ function ProfilePage() {
       }
     };
     getData();
-  }, [id, profileLoaded]);
+  }, [id, setProfileData]);
 
   const profileContent = (
     <>
       <Row className="px-3 text-center">
         <Col lg={4} className="text-lg-left">
-          <p>Image here</p>
+          {/* <Image roundedCircle src={profile?.profile_image}/> */}
           <p>username here</p>
         </Col>
         <Col lg={8}>
