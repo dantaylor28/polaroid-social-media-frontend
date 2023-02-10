@@ -1,3 +1,14 @@
 .Container {
     margin-top: 30px;
 }
+
+.Heading {
+    text-align: center;
+    color: #3b5998;
+    margin-bottom: 30px;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    line-height: 30px;
+  }

@@ -38,7 +38,13 @@ const MostFollowedProfiles = ({ mobile }) => {
     >
       {mostFollowedProfiles.results.length ? (
         <>
-          <p>Check out the most followed profiles!</p>
+          <p
+            className={`${styles.Heading} ${
+              mobile && "d-none d-lg-block p-0 p-lg-2"
+            }`}
+          >
+            Popular Profiles
+          </p>
           {mobile ? (
             <div className="d-flex justify-content-around">
               {mostFollowedProfiles.results.slice(0, 4).map((profile) => (
