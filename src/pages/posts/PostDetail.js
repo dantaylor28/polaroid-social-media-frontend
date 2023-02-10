@@ -9,6 +9,7 @@ import CreateCommentForm from "../comments/CreateCommentForm";
 import Post from "./Post";
 import Asset from "../../components/Asset";
 import { getMoreData } from "../../utils/utils";
+import MostFollowedProfiles from "../profiles/MostFollowedProfiles";
 
 function PostDetail() {
   const { id } = useParams();
@@ -36,9 +37,9 @@ function PostDetail() {
 
   return (
     <Row>
-      <Col lg={9}>
+      <Col lg={8}>
         <Container>
-          <p>extra component here. profiles? for mobile/tablets</p>
+          <MostFollowedProfiles mobile />
         </Container>
         <Container>
           <Post {...post.results[0]} postDetail setPosts={setPost} />
@@ -77,8 +78,8 @@ function PostDetail() {
           )}
         </Container>
       </Col>
-      <Col className="d-none d-lg-block" lg={3}>
-        <Container>extra component here. profiles? for desktop</Container>
+      <Col className="d-none d-lg-block" lg={4}>
+        <MostFollowedProfiles />
       </Col>
     </Row>
   );

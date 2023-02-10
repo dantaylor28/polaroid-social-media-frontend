@@ -14,7 +14,7 @@ const Profile = (props) => {
   const currentUser = useCurrentUser();
   const is_profile_owner = currentUser?.username === owner;
 
-  const { handleFollow } = useSetProfileData();
+  const { handleFollow, handleUnfollow } = useSetProfileData();
 
   return (
     <div
@@ -34,7 +34,7 @@ const Profile = (props) => {
           currentUser &&
           !is_profile_owner &&
           (following_id ? (
-            <Button className={btnStyles.UnfollowButton} onClick={() => {}}>
+            <Button className={btnStyles.UnfollowButton} onClick={() => handleUnfollow(profile)}>
               unfollow
             </Button>
           ) : (
