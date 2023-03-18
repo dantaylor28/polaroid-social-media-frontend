@@ -52,7 +52,6 @@ function ProfilePage() {
 
   const profileContent = (
     <>
-      {profile?.is_profile_owner && <EditProfileDropdown id={profile?.id}/>}
       <Row
         className={`${profStyles.Container} ${styles.StatsContainer} px-3 text-center`}
       >
@@ -62,8 +61,13 @@ function ProfilePage() {
             roundedCircle
             src={profile?.profile_image}
           />
-          <div className="mt-2">
-            <h4 className={styles.Username}>{profile?.owner}</h4>
+          <div className="mt-4">
+            <span>
+              <h4 className={styles.Username}>{profile?.owner}</h4>
+              {profile?.is_profile_owner && (
+                <EditProfileDropdown id={profile?.id} />
+              )}
+            </span>
           </div>
         </Col>
         <Col lg={8}>
@@ -155,4 +159,3 @@ function ProfilePage() {
 }
 
 export default ProfilePage;
-
