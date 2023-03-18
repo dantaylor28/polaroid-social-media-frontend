@@ -134,6 +134,7 @@ const EditProfileForm = () => {
                 </Form.Label>
               </div>
               <Form.File
+                className="d-none"
                 id="image-upload"
                 ref={imageFile}
                 accept="image/*"
@@ -141,7 +142,7 @@ const EditProfileForm = () => {
                   if (e.target.files.length) {
                     setProfileData({
                       ...profileData,
-                      image: URL.createObjectURL(e.target.files[0]),
+                      profile_image: URL.createObjectURL(e.target.files[0]),
                     });
                   }
                 }}
