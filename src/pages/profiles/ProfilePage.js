@@ -87,7 +87,22 @@ function ProfilePage() {
               <div className={styles.StatNames}>following</div>
             </Col>
           </Row>
-          <Container className="mt-4">
+          {profile?.bio && (
+            <Container
+              className={`${styles.BioLocation} pt-3 text-center mt-3`}
+            >
+              {profile.bio}
+            </Container>
+          )}
+          {profile?.location && (
+            <Container
+              className={`${styles.BioLocation} pt-3 text-center text-muted`}
+            >
+              <i className="fa-solid fa-location-dot"></i>
+              {profile.location}
+            </Container>
+          )}
+          <Container className="mt-3">
             {currentUser &&
               !is_profile_owner &&
               (profile?.following_id ? (
@@ -106,9 +121,6 @@ function ProfilePage() {
                 </Button>
               ))}
           </Container>
-          {profile?.bio && (
-            <Container className="pt-3 text-center">{profile.bio}</Container>
-          )}
         </Col>
       </Row>
     </>
