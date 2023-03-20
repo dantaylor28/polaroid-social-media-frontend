@@ -10,12 +10,14 @@ import {
 } from "react-bootstrap";
 import styles from "../../styles/CreateAccountForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
-import appStyles from "../../App.module.css"
+import appStyles from "../../App.module.css";
 import { Link, useHistory } from "react-router-dom";
 import signup from "../../assets/signup.png";
 import axios from "axios";
+import { UseRedirectUser } from "../../hooks/UseRedirectUser";
 
 const CreateAccountForm = () => {
+  UseRedirectUser("signedIn");
   const [createProfileData, setCreateProfileData] = useState({
     username: "",
     password1: "",
@@ -60,7 +62,11 @@ const CreateAccountForm = () => {
               />
             </Form.Group>
             {errors.username?.map((message, idx) => (
-              <Alert className={appStyles.AlertMessages} key={idx} variant="danger">
+              <Alert
+                className={appStyles.AlertMessages}
+                key={idx}
+                variant="danger"
+              >
                 {message}
               </Alert>
             ))}
@@ -76,7 +82,11 @@ const CreateAccountForm = () => {
               />
             </Form.Group>
             {errors.password1?.map((message, idx) => (
-              <Alert className={appStyles.AlertMessages} key={idx} variant="danger">
+              <Alert
+                className={appStyles.AlertMessages}
+                key={idx}
+                variant="danger"
+              >
                 {message}
               </Alert>
             ))}
@@ -92,7 +102,11 @@ const CreateAccountForm = () => {
               />
             </Form.Group>
             {errors.password2?.map((message, idx) => (
-              <Alert className={appStyles.AlertMessages} key={idx} variant="danger">
+              <Alert
+                className={appStyles.AlertMessages}
+                key={idx}
+                variant="danger"
+              >
                 {message}
               </Alert>
             ))}
@@ -100,7 +114,11 @@ const CreateAccountForm = () => {
               Join
             </Button>
             {errors.non_field_errors?.map((message, idx) => (
-              <Alert className={`${appStyles.AlertMessages} mt-3`} key={idx} variant="danger">
+              <Alert
+                className={`${appStyles.AlertMessages} mt-3`}
+                key={idx}
+                variant="danger"
+              >
                 {message}
               </Alert>
             ))}

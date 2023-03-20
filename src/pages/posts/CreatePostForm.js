@@ -15,8 +15,10 @@ import Asset from "../../components/Asset";
 import upload from "../../assets/upload.png";
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
+import { UseRedirectUser } from "../../hooks/UseRedirectUser";
 
 function CreatePostForm() {
+  UseRedirectUser("signedOut");
   const [errors, setErrors] = useState({});
 
   const [postData, setPostData] = useState({
