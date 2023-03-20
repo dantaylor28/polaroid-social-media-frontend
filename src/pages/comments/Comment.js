@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Media } from "react-bootstrap";
+import { Media, Tooltip, OverlayTrigger } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import ProfileAvatar from "../../components/ProfileAvatar";
 import styles from "../../styles/Comment.module.css";
+import btnStyles from "../../styles/Button.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { EditDeleteDropdown } from "../../components/EditDeleteDropdown";
 import { axiosRes } from "../../api/axiosDefaults";
@@ -18,6 +19,8 @@ const Comment = (props) => {
     setPost,
     setComments,
     updated_at,
+    comment_liked_id,
+    num_of_comment_likes,
   } = props;
 
   const [displayEditForm, setDisplayEditForm] = useState(false);
@@ -68,6 +71,40 @@ const Comment = (props) => {
             <p className="mt-1">{text}</p>
           )}
         </Media.Body>
+        <div>
+          {comment_liked_id ? (
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>{num_of_comment_likes} like this</Tooltip>}
+            >
+              <button
+                className={btnStyles.LikeBtn}
+                onClick={() => {}}
+              >
+                <i className="fa-solid fa-thumbs-up"></i>
+              </button>
+            </OverlayTrigger>
+          ) : currentUser ? (
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>{num_of_comment_likes} like this</Tooltip>}
+            >
+              <button className={btnStyles.LikeBtn} onClick={() => {}}>
+                <i className="fa-regular fa-thumbs-up"></i>
+              </button>
+            </OverlayTrigger>
+          ) : (
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>Log in to like comments</Tooltip>}
+            >
+              <button className={btnStyles.LikeBtn}>
+                {num_of_comment_likes}
+                <i className="fa-regular fa-thumbs-up"></i>
+              </button>
+            </OverlayTrigger>
+          )}
+        </div>
         {is_comment_owner && (
           <EditDeleteDropdown
             handleEdit={() => setDisplayEditForm(true)}
