@@ -46,6 +46,20 @@ function PostList({ message, filter = "" }) {
         <p>Profile I follow - desktop</p>
       </Col>
       <Col className="py-2 p-0 p-lg-2" lg={6}>
+        <Container className="d-block d-lg-none">
+          <i className={`${styles.Icon} fa-solid fa-magnifying-glass`}></i>
+          <Form
+            className={styles.SearchMobile}
+            onSubmit={(event) => event.preventDefault()}
+          >
+            <Form.Control
+              type="text"
+              placeholder="Search Posts"
+              value={searchQuery}
+              onChange={(event) => setSearchQuery(event.target.value)}
+            ></Form.Control>
+          </Form>
+        </Container>
         <MostFollowedProfiles mobile />
         {postLoaded ? (
           <>
