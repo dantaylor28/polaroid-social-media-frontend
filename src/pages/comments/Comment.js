@@ -47,6 +47,26 @@ const Comment = (props) => {
     }
   };
 
+  const handleCommentLike = async () => {
+    try {
+      const { data } = await axiosRes.post("/comments/likes/", { comment: id });
+      setComments((prevComments) => ({
+        ...prevComments,
+        results: prevComments.results.map((comment) => {
+          return comment.id === id
+            ? {
+                ...comment,
+                num_of_comment_likes: comment.num_of_comment_likes + 1,
+                comment_liked_id: data.id,
+              }
+            : comment;
+        }),
+      }));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className={styles.Comment}>
       <Media className="align-items-center justify-content-between">
@@ -77,10 +97,7 @@ const Comment = (props) => {
               placement="top"
               overlay={<Tooltip>{num_of_comment_likes} like this</Tooltip>}
             >
-              <button
-                className={btnStyles.LikeBtn}
-                onClick={() => {}}
-              >
+              <button className={btnStyles.LikeBtn} onClick={() => {}}>
                 <i className="fa-solid fa-thumbs-up"></i>
               </button>
             </OverlayTrigger>
@@ -89,7 +106,7 @@ const Comment = (props) => {
               placement="top"
               overlay={<Tooltip>{num_of_comment_likes} like this</Tooltip>}
             >
-              <button className={btnStyles.LikeBtn} onClick={() => {}}>
+              <button className={btnStyles.LikeBtn} onClick={handleCommentLike}>
                 <i className="fa-regular fa-thumbs-up"></i>
               </button>
             </OverlayTrigger>
