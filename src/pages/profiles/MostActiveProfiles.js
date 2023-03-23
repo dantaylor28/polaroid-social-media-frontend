@@ -16,7 +16,9 @@ const MostActiveProfiles = () => {
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const { data } = await axiosReq.get("/profiles/?ordering=-num_of_posts");
+        const { data } = await axiosReq.get(
+          "/profiles/?ordering=-num_of_posts"
+        );
         setProfileData((prevState) => ({
           ...prevState,
           mostActiveProfiles: data,

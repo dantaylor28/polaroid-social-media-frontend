@@ -9,7 +9,7 @@ const MostFollowedProfiles = ({ mobile }) => {
   const { mostFollowedProfiles } = useProfileData();
   return (
     <Container
-      className={`${styles.Container} ${
+      className={`${styles.Container} mt-4 ${
         mobile && "d-lg-none text-center mb-3"
       }`}
     >
