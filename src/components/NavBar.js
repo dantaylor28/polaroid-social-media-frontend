@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../styles/NavBar.module.css";
-import { Navbar, Nav, Container } from "react-bootstrap";
+import { Navbar, Nav, Container, Image } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import {
   useCurrentUser,
@@ -9,6 +9,7 @@ import {
 import axios from "axios";
 import UseClickOutToggle from "../hooks/UseClickOutToggle";
 import { removeTokenTimestamp } from "../utils/utils";
+import logo from "../assets/polaroid_logo.png";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
@@ -95,7 +96,9 @@ const NavBar = () => {
     >
       <Container>
         <NavLink to="/">
-          <Navbar.Brand>Logo here</Navbar.Brand>
+          <Navbar.Brand>
+            <Image src={logo} className={styles.Logo} />
+          </Navbar.Brand>
         </NavLink>
         {currentUser && createIcon}
         <Navbar.Toggle

@@ -1,21 +1,19 @@
-/* .NavBar {
-    min-height: 80px;
-} */
-
 .NavLink {
-    padding: 10px;
-    color: #faf9f6;
+  padding: 10px;
+  color: #faf9f6;
 }
 
 .ActiveLink {
-    color: #bebdb8;
+  color: #bebdb8;
 }
 
 .NavLink:hover {
-    color: #faf9f6;
-    text-decoration: none;
-    border-bottom: 1px solid #faf9f6;
+  color: #faf9f6;
+  text-decoration: none;
+  border-bottom: 1px solid #faf9f6;
 }
 
-
-
+.Logo {
+  height: 60px;
+  width: 60px;
+}
