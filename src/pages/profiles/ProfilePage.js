@@ -163,7 +163,7 @@ function ProfilePage() {
           )}
         </Container>
       </Col>
-      <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
+      <Col lg={4} className="d-none d-lg-block p-0 p-lg-2 mt-1">
         <MostFollowedProfiles />
       </Col>
     </Row>

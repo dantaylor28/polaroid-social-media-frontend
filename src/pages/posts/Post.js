@@ -83,7 +83,7 @@ const Post = (props) => {
   };
 
   return (
-    <Card className={styles.Post}>
+    <Card className={`${styles.Post} mt-4`}>
       <Card.Body>
         <Media className="align-items-center justify-content-between">
           <Link className={styles.Owner} to={`/profiles/${profile_id}`}>
