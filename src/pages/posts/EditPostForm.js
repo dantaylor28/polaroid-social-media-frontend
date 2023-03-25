@@ -127,9 +127,13 @@ function EditPostForm() {
           value={category}
           onChange={handleChange}
         >
-          <option value="1">general</option>
-          <option value="2">landscapes</option>
-          <option value="3">portraits</option>
+          <option value="">---</option>
+          <option value="1">Food</option>
+          <option value="2">Travel</option>
+          <option value="3">Fashion</option>
+          <option value="4">Architecture/Design</option>
+          <option value="5">Nature</option>
+          <option value="6">Sport</option>
         </Form.Control>
       </Form.Group>
       {errors?.category?.map((message, idx) => (
@@ -200,9 +204,13 @@ function EditPostForm() {
                 value={category}
                 onChange={handleChange}
               >
-                <option value="1">general</option>
-                <option value="2">landscapes</option>
-                <option value="3">portraits</option>
+                <option value="">---</option>
+                <option value="1">Food</option>
+                <option value="2">Travel</option>
+                <option value="3">Fashion</option>
+                <option value="4">Architecture/Design</option>
+                <option value="5">Nature</option>
+                <option value="6">Sport</option>
               </Form.Control>
             </Form.Group>
             {errors?.category?.map((message, idx) => (
