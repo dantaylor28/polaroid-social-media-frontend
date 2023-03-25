@@ -42,7 +42,7 @@ function PostList({ message, filter = "" }) {
   }, [filter, pathname, searchQuery, currentUser]);
 
   return (
-    <Row>
+    <Row className="mt-4">
       <Col className="d-none d-lg-block p-0 p-lg-2" md={3}>
         <MostActiveProfiles />
       </Col>

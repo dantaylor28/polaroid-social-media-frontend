@@ -139,11 +139,6 @@ const CreateAccountForm = () => {
         md={6}
       >
         <Image className={styles.FormImage} src={signup} />
-        {/* <Container className={styles.SignUpIntroCon} md={12}>
-          <div className={styles.SignUpIntroText}>
-            come and join the community!
-          </div>
-        </Container> */}
       </Col>
     </Row>
   );
