@@ -120,6 +120,7 @@ const Comment = (props) => {
               <button
                 className={btnStyles.LikeBtn}
                 onClick={handleCommentUnlike}
+                name="like-comment"
               >
                 <i className="fa-solid fa-thumbs-up"></i>
               </button>
@@ -129,7 +130,11 @@ const Comment = (props) => {
               placement="top"
               overlay={<Tooltip>{num_of_comment_likes} like this</Tooltip>}
             >
-              <button className={btnStyles.LikeBtn} onClick={handleCommentLike}>
+              <button
+                className={btnStyles.LikeBtn}
+                onClick={handleCommentLike}
+                name="unlike-comment"
+              >
                 <i className="fa-regular fa-thumbs-up"></i>
               </button>
             </OverlayTrigger>

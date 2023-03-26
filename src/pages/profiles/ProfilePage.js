@@ -60,6 +60,7 @@ function ProfilePage() {
             className={styles.ProfileImage}
             roundedCircle
             src={profile?.profile_image}
+            alt="profile-pic"
           />
           <div className="mt-4">
             <span>

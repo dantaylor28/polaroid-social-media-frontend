@@ -126,7 +126,7 @@ const SignInForm = () => {
         className={`${styles.SignInImageCol} my-auto d-none d-md-block`}
         md={6}
       >
-        <Image className={styles.FormImage} src={signin} />
+        <Image className={styles.FormImage} src={signin} alt="signin-image" />
       </Col>
     </Row>
   );
