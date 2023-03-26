@@ -120,7 +120,7 @@ const Comment = (props) => {
               <button
                 className={btnStyles.LikeBtn}
                 onClick={handleCommentUnlike}
-                name="like-comment"
+                aria-label="like-comment"
               >
                 <i className="fa-solid fa-thumbs-up"></i>
               </button>
@@ -133,7 +133,7 @@ const Comment = (props) => {
               <button
                 className={btnStyles.LikeBtn}
                 onClick={handleCommentLike}
-                name="unlike-comment"
+                aria-label="unlike-comment"
               >
                 <i className="fa-regular fa-thumbs-up"></i>
               </button>
