@@ -97,7 +97,7 @@ const NavBar = () => {
       <Container>
         <NavLink to="/">
           <Navbar.Brand>
-            <Image src={logo} className={styles.Logo} />
+            <Image src={logo} className={styles.Logo} alt="logo" />
           </Navbar.Brand>
         </NavLink>
         {currentUser && createIcon}
