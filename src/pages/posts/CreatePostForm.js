@@ -114,12 +114,12 @@ function CreatePostForm() {
           onChange={handleChange}
         >
           <option value="">---</option>
-          <option value="1">Food</option>
-          <option value="2">Travel</option>
-          <option value="3">Fashion</option>
-          <option value="4">Architecture/Design</option>
-          <option value="5">Nature</option>
-          <option value="6">Sport</option>
+          <option value="4">Food</option>
+          <option value="5">Travel</option>
+          <option value="6">Fashion</option>
+          <option value="7">Architecture/Design</option>
+          <option value="8">Nature</option>
+          <option value="9">Sport</option>
         </Form.Control>
       </Form.Group>
       {errors?.category?.map((message, idx) => (
@@ -191,12 +191,12 @@ function CreatePostForm() {
                 onChange={handleChange}
               >
                 <option value="">---</option>
-                <option value="1">Food</option>
-                <option value="2">Travel</option>
-                <option value="3">Fashion</option>
-                <option value="4">Architecture/Design</option>
-                <option value="5">Nature</option>
-                <option value="6">Sport</option>
+                <option value="4">Food</option>
+                <option value="5">Travel</option>
+                <option value="6">Fashion</option>
+                <option value="7">Architecture/Design</option>
+                <option value="8">Nature</option>
+                <option value="9">Sport</option>
               </Form.Control>
             </Form.Group>
             {errors?.category?.map((message, idx) => (

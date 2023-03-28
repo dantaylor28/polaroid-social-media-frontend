@@ -19,7 +19,7 @@ const Post = (props) => {
   const {
     id,
     caption,
-    // category,
+    category_name,
     num_of_comments,
     num_of_pins,
     owner,
@@ -106,6 +106,7 @@ const Post = (props) => {
       <Card.Body>
         {title && <Card.Title className={styles.Title}>{title}</Card.Title>}
         <Container>{caption && <Card.Text>{caption}</Card.Text>}</Container>
+        <Container>{category_name && <Card.Text>Category: {category_name}</Card.Text>}</Container>
       </Card.Body>
       <Link to={`/posts/${id}`}>
         <Card.Img src={post_image} alt={title} />
