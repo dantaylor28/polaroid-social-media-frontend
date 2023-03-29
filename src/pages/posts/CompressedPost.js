@@ -107,17 +107,27 @@ const Post = (props) => {
         </div>
         <div className="text-center justify-content">
           {pinned_id ? (
-            <Button className={btnStyles.Unpin} onClick={handleUnpin}>
-              <i className="fa-solid fa-location-pin"></i>
-            </Button>
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>Press to unpin</Tooltip>}
+            >
+              <Button className={btnStyles.Unpin} onClick={handleUnpin}>
+                <i className="fa-solid fa-location-pin"></i>
+              </Button>
+            </OverlayTrigger>
           ) : currentUser ? (
-            <Button className={btnStyles.Pin} onClick={handlePin}>
-              <i className="fa-solid fa-location-pin"></i>
-            </Button>
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>Pin this post!</Tooltip>}
+            >
+              <Button className={btnStyles.Pin} onClick={handlePin}>
+                <i className="fa-solid fa-location-pin"></i>
+              </Button>
+            </OverlayTrigger>
           ) : (
             <OverlayTrigger
               placement="top"
-              overlay={<Tooltip>Log in to like posts</Tooltip>}
+              overlay={<Tooltip>Log in to pin posts</Tooltip>}
             >
               <Button className={btnStyles.Pin}>
                 <i className="fa-solid fa-location-pin"></i>

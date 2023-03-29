@@ -105,44 +105,56 @@ const Post = (props) => {
       </Card.Body>
       <Card.Body>
         {title && <Card.Title className={styles.Title}>{title}</Card.Title>}
-        <Container>{caption && <Card.Text>{caption}</Card.Text>}</Container>
-        <Container>{category_name && <Card.Text>Category: {category_name}</Card.Text>}</Container>
+        <Container>
+          {caption && (
+            <Card.Text className={styles.Caption}>{caption}</Card.Text>
+          )}
+        </Container>
       </Card.Body>
       <Link to={`/posts/${id}`}>
         <Card.Img src={post_image} alt={title} />
       </Link>
       <Card.Body>
-        <div className={styles.StatsDiv}>
-          <span className={`${styles.PinSpan}`}>
+        <div className="d-flex justify-content-between">
+          <span className={styles.PinSpan}>
             <i className="fa-solid fa-thumbtack"></i>
             {num_of_pins}
-          </span>
-          <span className={styles.CommentSpan}>
             <Link className={styles.CommentLink} to={`/posts/${id}`}>
               <i className="fa-solid fa-comments"></i>
               {num_of_comments}
             </Link>
           </span>
+          <span>
+            <i className="fa-solid fa-tag"></i>
+            {category_name}
+          </span>
         </div>
-        <div>
+        <div className="text-center justify-content">
           {pinned_id ? (
-            <Button className={btnStyles.UnpinButton} onClick={handleUnpin}>
-              <i className="fa-solid fa-location-pin"></i>
-              Unpin
-            </Button>
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>Press to unpin</Tooltip>}
+            >
+              <Button className={btnStyles.Unpin} onClick={handleUnpin}>
+                <i className="fa-solid fa-location-pin"></i>
+              </Button>
+            </OverlayTrigger>
           ) : currentUser ? (
-            <Button className={btnStyles.PinButton} onClick={handlePin}>
-              <i className="fa-solid fa-thumbtack"></i>
-              Pin
-            </Button>
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>Pin this post!</Tooltip>}
+            >
+              <Button className={btnStyles.Pin} onClick={handlePin}>
+                <i className="fa-solid fa-location-pin"></i>
+              </Button>
+            </OverlayTrigger>
           ) : (
             <OverlayTrigger
               placement="top"
-              overlay={<Tooltip>Log in to like posts</Tooltip>}
+              overlay={<Tooltip>Log in to pin posts</Tooltip>}
             >
-              <Button className={btnStyles.PinButton}>
-                <i className="fa-regular fa-heart"></i>
-                Pin
+              <Button className={btnStyles.Pin}>
+                <i className="fa-solid fa-location-pin"></i>
               </Button>
             </OverlayTrigger>
           )}
