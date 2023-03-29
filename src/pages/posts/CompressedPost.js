@@ -83,8 +83,8 @@ const Post = (props) => {
       <Link to={`/posts/${id}`}>
         <Card.Img src={post_image} alt={title} />
       </Link>
-        {title && <Card.Title className={`${styles.Title} mt-1`}>{title}</Card.Title>}
-        <Container>{caption && <Card.Text>{caption}</Card.Text>}</Container>
+        {title && <Card.Title className={`${styles.Title} mt-4`}>{title}</Card.Title>}
+        <Container>{caption && <Card.Text className={styles.Caption}>{caption}</Card.Text>}</Container>
       <Card.Body>
         <div className={styles.StatsDiv}>
           <span className={`${styles.PinSpan}`}>
