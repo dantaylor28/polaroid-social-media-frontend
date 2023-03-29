@@ -18,7 +18,7 @@ const Post = (props) => {
   const {
     id,
     caption,
-    // category,
+    category_name,
     num_of_comments,
     num_of_pins,
     owner,
@@ -28,7 +28,6 @@ const Post = (props) => {
     profile_image,
     title,
     updated_at,
-    postDetail,
     setPosts,
   } = props;
 
@@ -76,17 +75,23 @@ const Post = (props) => {
             {owner}
           </Link>
           <div className="d-flex align-items-center">
-          <span className={`${styles.TimeStamp} text-muted`}>{updated_at}</span>
-        </div>
+            <span className={`${styles.TimeStamp} text-muted`}>
+              {updated_at}
+            </span>
+          </div>
         </Media>
       </Card.Body>
       <Link to={`/posts/${id}`}>
         <Card.Img src={post_image} alt={title} />
       </Link>
-        {title && <Card.Title className={`${styles.Title} mt-4`}>{title}</Card.Title>}
-        <Container>{caption && <Card.Text className={styles.Caption}>{caption}</Card.Text>}</Container>
+      {title && (
+        <Card.Title className={`${styles.Title} mt-4`}>{title}</Card.Title>
+      )}
+      <Container>
+        {caption && <Card.Text className={styles.Caption}>{caption}</Card.Text>}
+      </Container>
       <Card.Body>
-        <div className={styles.StatsDiv}>
+        {/* <div className={styles.StatsDiv}>
           <span className={`${styles.PinSpan}`}>
             <i className="fa-solid fa-thumbtack"></i>
             {num_of_pins}
@@ -120,6 +125,44 @@ const Post = (props) => {
               </Button>
             </OverlayTrigger>
           )}
+        </div> */}
+
+        <div className="d-flex justify-content-around">
+          <span className={styles.PinSpan}>
+            <i className="fa-solid fa-thumbtack"></i>
+            {num_of_pins}
+            <Link className={styles.CommentLink} to={`/posts/${id}`}>
+              <i className="fa-solid fa-comments"></i>
+              {num_of_comments}
+            </Link>
+          </span>
+          <span>
+            {pinned_id ? (
+              <Button onClick={handleUnpin}>
+                <i className="fa-solid fa-location-pin"></i>
+                Unpin
+              </Button>
+            ) : currentUser ? (
+              <Button onClick={handlePin}>
+                <i className="fa-solid fa-thumbtack"></i>
+                Pin
+              </Button>
+            ) : (
+              <OverlayTrigger
+                placement="top"
+                overlay={<Tooltip>Log in to like posts</Tooltip>}
+              >
+                <Button>
+                  <i className="fa-regular fa-heart"></i>
+                  Pin
+                </Button>
+              </OverlayTrigger>
+            )}
+          </span>
+          <span>
+            <i className="fa-solid fa-tag"></i>
+            {category_name}
+          </span>
         </div>
       </Card.Body>
     </Card>
