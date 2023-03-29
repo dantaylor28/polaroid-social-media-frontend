@@ -91,43 +91,7 @@ const Post = (props) => {
         {caption && <Card.Text className={styles.Caption}>{caption}</Card.Text>}
       </Container>
       <Card.Body>
-        {/* <div className={styles.StatsDiv}>
-          <span className={`${styles.PinSpan}`}>
-            <i className="fa-solid fa-thumbtack"></i>
-            {num_of_pins}
-          </span>
-          <span className={styles.CommentSpan}>
-            <Link className={styles.CommentLink} to={`/posts/${id}`}>
-              <i className="fa-solid fa-comments"></i>
-              {num_of_comments}
-            </Link>
-          </span>
-        </div>
-        <div>
-          {pinned_id ? (
-            <Button className={btnStyles.UnpinButton} onClick={handleUnpin}>
-              <i className="fa-solid fa-location-pin"></i>
-              Unpin
-            </Button>
-          ) : currentUser ? (
-            <Button className={btnStyles.PinButton} onClick={handlePin}>
-              <i className="fa-solid fa-thumbtack"></i>
-              Pin
-            </Button>
-          ) : (
-            <OverlayTrigger
-              placement="top"
-              overlay={<Tooltip>Log in to like posts</Tooltip>}
-            >
-              <Button className={btnStyles.PinButton}>
-                <i className="fa-regular fa-heart"></i>
-                Pin
-              </Button>
-            </OverlayTrigger>
-          )}
-        </div> */}
-
-        <div className="d-flex justify-content-around">
+        <div className="d-flex justify-content-between">
           <span className={styles.PinSpan}>
             <i className="fa-solid fa-thumbtack"></i>
             {num_of_pins}
@@ -137,32 +101,29 @@ const Post = (props) => {
             </Link>
           </span>
           <span>
-            {pinned_id ? (
-              <Button onClick={handleUnpin}>
-                <i className="fa-solid fa-location-pin"></i>
-                Unpin
-              </Button>
-            ) : currentUser ? (
-              <Button onClick={handlePin}>
-                <i className="fa-solid fa-thumbtack"></i>
-                Pin
-              </Button>
-            ) : (
-              <OverlayTrigger
-                placement="top"
-                overlay={<Tooltip>Log in to like posts</Tooltip>}
-              >
-                <Button>
-                  <i className="fa-regular fa-heart"></i>
-                  Pin
-                </Button>
-              </OverlayTrigger>
-            )}
-          </span>
-          <span>
             <i className="fa-solid fa-tag"></i>
             {category_name}
           </span>
+        </div>
+        <div className="text-center justify-content">
+          {pinned_id ? (
+            <Button className={btnStyles.Unpin} onClick={handleUnpin}>
+              <i className="fa-solid fa-location-pin"></i>
+            </Button>
+          ) : currentUser ? (
+            <Button className={btnStyles.Pin} onClick={handlePin}>
+              <i className="fa-solid fa-location-pin"></i>
+            </Button>
+          ) : (
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>Log in to like posts</Tooltip>}
+            >
+              <Button className={btnStyles.Pin}>
+                <i className="fa-solid fa-location-pin"></i>
+              </Button>
+            </OverlayTrigger>
+          )}
         </div>
       </Card.Body>
     </Card>

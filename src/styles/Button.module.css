@@ -69,7 +69,7 @@
     text-align: center;
 }
 
-.PinButton {
+/* .PinButton {
     display: flex;
     justify-content: center;
     width: 35%;
@@ -103,6 +103,45 @@
     color: white;
     background-color: #b82f4c !important;
     border-color: #f8f8f8;
+} */
+
+.Pin {
+    font-size: 25px;
+    margin: 0;
+    padding: 5px 5px;
+    color: white;
+    background-color: #3b5998;
+    border-color: #dfe3ee;
+    border-radius: 5%;
+    width: 100px;
+}
+
+.Unpin {
+    font-size: 25px;
+    margin: 0;
+    padding: 5px 5px;
+    color: #3b5998;
+    background-color: #dfe3ee;
+    border-color: #3b5998;
+    border-radius: 5%;
+    width: 100px;
+}
+
+.Pin:hover {
+    font-size: 25px;
+    margin: 0;
+    padding: 5px 5px;
+    color: #3b5998;
+    background-color: #dfe3ee;
+    border-color: #3b5998;
+}
+
+.Unpin:hover {
+    font-size: 25px;
+    cursor: pointer;
+    color: white;
+    background-color: #3b5998;
+    border-color: #dfe3ee;
 }
 
 .EditDeleteIcon {
