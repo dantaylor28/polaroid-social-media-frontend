@@ -32,7 +32,6 @@ const Post = (props) => {
   } = props;
 
   const currentUser = useCurrentUser();
-  const is_post_owner = currentUser?.username === owner;
 
   const handlePin = async () => {
     try {
