@@ -224,6 +224,26 @@ The general colour scheme that I went for is displayed above. These colours were
 
 I used the above color scheme when I wanted there to be a pop of colour, especially when there is a component on the page that I want users attention drawn to. The main example of how I incorportaed these colours is the pin button. I want users to be immediately aware of when they pin a post, so having it illuminate in these bright colours is a way to ensure that happens. Other areas of the site where I incorporated this colour scheme is the comment like button and for some links on the sign in and create account pages.
 
+## Wireframes
+
+### Home Screen 
+
+![home-screen-wireframe](/src/assets/readme/home-screen-wireframe.png)
+
+Above is a wireframe I created for the home page in the implementation of this project. I think throughout the development, I have managed to stick with the same design more or less. Originally, I was planning on displaying a list of users that the currently logged in user already follows on the left. When I got to that part of the code, I found it difficult to get those profiles to display so instead I opted for a list of the most active profiles. This was possible by listing the profiles with the highest number of posts in descending order.
+
+### Full Post Page
+
+![full-post-wireframe](/src/assets/readme/full-post-wireframe.png)
+
+Above is a wireframe for my full post page, which shows the original layout that I was aiming for. I believe I stuck with the wireframe design throughout the development, and the finshed page looks very simialar to the one I created above while in the planning stages of this project.
+
+### Pinboard Page
+
+![pinboardwireframe](/src/assets/readme/pinboard-wireframe.png)
+
+This was a design that I really wanted to implement at the beginning of this project. I think masonry layouts look very modern and stylish, especially on image sharing websites. As I progressed with the project and after lots of research, I began to realise that this would be a pretty difficult feature to include in the timeframe that I had to complete it. Eventually I decided to abort this layout option and stick with the design that I had already completed for the Home page. This is definitely a feature I want to come back to, and try to include in this project.  
+
 # Deployment
 
 ## Local Deployment
@@ -290,6 +310,10 @@ Link to my DRF_API Github project - https://github.com/DanTaylor28/pp5-drf-api
 # Testing
 
 ## Automatic Testing
+
+I have included a few automatic tests in this application to ensure that my navigation menu renders as expected and displays the correct output to users. I intended to include many more automatic tests in this project checking the functionality of more my components. Unfortunately I did not have the time to create more than the ones that were demonstrated in the Moments walkthrough project. 
+
+In the future, I intend to come back and create more to check the functionality and so I can also perfect my ability to code them. These types of tests were a new concept to me so it wasn't something I would have the time to fully understand in the time period I have before my submission. They are certainly a topic that I intend to delve alot more deeper into after my submission.
 
 ## Manual Testing
 
