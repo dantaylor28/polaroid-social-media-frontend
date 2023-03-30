@@ -353,29 +353,67 @@ One thing to note here is that when I first attempted to sign in using a mobile 
 
 #### Home Page - Desktop View
 
-- performance - 67
-- accessibility - 97 (fix pin button/better contrast) or 100 if no results to show
-- best practises - 83 (no result img is bad quality?)
-- SEO - 100
+![home-desktop-lighthouse-img](/src/assets/readme/home-desktop.png)
 
 #### Home Page - Mobile View
 
-- performance - 58 (down slightly) Incognito mode
-- Everything else was the same result
+![home-mobile-lighthouse-img](/src/assets/readme/home-mobile.png)
+
+- The only results that suffered a slightly low result was the performance. From what I can understand, this is to do with the sizing and image quality of user posts that are present on this page. I couldn't see a solution in the time I had to improve this performance score as the quality of images getting posted here is in the hands of the user that creates the posts. I intend to come back to this at a later date and work out a solution to improve the score.
 
 #### My Pinboard Page - Desktop View
 
-- performance - 54
-- accessibility - 97 (fix pin button/better contrast) or 100 if no results to show
-- best practises - 83 (user posts are bad quality?)
-- SEO - 100
+![pinboard-desktop-lighthouse-img](/src/assets/readme/pinboard-desktop.png)
 
 #### My Pinboard Page - Mobile View
 
-- performance - 25 (terrible) not incognito
-- accessibility - 97 (fix pin button/better contrast) or 100 if no results to show
-- best practises - 92 (Issues were logged in issues tab)
-- SEO - 100
+![pinboard-mobile-lighthouse-img](/src/assets/readme/pinboard-mobile.png)
+
+- Similarly to the Home page above, the performance was suffering here slightly due to the user posts that are displayed here.
+
+#### Discover Page - Desktop View
+
+![discover-desktop-lighthouse-img](/src/assets/readme/discover-desktop.png)
+
+#### Discover Page - Mobile View
+
+![discover-mobile-lighthouse-img](/src/assets/readme/discover-mobile.png)
+
+- Again, the performance was slightly low because of the user posts.
+
+#### Create Post Page - Desktop View
+
+![create-post-desktop-lighthouse-img](/src/assets/readme/createpost-desktop.png)
+
+#### Create Post Page - Mobile View
+
+![create-post-mobile-lighthouse-img](/src/assets/readme/createpost-mobile.png)
+
+#### Profile Page - Desktop View
+
+![profile-desktop-lighthouse-img](/src/assets/readme/profile-desktop.png)
+
+#### Profile Page - Mobile View
+
+![profile-mobile-lighthouse-img](/src/assets/readme/profile-mobile.png)
+
+- Performance was a little low here again as the profile owners posts are displayed underneath the profile details. Depending on how many posts the user has, the performance results here can fluctuate slightly.
+
+#### Sign In Page - Desktop View
+
+![signin-desktop-lighthouse-img](/src/assets/readme/signin-desktop.png)
+
+#### Sign In Page - Mobile View
+
+![signin-mobile-lighthouse-img](/src/assets/readme/signin-mobile.png)
+
+#### Sign Up Page - Desktop View
+
+![signup-desktop-lighthouse-img](/src/assets/readme/signup-desktop.png)
+
+#### Sign Up Page - Mobile View
+
+![signup-mobile-lighthouse-img](/src/assets/readme/signup-mobile.png)
 
 ## Bugs
 
