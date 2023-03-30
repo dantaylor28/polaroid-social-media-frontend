@@ -36,7 +36,7 @@ const PasswordForm = () => {
       await axiosRes.post("dj-rest-auth/password/change/", userData);
       history.goBack();
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       setErrors(error.response?.data);
     }
   };

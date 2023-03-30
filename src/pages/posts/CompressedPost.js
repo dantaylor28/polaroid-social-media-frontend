@@ -45,7 +45,7 @@ const Post = (props) => {
         }),
       }));
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 
@@ -61,7 +61,7 @@ const Post = (props) => {
         }),
       }));
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 

@@ -14,7 +14,7 @@ export const getMoreData = async (resource, setResource) => {
       }, prevResource.results),
     }));
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 };
 

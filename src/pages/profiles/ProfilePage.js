@@ -44,7 +44,7 @@ function ProfilePage() {
         setProfilePosts(profilePosts);
         setProfileLoaded(true);
       } catch (error) {
-        console.log(error);
+        // console.log(error);
       }
     };
     getData();

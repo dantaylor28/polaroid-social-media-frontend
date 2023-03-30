@@ -31,7 +31,7 @@ function EditCommentForm(props) {
       }));
       setDisplayEditForm(false);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 

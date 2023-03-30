@@ -24,7 +24,7 @@ const MostActiveProfiles = () => {
           mostActiveProfiles: data,
         }));
       } catch (error) {
-        console.log(error);
+        // console.log(error);
       }
     };
     handleMount();

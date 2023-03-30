@@ -38,7 +38,7 @@ function EditPostForm() {
           ? setPostData({ title, caption, category, post_image })
           : history.push("/");
       } catch (error) {
-        console.log(error);
+        // console.log(error);
       }
     };
     handleMount();
@@ -76,7 +76,7 @@ function EditPostForm() {
       await axiosReq.put(`/posts/${id}`, formData);
       history.push(`/posts/${id}`);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       if (error.response?.status !== 401) {
         setErrors(error.response?.data);
       }

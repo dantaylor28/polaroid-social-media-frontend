@@ -459,3 +459,6 @@ In CreatePostForm.js, I was attempting to include a category field with a choice
 
 - Icons8
   This was used for my favicon on the site.
+
+- Unsplash
+  Unsplash was used for some images that I added to my uploaded posts in the application.

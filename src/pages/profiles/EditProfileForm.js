@@ -42,7 +42,7 @@ const EditProfileForm = () => {
           const { name, bio, location, profile_image } = data;
           setProfileData({ name, bio, location, profile_image });
         } catch (error) {
-          console.log(error);
+          // console.log(error);
           history.push("/");
         }
       } else {
@@ -79,7 +79,7 @@ const EditProfileForm = () => {
       }));
       history.goBack();
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       setErrors(error.response?.data);
     }
   };
