@@ -73,9 +73,12 @@
     font-size: 25px;
     margin: 0;
     padding: 5px 5px;
-    color: #ee4b2b;
+    /* color: #ee4b2b;
     background-color: white;
-    border-color: #ee4b2b;
+    border-color: #ee4b2b; */
+    color: #ededed;
+    background-color: #c6c6c6;
+    border-color: #ededed;
     border-radius: 5%;
     width: 100px;
 }
@@ -95,9 +98,12 @@
     font-size: 25px;
     margin: 0;
     padding: 5px 5px;
-    color: #b82f4c;
+    /* color: #b82f4c;
     background-color: #f8f8f8;
-    border-color: #b82f4c;
+    border-color: #b82f4c; */
+    color: #ededed;
+    background-color: #bababa;
+    border-color: #ededed;
 }
 
 .Unpin:hover {
