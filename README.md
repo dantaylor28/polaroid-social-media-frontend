@@ -221,6 +221,15 @@ On the profile page, the design I went for is similar to the Instagram style(and
 
 ### Colour Scheme
 
+![general-color-scheme-img](/src/assets/readme/color-scheme1.png)
+
+The general colour scheme that I went for is displayed above. These colours were used for alot of the main features on the page including the headings, my logo and also most of the buttons that I have on the site. I wanted to keep the colour scheme as clean as possible as too much colour I feel, would draw attention away from the main content which should be the users posts. I got inspiration for this colour scheme from the Facebook website and I feel as though it works well here on Polaroid.
+
+
+![pin-button-color-scheme-img](/src/assets/readme/color-scheme2.png)
+
+I used the above color scheme when I wanted there to be a pop of colour, especially when there is a component on the page that I want users attention drawn to. The main example of how I incorportaed these colours is the pin button. I want users to be immediately aware of when they pin a post, so having it illuminate in these bright colours is a way to ensure that happens. Other areas of the site where I incorporated this colour scheme is the comment like button and for some links on the sign in and create account pages.
+
 ## Deployment
 
 ### Local Deployment
