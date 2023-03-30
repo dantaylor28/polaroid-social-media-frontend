@@ -336,6 +336,8 @@ The site contains user authentication and this has also been tested on multiple 
 
 One thing to note here is that when I first attempted to sign in using a mobile device, the page just kept loading the sign in page over and over. I realised this was due to having prevent cross-site tracking enabled on my device. Once this was disabled, the authentication and all other functionality worked as expected.
 
+There are no console errors displaying in my dev tools other than a few expected ones when the component mounts. These expected errors include three 401 errors on mount when not signed in, a 401 error when a user navigates to the Sign In or Create Account page, a 400 error if incorrect information is input into a form and finally a 401 error when refreshing the access token.
+
 ## Validator Testing
 
 - All of my CSS style sheets pass through the W3C CSS validator with no issues
