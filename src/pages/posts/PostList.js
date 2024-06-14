@@ -55,7 +55,7 @@ function PostList({ message, filter = "" }) {
           >
             <Form.Control
               type="text"
-              placeholder="Search Posts"
+              placeholder="Search All Posts.."
               value={searchQuery}
               onChange={(event) => setSearchQuery(event.target.value)}
             ></Form.Control>
